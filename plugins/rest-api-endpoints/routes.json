@@ -1868,9 +1868,6 @@
   "meta": { "get": { "method": "GET", "params": {}, "url": "/meta" } },
   "migrations": {
     "cancelImport": {
-      "headers": {
-        "accept": "application/vnd.github.barred-rock-preview+json"
-      },
       "method": "DELETE",
       "params": {
         "owner": { "required": true, "type": "string" },
@@ -1909,9 +1906,6 @@
       "url": "/orgs/:org/migrations/:migration_id/archive"
     },
     "getCommitAuthors": {
-      "headers": {
-        "accept": "application/vnd.github.barred-rock-preview+json"
-      },
       "method": "GET",
       "params": {
         "owner": { "required": true, "type": "string" },
@@ -1921,9 +1915,6 @@
       "url": "/repos/:owner/:repo/import/authors"
     },
     "getImportProgress": {
-      "headers": {
-        "accept": "application/vnd.github.barred-rock-preview+json"
-      },
       "method": "GET",
       "params": {
         "owner": { "required": true, "type": "string" },
@@ -1932,9 +1923,6 @@
       "url": "/repos/:owner/:repo/import"
     },
     "getLargeFiles": {
-      "headers": {
-        "accept": "application/vnd.github.barred-rock-preview+json"
-      },
       "method": "GET",
       "params": {
         "owner": { "required": true, "type": "string" },
@@ -1976,10 +1964,28 @@
       },
       "url": "/orgs/:org/migrations"
     },
-    "mapCommitAuthor": {
-      "headers": {
-        "accept": "application/vnd.github.barred-rock-preview+json"
+    "listReposForOrg": {
+      "headers": { "accept": "application/vnd.github.wyandotte-preview+json" },
+      "method": "GET",
+      "params": {
+        "migration_id": { "required": true, "type": "integer" },
+        "org": { "required": true, "type": "string" },
+        "page": { "type": "integer" },
+        "per_page": { "type": "integer" }
       },
+      "url": "/orgs/:org/migrations/:migration_id/repositories"
+    },
+    "listReposForUser": {
+      "headers": { "accept": "application/vnd.github.wyandotte-preview+json" },
+      "method": "GET",
+      "params": {
+        "migration_id": { "required": true, "type": "integer" },
+        "page": { "type": "integer" },
+        "per_page": { "type": "integer" }
+      },
+      "url": "/user/:migration_id/repositories"
+    },
+    "mapCommitAuthor": {
       "method": "PATCH",
       "params": {
         "author_id": { "required": true, "type": "integer" },
@@ -1991,9 +1997,6 @@
       "url": "/repos/:owner/:repo/import/authors/:author_id"
     },
     "setLfsPreference": {
-      "headers": {
-        "accept": "application/vnd.github.barred-rock-preview+json"
-      },
       "method": "PATCH",
       "params": {
         "owner": { "required": true, "type": "string" },
@@ -2026,9 +2029,6 @@
       "url": "/orgs/:org/migrations"
     },
     "startImport": {
-      "headers": {
-        "accept": "application/vnd.github.barred-rock-preview+json"
-      },
       "method": "PUT",
       "params": {
         "owner": { "required": true, "type": "string" },
@@ -2064,9 +2064,6 @@
       "url": "/orgs/:org/migrations/:migration_id/repos/:repo_name/lock"
     },
     "updateImport": {
-      "headers": {
-        "accept": "application/vnd.github.barred-rock-preview+json"
-      },
       "method": "PATCH",
       "params": {
         "owner": { "required": true, "type": "string" },
@@ -2503,6 +2500,7 @@
       "url": "/orgs/:org/blocks/:username"
     },
     "update": {
+      "deprecated": "octokit.orgs.update() is deprecated, see https://developer.github.com/v3/orgs/#edit-an-organization",
       "method": "PATCH",
       "params": {
         "billing_email": { "type": "string" },
@@ -2520,6 +2518,9 @@
           "enum": ["all", "private", "none"],
           "type": "string"
         },
+        "members_can_create_internal_repositories": { "type": "boolean" },
+        "members_can_create_private_repositories": { "type": "boolean" },
+        "members_can_create_public_repositories": { "type": "boolean" },
         "members_can_create_repositories": { "type": "boolean" },
         "name": { "type": "string" },
         "org": { "required": true, "type": "string" }
@@ -3389,7 +3390,7 @@
     },
     "createForTeamDiscussion": {
       "headers": {
-        "accept": "application/vnd.github.echo-preview+json,application/vnd.github.squirrel-girl-preview+json"
+        "accept": "application/vnd.github.squirrel-girl-preview+json"
       },
       "method": "POST",
       "params": {
@@ -3414,7 +3415,7 @@
     },
     "createForTeamDiscussionComment": {
       "headers": {
-        "accept": "application/vnd.github.echo-preview+json,application/vnd.github.squirrel-girl-preview+json"
+        "accept": "application/vnd.github.squirrel-girl-preview+json"
       },
       "method": "POST",
       "params": {
@@ -3440,7 +3441,7 @@
     },
     "delete": {
       "headers": {
-        "accept": "application/vnd.github.echo-preview+json,application/vnd.github.squirrel-girl-preview+json"
+        "accept": "application/vnd.github.squirrel-girl-preview+json"
       },
       "method": "DELETE",
       "params": { "reaction_id": { "required": true, "type": "integer" } },
@@ -3561,7 +3562,7 @@
     },
     "listForTeamDiscussion": {
       "headers": {
-        "accept": "application/vnd.github.echo-preview+json,application/vnd.github.squirrel-girl-preview+json"
+        "accept": "application/vnd.github.squirrel-girl-preview+json"
       },
       "method": "GET",
       "params": {
@@ -3587,7 +3588,7 @@
     },
     "listForTeamDiscussionComment": {
       "headers": {
-        "accept": "application/vnd.github.echo-preview+json,application/vnd.github.squirrel-girl-preview+json"
+        "accept": "application/vnd.github.squirrel-girl-preview+json"
       },
       "method": "GET",
       "params": {
@@ -3837,7 +3838,11 @@
         "license_template": { "type": "string" },
         "name": { "required": true, "type": "string" },
         "private": { "type": "boolean" },
-        "team_id": { "type": "integer" }
+        "team_id": { "type": "integer" },
+        "visibility": {
+          "enum": ["public", "private", "visibility", "internal"],
+          "type": "string"
+        }
       },
       "url": "/user/repos"
     },
@@ -3884,7 +3889,11 @@
         "name": { "required": true, "type": "string" },
         "org": { "required": true, "type": "string" },
         "private": { "type": "boolean" },
-        "team_id": { "type": "integer" }
+        "team_id": { "type": "integer" },
+        "visibility": {
+          "enum": ["public", "private", "visibility", "internal"],
+          "type": "string"
+        }
       },
       "url": "/orgs/:org/repos"
     },
@@ -4630,7 +4639,15 @@
           "type": "string"
         },
         "type": {
-          "enum": ["all", "public", "private", "forks", "sources", "member"],
+          "enum": [
+            "all",
+            "public",
+            "private",
+            "forks",
+            "sources",
+            "member",
+            "internal"
+          ],
           "type": "string"
         }
       },
@@ -5037,7 +5054,6 @@
       "url": "/repos/:owner/:repo/hooks/:hook_id/tests"
     },
     "transfer": {
-      "headers": { "accept": "application/vnd.github.nightshade-preview+json" },
       "method": "POST",
       "params": {
         "new_owner": { "type": "string" },
@@ -5064,13 +5080,19 @@
         "name": { "type": "string" },
         "owner": { "required": true, "type": "string" },
         "private": { "type": "boolean" },
-        "repo": { "required": true, "type": "string" }
+        "repo": { "required": true, "type": "string" },
+        "visibility": {
+          "enum": ["public", "private", "visibility", "internal"],
+          "type": "string"
+        }
       },
       "url": "/repos/:owner/:repo"
     },
     "updateBranchProtection": {
       "method": "PUT",
       "params": {
+        "allow_deletions": { "type": "boolean" },
+        "allow_force_pushes": { "allowNull": true, "type": "boolean" },
         "branch": { "required": true, "type": "string" },
         "enforce_admins": {
           "allowNull": true,
@@ -5079,6 +5101,7 @@
         },
         "owner": { "required": true, "type": "string" },
         "repo": { "required": true, "type": "string" },
+        "required_linear_history": { "type": "boolean" },
         "required_pull_request_reviews": {
           "allowNull": true,
           "required": true,
@@ -5451,7 +5474,6 @@
       "url": "/orgs/:org/teams"
     },
     "createDiscussion": {
-      "headers": { "accept": "application/vnd.github.echo-preview+json" },
       "method": "POST",
       "params": {
         "body": { "required": true, "type": "string" },
@@ -5462,7 +5484,6 @@
       "url": "/teams/:team_id/discussions"
     },
     "createDiscussionComment": {
-      "headers": { "accept": "application/vnd.github.echo-preview+json" },
       "method": "POST",
       "params": {
         "body": { "required": true, "type": "string" },
@@ -5477,7 +5498,6 @@
       "url": "/teams/:team_id"
     },
     "deleteDiscussion": {
-      "headers": { "accept": "application/vnd.github.echo-preview+json" },
       "method": "DELETE",
       "params": {
         "discussion_number": { "required": true, "type": "integer" },
@@ -5486,7 +5506,6 @@
       "url": "/teams/:team_id/discussions/:discussion_number"
     },
     "deleteDiscussionComment": {
-      "headers": { "accept": "application/vnd.github.echo-preview+json" },
       "method": "DELETE",
       "params": {
         "comment_number": { "required": true, "type": "integer" },
@@ -5509,7 +5528,6 @@
       "url": "/orgs/:org/teams/:team_slug"
     },
     "getDiscussion": {
-      "headers": { "accept": "application/vnd.github.echo-preview+json" },
       "method": "GET",
       "params": {
         "discussion_number": { "required": true, "type": "integer" },
@@ -5518,7 +5536,6 @@
       "url": "/teams/:team_id/discussions/:discussion_number"
     },
     "getDiscussionComment": {
-      "headers": { "accept": "application/vnd.github.echo-preview+json" },
       "method": "GET",
       "params": {
         "comment_number": { "required": true, "type": "integer" },
@@ -5554,7 +5571,6 @@
       "url": "/orgs/:org/teams"
     },
     "listChild": {
-      "headers": { "accept": "application/vnd.github.hellcat-preview+json" },
       "method": "GET",
       "params": {
         "page": { "type": "integer" },
@@ -5564,7 +5580,6 @@
       "url": "/teams/:team_id/teams"
     },
     "listDiscussionComments": {
-      "headers": { "accept": "application/vnd.github.echo-preview+json" },
       "method": "GET",
       "params": {
         "direction": { "enum": ["asc", "desc"], "type": "string" },
@@ -5576,7 +5591,6 @@
       "url": "/teams/:team_id/discussions/:discussion_number/comments"
     },
     "listDiscussions": {
-      "headers": { "accept": "application/vnd.github.echo-preview+json" },
       "method": "GET",
       "params": {
         "direction": { "enum": ["asc", "desc"], "type": "string" },
@@ -5688,7 +5702,6 @@
       "url": "/teams/:team_id"
     },
     "updateDiscussion": {
-      "headers": { "accept": "application/vnd.github.echo-preview+json" },
       "method": "PATCH",
       "params": {
         "body": { "type": "string" },
@@ -5699,7 +5712,6 @@
       "url": "/teams/:team_id/discussions/:discussion_number"
     },
     "updateDiscussionComment": {
-      "headers": { "accept": "application/vnd.github.echo-preview+json" },
       "method": "PATCH",
       "params": {
         "body": { "required": true, "type": "string" },
@@ -5776,7 +5788,6 @@
       "url": "/users/:username"
     },
     "getContextForUser": {
-      "headers": { "accept": "application/vnd.github.hagar-preview+json" },
       "method": "GET",
       "params": {
         "subject_id": { "type": "string" },

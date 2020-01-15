@@ -1013,11 +1013,13 @@ declare namespace Octokit {
     svn_url: string;
     tags_url: string;
     teams_url: string;
+    temp_clone_token: string;
     template_repository: null;
     topics: Array<string>;
     trees_url: string;
     updated_at: string;
     url: string;
+    visibility: string;
     watchers_count: number;
   };
   type TeamsListProjectsResponseItemPermissions = {
@@ -1263,7 +1265,6 @@ declare namespace Octokit {
     members_url: string;
     name: string;
     node_id: string;
-    parent: null;
     permission: string;
     privacy: string;
     repositories_url: string;
@@ -1734,11 +1735,13 @@ declare namespace Octokit {
     svn_url: string;
     tags_url: string;
     teams_url: string;
+    temp_clone_token: string;
     template_repository: null;
     topics: Array<string>;
     trees_url: string;
     updated_at: string;
     url: string;
+    visibility: string;
     watchers_count: number;
   };
   type TeamsAddOrUpdateProjectResponse = {
@@ -2776,12 +2779,22 @@ declare namespace Octokit {
     required_approving_review_count: number;
     url: string;
   };
+  type ReposUpdateBranchProtectionResponseRequiredLinearHistory = {
+    enabled: boolean;
+  };
   type ReposUpdateBranchProtectionResponseEnforceAdmins = {
     enabled: boolean;
     url: string;
   };
+  type ReposUpdateBranchProtectionResponseAllowForcePushes = {
+    enabled: boolean;
+  };
+  type ReposUpdateBranchProtectionResponseAllowDeletions = { enabled: boolean };
   type ReposUpdateBranchProtectionResponse = {
+    allow_deletions: ReposUpdateBranchProtectionResponseAllowDeletions;
+    allow_force_pushes: ReposUpdateBranchProtectionResponseAllowForcePushes;
     enforce_admins: ReposUpdateBranchProtectionResponseEnforceAdmins;
+    required_linear_history: ReposUpdateBranchProtectionResponseRequiredLinearHistory;
     required_pull_request_reviews: ReposUpdateBranchProtectionResponseRequiredPullRequestReviews;
     required_status_checks: ReposUpdateBranchProtectionResponseRequiredStatusChecks;
     restrictions: ReposUpdateBranchProtectionResponseRestrictions;
@@ -2885,11 +2898,13 @@ declare namespace Octokit {
     svn_url: string;
     tags_url: string;
     teams_url: string;
+    temp_clone_token: string;
     template_repository: null;
     topics: Array<string>;
     trees_url: string;
     updated_at: string;
     url: string;
+    visibility: string;
     watchers_count: number;
   };
   type ReposUpdateResponsePermissions = {
@@ -2995,11 +3010,13 @@ declare namespace Octokit {
     svn_url: string;
     tags_url: string;
     teams_url: string;
+    temp_clone_token: string;
     template_repository: null;
     topics: Array<string>;
     trees_url: string;
     updated_at: string;
     url: string;
+    visibility: string;
     watchers_count: number;
   };
   type ReposUpdateResponseOwner = {
@@ -3118,11 +3135,13 @@ declare namespace Octokit {
     svn_url: string;
     tags_url: string;
     teams_url: string;
+    temp_clone_token: string;
     template_repository: null;
     topics: Array<string>;
     trees_url: string;
     updated_at: string;
     url: string;
+    visibility: string;
     watchers_count: number;
   };
   type ReposTransferResponsePermissions = {
@@ -3223,11 +3242,13 @@ declare namespace Octokit {
     svn_url: string;
     tags_url: string;
     teams_url: string;
+    temp_clone_token: string;
     template_repository: null;
     topics: Array<string>;
     trees_url: string;
     updated_at: string;
     url: string;
+    visibility: string;
     watchers_count: number;
   };
   type ReposRetrieveCommunityProfileMetricsResponseFilesReadme = {
@@ -3873,11 +3894,13 @@ declare namespace Octokit {
     svn_url: string;
     tags_url: string;
     teams_url: string;
+    temp_clone_token: string;
     template_repository: null;
     topics: Array<string>;
     trees_url: string;
     updated_at: string;
     url: string;
+    visibility: string;
     watchers_count: number;
   };
   type ReposListPullRequestsAssociatedWithCommitResponseItemHead = {
@@ -4005,11 +4028,13 @@ declare namespace Octokit {
     svn_url: string;
     tags_url: string;
     teams_url: string;
+    temp_clone_token: string;
     template_repository: null;
     topics: Array<string>;
     trees_url: string;
     updated_at: string;
     url: string;
+    visibility: string;
     watchers_count: number;
   };
   type ReposListPullRequestsAssociatedWithCommitResponseItemBase = {
@@ -4638,11 +4663,13 @@ declare namespace Octokit {
     svn_url: string;
     tags_url: string;
     teams_url: string;
+    temp_clone_token: string;
     template_repository: null;
     topics: Array<string>;
     trees_url: string;
     updated_at: string;
     url: string;
+    visibility: string;
     watchers_count: number;
   };
   type ReposListForOrgResponseItemPermissions = {
@@ -4748,11 +4775,13 @@ declare namespace Octokit {
     svn_url: string;
     tags_url: string;
     teams_url: string;
+    temp_clone_token: string;
     template_repository: null;
     topics: Array<string>;
     trees_url: string;
     updated_at: string;
     url: string;
+    visibility: string;
     watchers_count: number;
   };
   type ReposListDownloadsResponseItem = {
@@ -6272,12 +6301,20 @@ declare namespace Octokit {
     required_approving_review_count: number;
     url: string;
   };
+  type ReposGetBranchProtectionResponseRequiredLinearHistory = {
+    enabled: boolean;
+  };
   type ReposGetBranchProtectionResponseEnforceAdmins = {
     enabled: boolean;
     url: string;
   };
+  type ReposGetBranchProtectionResponseAllowForcePushes = { enabled: boolean };
+  type ReposGetBranchProtectionResponseAllowDeletions = { enabled: boolean };
   type ReposGetBranchProtectionResponse = {
+    allow_deletions: ReposGetBranchProtectionResponseAllowDeletions;
+    allow_force_pushes: ReposGetBranchProtectionResponseAllowForcePushes;
     enforce_admins: ReposGetBranchProtectionResponseEnforceAdmins;
+    required_linear_history: ReposGetBranchProtectionResponseRequiredLinearHistory;
     required_pull_request_reviews: ReposGetBranchProtectionResponseRequiredPullRequestReviews;
     required_status_checks: ReposGetBranchProtectionResponseRequiredStatusChecks;
     restrictions: ReposGetBranchProtectionResponseRestrictions;
@@ -6481,11 +6518,13 @@ declare namespace Octokit {
     svn_url: string;
     tags_url: string;
     teams_url: string;
+    temp_clone_token: string;
     template_repository: null;
     topics: Array<string>;
     trees_url: string;
     updated_at: string;
     url: string;
+    visibility: string;
     watchers_count: number;
   };
   type ReposGetResponsePermissions = {
@@ -6591,11 +6630,13 @@ declare namespace Octokit {
     svn_url: string;
     tags_url: string;
     teams_url: string;
+    temp_clone_token: string;
     template_repository: null;
     topics: Array<string>;
     trees_url: string;
     updated_at: string;
     url: string;
+    visibility: string;
     watchers_count: number;
   };
   type ReposGetResponseOwner = {
@@ -6722,11 +6763,13 @@ declare namespace Octokit {
     svn_url: string;
     tags_url: string;
     teams_url: string;
+    temp_clone_token: string;
     template_repository: null;
     topics: Array<string>;
     trees_url: string;
     updated_at: string;
     url: string;
+    visibility: string;
     watchers_count: number;
   };
   type ReposEnablePagesSiteResponseSource = {
@@ -6878,11 +6921,13 @@ declare namespace Octokit {
     svn_url: string;
     tags_url: string;
     teams_url: string;
+    temp_clone_token: string;
     template_repository: null;
     topics: Array<string>;
     trees_url: string;
     updated_at: string;
     url: string;
+    visibility: string;
     watchers_count: number;
   };
   type ReposCreateUsingTemplateResponsePermissions = {
@@ -6983,11 +7028,13 @@ declare namespace Octokit {
     svn_url: string;
     tags_url: string;
     teams_url: string;
+    temp_clone_token: string;
     template_repository: ReposCreateUsingTemplateResponseTemplateRepository;
     topics: Array<string>;
     trees_url: string;
     updated_at: string;
     url: string;
+    visibility: string;
     watchers_count: number;
   };
   type ReposCreateStatusResponseCreator = {
@@ -7216,11 +7263,13 @@ declare namespace Octokit {
     svn_url: string;
     tags_url: string;
     teams_url: string;
+    temp_clone_token: string;
     template_repository: null;
     topics: Array<string>;
     trees_url: string;
     updated_at: string;
     url: string;
+    visibility: string;
     watchers_count: number;
   };
   type ReposCreateHookResponseLastResponse = {
@@ -7345,11 +7394,13 @@ declare namespace Octokit {
     svn_url: string;
     tags_url: string;
     teams_url: string;
+    temp_clone_token: string;
     template_repository: null;
     topics: Array<string>;
     trees_url: string;
     updated_at: string;
     url: string;
+    visibility: string;
     watchers_count: number;
   };
   type ReposCreateForAuthenticatedUserResponsePermissions = {
@@ -7450,11 +7501,13 @@ declare namespace Octokit {
     svn_url: string;
     tags_url: string;
     teams_url: string;
+    temp_clone_token: string;
     template_repository: null;
     topics: Array<string>;
     trees_url: string;
     updated_at: string;
     url: string;
+    visibility: string;
     watchers_count: number;
   };
   type ReposCreateFileResponseContentLinks = {
@@ -8796,11 +8849,13 @@ declare namespace Octokit {
     svn_url: string;
     tags_url: string;
     teams_url: string;
+    temp_clone_token: string;
     template_repository: null;
     topics: Array<string>;
     trees_url: string;
     updated_at: string;
     url: string;
+    visibility: string;
     watchers_count: number;
   };
   type PullsUpdateResponseHead = {
@@ -8928,11 +8983,13 @@ declare namespace Octokit {
     svn_url: string;
     tags_url: string;
     teams_url: string;
+    temp_clone_token: string;
     template_repository: null;
     topics: Array<string>;
     trees_url: string;
     updated_at: string;
     url: string;
+    visibility: string;
     watchers_count: number;
   };
   type PullsUpdateResponseBase = {
@@ -9581,11 +9638,13 @@ declare namespace Octokit {
     svn_url: string;
     tags_url: string;
     teams_url: string;
+    temp_clone_token: string;
     template_repository: null;
     topics: Array<string>;
     trees_url: string;
     updated_at: string;
     url: string;
+    visibility: string;
     watchers_count: number;
   };
   type PullsListResponseItemHead = {
@@ -9713,11 +9772,13 @@ declare namespace Octokit {
     svn_url: string;
     tags_url: string;
     teams_url: string;
+    temp_clone_token: string;
     template_repository: null;
     topics: Array<string>;
     trees_url: string;
     updated_at: string;
     url: string;
+    visibility: string;
     watchers_count: number;
   };
   type PullsListResponseItemBase = {
@@ -10202,11 +10263,13 @@ declare namespace Octokit {
     svn_url: string;
     tags_url: string;
     teams_url: string;
+    temp_clone_token: string;
     template_repository: null;
     topics: Array<string>;
     trees_url: string;
     updated_at: string;
     url: string;
+    visibility: string;
     watchers_count: number;
   };
   type PullsGetResponseHead = {
@@ -10334,11 +10397,13 @@ declare namespace Octokit {
     svn_url: string;
     tags_url: string;
     teams_url: string;
+    temp_clone_token: string;
     template_repository: null;
     topics: Array<string>;
     trees_url: string;
     updated_at: string;
     url: string;
+    visibility: string;
     watchers_count: number;
   };
   type PullsGetResponseBase = {
@@ -10748,11 +10813,13 @@ declare namespace Octokit {
     svn_url: string;
     tags_url: string;
     teams_url: string;
+    temp_clone_token: string;
     template_repository: null;
     topics: Array<string>;
     trees_url: string;
     updated_at: string;
     url: string;
+    visibility: string;
     watchers_count: number;
   };
   type PullsCreateReviewRequestResponseHead = {
@@ -10880,11 +10947,13 @@ declare namespace Octokit {
     svn_url: string;
     tags_url: string;
     teams_url: string;
+    temp_clone_token: string;
     template_repository: null;
     topics: Array<string>;
     trees_url: string;
     updated_at: string;
     url: string;
+    visibility: string;
     watchers_count: number;
   };
   type PullsCreateReviewRequestResponseBase = {
@@ -11315,11 +11384,13 @@ declare namespace Octokit {
     svn_url: string;
     tags_url: string;
     teams_url: string;
+    temp_clone_token: string;
     template_repository: null;
     topics: Array<string>;
     trees_url: string;
     updated_at: string;
     url: string;
+    visibility: string;
     watchers_count: number;
   };
   type PullsCreateFromIssueResponseHead = {
@@ -11447,11 +11518,13 @@ declare namespace Octokit {
     svn_url: string;
     tags_url: string;
     teams_url: string;
+    temp_clone_token: string;
     template_repository: null;
     topics: Array<string>;
     trees_url: string;
     updated_at: string;
     url: string;
+    visibility: string;
     watchers_count: number;
   };
   type PullsCreateFromIssueResponseBase = {
@@ -11919,11 +11992,13 @@ declare namespace Octokit {
     svn_url: string;
     tags_url: string;
     teams_url: string;
+    temp_clone_token: string;
     template_repository: null;
     topics: Array<string>;
     trees_url: string;
     updated_at: string;
     url: string;
+    visibility: string;
     watchers_count: number;
   };
   type PullsCreateResponseHead = {
@@ -12051,11 +12126,13 @@ declare namespace Octokit {
     svn_url: string;
     tags_url: string;
     teams_url: string;
+    temp_clone_token: string;
     template_repository: null;
     topics: Array<string>;
     trees_url: string;
     updated_at: string;
     url: string;
+    visibility: string;
     watchers_count: number;
   };
   type PullsCreateResponseBase = {
@@ -12751,6 +12828,9 @@ declare namespace Octokit {
     location: string;
     login: string;
     members_allowed_repository_creation_type: string;
+    members_can_create_internal_repositories: boolean;
+    members_can_create_private_repositories: boolean;
+    members_can_create_public_repositories: boolean;
     members_can_create_repositories: boolean;
     members_url: string;
     name: string;
@@ -13164,6 +13244,9 @@ declare namespace Octokit {
     location: string;
     login: string;
     members_allowed_repository_creation_type?: string;
+    members_can_create_internal_repositories?: boolean;
+    members_can_create_private_repositories?: boolean;
+    members_can_create_public_repositories?: boolean;
     members_can_create_repositories?: boolean;
     members_url: string;
     name: string;
@@ -13640,11 +13723,13 @@ declare namespace Octokit {
     svn_url: string;
     tags_url: string;
     teams_url: string;
+    temp_clone_token: string;
     template_repository: null;
     topics: Array<string>;
     trees_url: string;
     updated_at: string;
     url: string;
+    visibility: string;
     watchers_count: number;
   };
   type MigrationsStartForOrgResponseOwner = {
@@ -13771,11 +13856,13 @@ declare namespace Octokit {
     svn_url: string;
     tags_url: string;
     teams_url: string;
+    temp_clone_token: string;
     template_repository: null;
     topics: Array<string>;
     trees_url: string;
     updated_at: string;
     url: string;
+    visibility: string;
     watchers_count: number;
   };
   type MigrationsStartForAuthenticatedUserResponseOwner = {
@@ -13835,6 +13922,230 @@ declare namespace Octokit {
     remote_id: string;
     remote_name: string;
     url: string;
+  };
+  type MigrationsListReposForUserResponseItemPermissions = {
+    admin: boolean;
+    pull: boolean;
+    push: boolean;
+  };
+  type MigrationsListReposForUserResponseItemOwner = {
+    avatar_url: string;
+    events_url: string;
+    followers_url: string;
+    following_url: string;
+    gists_url: string;
+    gravatar_id: string;
+    html_url: string;
+    id: number;
+    login: string;
+    node_id: string;
+    organizations_url: string;
+    received_events_url: string;
+    repos_url: string;
+    site_admin: boolean;
+    starred_url: string;
+    subscriptions_url: string;
+    type: string;
+    url: string;
+  };
+  type MigrationsListReposForUserResponseItemLicense = {
+    key: string;
+    name: string;
+    node_id: string;
+    spdx_id: string;
+    url: string;
+  };
+  type MigrationsListReposForUserResponseItem = {
+    archive_url: string;
+    archived: boolean;
+    assignees_url: string;
+    blobs_url: string;
+    branches_url: string;
+    clone_url: string;
+    collaborators_url: string;
+    comments_url: string;
+    commits_url: string;
+    compare_url: string;
+    contents_url: string;
+    contributors_url: string;
+    created_at: string;
+    default_branch: string;
+    deployments_url: string;
+    description: string;
+    disabled: boolean;
+    downloads_url: string;
+    events_url: string;
+    fork: boolean;
+    forks_count: number;
+    forks_url: string;
+    full_name: string;
+    git_commits_url: string;
+    git_refs_url: string;
+    git_tags_url: string;
+    git_url: string;
+    has_downloads: boolean;
+    has_issues: boolean;
+    has_pages: boolean;
+    has_projects: boolean;
+    has_wiki: boolean;
+    homepage: string;
+    hooks_url: string;
+    html_url: string;
+    id: number;
+    is_template: boolean;
+    issue_comment_url: string;
+    issue_events_url: string;
+    issues_url: string;
+    keys_url: string;
+    labels_url: string;
+    language: null;
+    languages_url: string;
+    license: MigrationsListReposForUserResponseItemLicense;
+    merges_url: string;
+    milestones_url: string;
+    mirror_url: string;
+    name: string;
+    network_count: number;
+    node_id: string;
+    notifications_url: string;
+    open_issues_count: number;
+    owner: MigrationsListReposForUserResponseItemOwner;
+    permissions: MigrationsListReposForUserResponseItemPermissions;
+    private: boolean;
+    pulls_url: string;
+    pushed_at: string;
+    releases_url: string;
+    size: number;
+    ssh_url: string;
+    stargazers_count: number;
+    stargazers_url: string;
+    statuses_url: string;
+    subscribers_count: number;
+    subscribers_url: string;
+    subscription_url: string;
+    svn_url: string;
+    tags_url: string;
+    teams_url: string;
+    temp_clone_token: string;
+    template_repository: null;
+    topics: Array<string>;
+    trees_url: string;
+    updated_at: string;
+    url: string;
+    visibility: string;
+    watchers_count: number;
+  };
+  type MigrationsListReposForOrgResponseItemPermissions = {
+    admin: boolean;
+    pull: boolean;
+    push: boolean;
+  };
+  type MigrationsListReposForOrgResponseItemOwner = {
+    avatar_url: string;
+    events_url: string;
+    followers_url: string;
+    following_url: string;
+    gists_url: string;
+    gravatar_id: string;
+    html_url: string;
+    id: number;
+    login: string;
+    node_id: string;
+    organizations_url: string;
+    received_events_url: string;
+    repos_url: string;
+    site_admin: boolean;
+    starred_url: string;
+    subscriptions_url: string;
+    type: string;
+    url: string;
+  };
+  type MigrationsListReposForOrgResponseItemLicense = {
+    key: string;
+    name: string;
+    node_id: string;
+    spdx_id: string;
+    url: string;
+  };
+  type MigrationsListReposForOrgResponseItem = {
+    archive_url: string;
+    archived: boolean;
+    assignees_url: string;
+    blobs_url: string;
+    branches_url: string;
+    clone_url: string;
+    collaborators_url: string;
+    comments_url: string;
+    commits_url: string;
+    compare_url: string;
+    contents_url: string;
+    contributors_url: string;
+    created_at: string;
+    default_branch: string;
+    deployments_url: string;
+    description: string;
+    disabled: boolean;
+    downloads_url: string;
+    events_url: string;
+    fork: boolean;
+    forks_count: number;
+    forks_url: string;
+    full_name: string;
+    git_commits_url: string;
+    git_refs_url: string;
+    git_tags_url: string;
+    git_url: string;
+    has_downloads: boolean;
+    has_issues: boolean;
+    has_pages: boolean;
+    has_projects: boolean;
+    has_wiki: boolean;
+    homepage: string;
+    hooks_url: string;
+    html_url: string;
+    id: number;
+    is_template: boolean;
+    issue_comment_url: string;
+    issue_events_url: string;
+    issues_url: string;
+    keys_url: string;
+    labels_url: string;
+    language: null;
+    languages_url: string;
+    license: MigrationsListReposForOrgResponseItemLicense;
+    merges_url: string;
+    milestones_url: string;
+    mirror_url: string;
+    name: string;
+    network_count: number;
+    node_id: string;
+    notifications_url: string;
+    open_issues_count: number;
+    owner: MigrationsListReposForOrgResponseItemOwner;
+    permissions: MigrationsListReposForOrgResponseItemPermissions;
+    private: boolean;
+    pulls_url: string;
+    pushed_at: string;
+    releases_url: string;
+    size: number;
+    ssh_url: string;
+    stargazers_count: number;
+    stargazers_url: string;
+    statuses_url: string;
+    subscribers_count: number;
+    subscribers_url: string;
+    subscription_url: string;
+    svn_url: string;
+    tags_url: string;
+    teams_url: string;
+    temp_clone_token: string;
+    template_repository: null;
+    topics: Array<string>;
+    trees_url: string;
+    updated_at: string;
+    url: string;
+    visibility: string;
+    watchers_count: number;
   };
   type MigrationsListForOrgResponseItemRepositoriesItemPermissions = {
     admin: boolean;
@@ -13934,11 +14245,13 @@ declare namespace Octokit {
     svn_url: string;
     tags_url: string;
     teams_url: string;
+    temp_clone_token: string;
     template_repository: null;
     topics: Array<string>;
     trees_url: string;
     updated_at: string;
     url: string;
+    visibility: string;
     watchers_count: number;
   };
   type MigrationsListForOrgResponseItemOwner = {
@@ -14065,11 +14378,13 @@ declare namespace Octokit {
     svn_url: string;
     tags_url: string;
     teams_url: string;
+    temp_clone_token: string;
     template_repository: null;
     topics: Array<string>;
     trees_url: string;
     updated_at: string;
     url: string;
+    visibility: string;
     watchers_count: number;
   };
   type MigrationsListForAuthenticatedUserResponseItemOwner = {
@@ -14204,11 +14519,13 @@ declare namespace Octokit {
     svn_url: string;
     tags_url: string;
     teams_url: string;
+    temp_clone_token: string;
     template_repository: null;
     topics: Array<string>;
     trees_url: string;
     updated_at: string;
     url: string;
+    visibility: string;
     watchers_count: number;
   };
   type MigrationsGetStatusForOrgResponseOwner = {
@@ -14335,11 +14652,13 @@ declare namespace Octokit {
     svn_url: string;
     tags_url: string;
     teams_url: string;
+    temp_clone_token: string;
     template_repository: null;
     topics: Array<string>;
     trees_url: string;
     updated_at: string;
     url: string;
+    visibility: string;
     watchers_count: number;
   };
   type MigrationsGetStatusForAuthenticatedUserResponseOwner = {
@@ -14406,12 +14725,21 @@ declare namespace Octokit {
     remote_name: string;
     url: string;
   };
+  type MetaGetResponseSshKeyFingerprints = {
+    MD5_DSA: string;
+    MD5_RSA: string;
+    SHA256_DSA: string;
+    SHA256_RSA: string;
+  };
   type MetaGetResponse = {
+    api: Array<string>;
     git: Array<string>;
     hooks: Array<string>;
     importer: Array<string>;
     pages: Array<string>;
+    ssh_key_fingerprints: MetaGetResponseSshKeyFingerprints;
     verifiable_password_authentication: boolean;
+    web: Array<string>;
   };
   type LicensesListCommonlyUsedResponseItem = {
     key: string;
@@ -15185,11 +15513,13 @@ declare namespace Octokit {
     svn_url: string;
     tags_url: string;
     teams_url: string;
+    temp_clone_token: string;
     template_repository: null;
     topics: Array<string>;
     trees_url: string;
     updated_at: string;
     url: string;
+    visibility: string;
     watchers_count: number;
   };
   type IssuesListForOrgResponseItemPullRequest = {
@@ -15430,11 +15760,13 @@ declare namespace Octokit {
     svn_url: string;
     tags_url: string;
     teams_url: string;
+    temp_clone_token: string;
     template_repository: null;
     topics: Array<string>;
     trees_url: string;
     updated_at: string;
     url: string;
+    visibility: string;
     watchers_count: number;
   };
   type IssuesListForAuthenticatedUserResponseItemPullRequest = {
@@ -15985,11 +16317,13 @@ declare namespace Octokit {
     svn_url: string;
     tags_url: string;
     teams_url: string;
+    temp_clone_token: string;
     template_repository: null;
     topics: Array<string>;
     trees_url: string;
     updated_at: string;
     url: string;
+    visibility: string;
     watchers_count: number;
   };
   type IssuesListResponseItemPullRequest = {
@@ -18274,11 +18608,13 @@ declare namespace Octokit {
     svn_url: string;
     tags_url: string;
     teams_url: string;
+    temp_clone_token: string;
     template_repository: null;
     topics: Array<string>;
     trees_url: string;
     updated_at: string;
     url: string;
+    visibility: string;
     watchers_count: number;
   };
   type ChecksSetSuitesPreferencesResponsePreferencesAutoTriggerChecksItem = {
@@ -18392,11 +18728,13 @@ declare namespace Octokit {
     svn_url: string;
     tags_url: string;
     teams_url: string;
+    temp_clone_token: string;
     template_repository: null;
     topics: Array<string>;
     trees_url: string;
     updated_at: string;
     url: string;
+    visibility: string;
     watchers_count: number;
   };
   type ChecksListSuitesForRefResponseCheckSuitesItemAppPermissions = {
@@ -18744,11 +19082,13 @@ declare namespace Octokit {
     svn_url: string;
     tags_url: string;
     teams_url: string;
+    temp_clone_token: string;
     template_repository: null;
     topics: Array<string>;
     trees_url: string;
     updated_at: string;
     url: string;
+    visibility: string;
     watchers_count: number;
   };
   type ChecksGetSuiteResponseAppPermissions = {
@@ -18984,11 +19324,13 @@ declare namespace Octokit {
     svn_url: string;
     tags_url: string;
     teams_url: string;
+    temp_clone_token: string;
     template_repository: null;
     topics: Array<string>;
     trees_url: string;
     updated_at: string;
     url: string;
+    visibility: string;
     watchers_count: number;
   };
   type ChecksCreateSuiteResponseAppPermissions = {
@@ -19298,11 +19640,13 @@ declare namespace Octokit {
     svn_url: string;
     tags_url: string;
     teams_url: string;
+    temp_clone_token: string;
     template_repository: null;
     topics: Array<string>;
     trees_url: string;
     updated_at: string;
     url: string;
+    visibility: string;
     watchers_count: number;
   };
   type AppsListReposResponse = {
@@ -19587,11 +19931,13 @@ declare namespace Octokit {
     svn_url: string;
     tags_url: string;
     teams_url: string;
+    temp_clone_token: string;
     template_repository: null;
     topics: Array<string>;
     trees_url: string;
     updated_at: string;
     url: string;
+    visibility: string;
     watchers_count: number;
   };
   type AppsListInstallationReposForAuthenticatedUserResponse = {
@@ -20153,11 +20499,13 @@ declare namespace Octokit {
     svn_url: string;
     tags_url: string;
     teams_url: string;
+    temp_clone_token: string;
     template_repository: null;
     topics: Array<string>;
     trees_url: string;
     updated_at: string;
     url: string;
+    visibility: string;
     watchers_count: number;
   };
   type AppsCreateInstallationTokenResponsePermissions = {
@@ -20539,11 +20887,13 @@ declare namespace Octokit {
     svn_url: string;
     tags_url: string;
     teams_url: string;
+    temp_clone_token: string;
     template_repository: null;
     topics: Array<string>;
     trees_url: string;
     updated_at: string;
     url: string;
+    visibility: string;
     watchers_count: number;
   };
   type ActivityListStargazersForRepoResponseItem = {
@@ -20669,11 +21019,13 @@ declare namespace Octokit {
     svn_url: string;
     tags_url: string;
     teams_url: string;
+    temp_clone_token: string;
     template_repository: null;
     topics: Array<string>;
     trees_url: string;
     updated_at: string;
     url: string;
+    visibility: string;
     watchers_count: number;
   };
   type ActivityListReposStarredByUserResponseItemPermissions = {
@@ -20774,11 +21126,13 @@ declare namespace Octokit {
     svn_url: string;
     tags_url: string;
     teams_url: string;
+    temp_clone_token: string;
     template_repository: null;
     topics: Array<string>;
     trees_url: string;
     updated_at: string;
     url: string;
+    visibility: string;
     watchers_count: number;
   };
   type ActivityListReposStarredByAuthenticatedUserResponseItemPermissions = {
@@ -20879,11 +21233,13 @@ declare namespace Octokit {
     svn_url: string;
     tags_url: string;
     teams_url: string;
+    temp_clone_token: string;
     template_repository: null;
     topics: Array<string>;
     trees_url: string;
     updated_at: string;
     url: string;
+    visibility: string;
     watchers_count: number;
   };
   type ActivityListNotificationsForRepoResponseItemSubject = {
@@ -21307,6 +21663,12 @@ declare namespace Octokit {
     MigrationsListForAuthenticatedUserResponseItem
   >;
   type MigrationsListForOrgResponse = Array<MigrationsListForOrgResponseItem>;
+  type MigrationsListReposForOrgResponse = Array<
+    MigrationsListReposForOrgResponseItem
+  >;
+  type MigrationsListReposForUserResponse = Array<
+    MigrationsListReposForUserResponseItem
+  >;
   type OauthAuthorizationsListAuthorizationsResponse = Array<
     OauthAuthorizationsListAuthorizationsResponseItem
   >;
@@ -23872,6 +24234,30 @@ declare namespace Octokit {
      */
     per_page?: number;
   };
+  export type MigrationsListReposForOrgParams = {
+    migration_id: number;
+
+    org: string;
+    /**
+     * Page number of the results to fetch.
+     */
+    page?: number;
+    /**
+     * Results per page (max 100)
+     */
+    per_page?: number;
+  };
+  export type MigrationsListReposForUserParams = {
+    migration_id: number;
+    /**
+     * Page number of the results to fetch.
+     */
+    page?: number;
+    /**
+     * Results per page (max 100)
+     */
+    per_page?: number;
+  };
   export type MigrationsMapCommitAuthorParams = {
     author_id: number;
     /**
@@ -24435,6 +24821,88 @@ declare namespace Octokit {
 
     username: string;
   };
+  export type OrgsUpdateParamsDeprecatedMembersAllowedRepositoryCreationType = {
+    /**
+     * Billing email address. This address is not publicized.
+     */
+    billing_email?: string;
+    /**
+     * The company name.
+     */
+    company?: string;
+    /**
+     * Default permission level members have for organization repositories:
+     * \* `read` - can pull, but not push to or administer this repository.
+     * \* `write` - can pull and push, but not administer this repository.
+     * \* `admin` - can pull, push, and administer this repository.
+     * \* `none` - no permissions granted by default.
+     */
+    default_repository_permission?: "read" | "write" | "admin" | "none";
+    /**
+     * The description of the company.
+     */
+    description?: string;
+    /**
+     * The publicly visible email address.
+     */
+    email?: string;
+    /**
+     * Toggles whether an organization can use organization projects.
+     */
+    has_organization_projects?: boolean;
+    /**
+     * Toggles whether repositories that belong to the organization can use repository projects.
+     */
+    has_repository_projects?: boolean;
+    /**
+     * The location.
+     */
+    location?: string;
+    /**
+     * Specifies which types of repositories non-admin organization members can create. Can be one of:
+     * \* `all` - all organization members can create public and private repositories.
+     * \* `private` - members can create private repositories. This option is only available to repositories that are part of an organization on GitHub Enterprise Cloud.
+     * \* `none` - only admin members can create repositories.
+     * **Note:** This parameter is deprecated and will be removed in the future. Its return value ignores internal repositories. Using this parameter overrides values set in `members_can_create_repositories`. See [this note](https://developer.github.com/v3/orgs/#members_can_create_repositories) for details.
+     * @deprecated "members_allowed_repository_creation_type" parameter has been deprecated and will be removed in future
+     */
+    members_allowed_repository_creation_type?: string;
+    /**
+     * Toggles whether organization members can create internal repositories, which are visible to all enterprise members. You can only allow members to create internal repositories if your organization is associated with an enterprise account using GitHub Enterprise Cloud. Can be one of:
+     * \* `true` - all organization members can create internal repositories.
+     * \* `false` - only organization owners can create internal repositories.
+     * Default: `true`. For more information, see "[Restricting repository creation in your organization](https://help.github.com/github/setting-up-and-managing-organizations-and-teams/restricting-repository-creation-in-your-organization)" in the GitHub Help documentation.
+     */
+    members_can_create_internal_repositories?: boolean;
+    /**
+     * Toggles whether organization members can create private repositories, which are visible to organization members with permission. Can be one of:
+     * \* `true` - all organization members can create private repositories.
+     * \* `false` - only organization owners can create private repositories.
+     * Default: `true`. For more information, see "[Restricting repository creation in your organization](https://help.github.com/github/setting-up-and-managing-organizations-and-teams/restricting-repository-creation-in-your-organization)" in the GitHub Help documentation.
+     */
+    members_can_create_private_repositories?: boolean;
+    /**
+     * Toggles whether organization members can create public repositories, which are visible to anyone. Can be one of:
+     * \* `true` - all organization members can create public repositories.
+     * \* `false` - only organization owners can create public repositories.
+     * Default: `true`. For more information, see "[Restricting repository creation in your organization](https://help.github.com/github/setting-up-and-managing-organizations-and-teams/restricting-repository-creation-in-your-organization)" in the GitHub Help documentation.
+     */
+    members_can_create_public_repositories?: boolean;
+    /**
+     * Toggles the ability of non-admin organization members to create repositories. Can be one of:
+     * \* `true` - all organization members can create repositories.
+     * \* `false` - only organization owners can create repositories.
+     * Default: `true`
+     * **Note:** A parameter can override this parameter. See `members_allowed_repository_creation_type` in this table for details. **Note:** A parameter can override this parameter. See `members_allowed_repository_creation_type` in this table for details.
+     */
+    members_can_create_repositories?: boolean;
+    /**
+     * The shorthand name of the company.
+     */
+    name?: string;
+
+    org: string;
+  };
   export type OrgsUpdateParams = {
     /**
      * Billing email address. This address is not publicized.
@@ -24461,11 +24929,11 @@ declare namespace Octokit {
      */
     email?: string;
     /**
-     * Toggles whether organization projects are enabled for the organization.
+     * Toggles whether an organization can use organization projects.
      */
     has_organization_projects?: boolean;
     /**
-     * Toggles whether repository projects are enabled for repositories that belong to the organization.
+     * Toggles whether repositories that belong to the organization can use repository projects.
      */
     has_repository_projects?: boolean;
     /**
@@ -24473,19 +24941,32 @@ declare namespace Octokit {
      */
     location?: string;
     /**
-     * Specifies which types of repositories non-admin organization members can create. Can be one of:
-     * \* `all` - all organization members can create public and private repositories.
-     * \* `private` - members can create private repositories. This option is only available to repositories that are part of an organization on [GitHub Business Cloud](https://github.com/pricing/business-cloud).
-     * \* `none` - only admin members can create repositories.
-     * **Note:** Using this parameter will override values set in `members_can_create_repositories`. See [this note](https://developer.github.com/v3/orgs/#members_can_create_repositories) for details.
+     * Toggles whether organization members can create internal repositories, which are visible to all enterprise members. You can only allow members to create internal repositories if your organization is associated with an enterprise account using GitHub Enterprise Cloud. Can be one of:
+     * \* `true` - all organization members can create internal repositories.
+     * \* `false` - only organization owners can create internal repositories.
+     * Default: `true`. For more information, see "[Restricting repository creation in your organization](https://help.github.com/github/setting-up-and-managing-organizations-and-teams/restricting-repository-creation-in-your-organization)" in the GitHub Help documentation.
      */
-    members_allowed_repository_creation_type?: "all" | "private" | "none";
+    members_can_create_internal_repositories?: boolean;
+    /**
+     * Toggles whether organization members can create private repositories, which are visible to organization members with permission. Can be one of:
+     * \* `true` - all organization members can create private repositories.
+     * \* `false` - only organization owners can create private repositories.
+     * Default: `true`. For more information, see "[Restricting repository creation in your organization](https://help.github.com/github/setting-up-and-managing-organizations-and-teams/restricting-repository-creation-in-your-organization)" in the GitHub Help documentation.
+     */
+    members_can_create_private_repositories?: boolean;
+    /**
+     * Toggles whether organization members can create public repositories, which are visible to anyone. Can be one of:
+     * \* `true` - all organization members can create public repositories.
+     * \* `false` - only organization owners can create public repositories.
+     * Default: `true`. For more information, see "[Restricting repository creation in your organization](https://help.github.com/github/setting-up-and-managing-organizations-and-teams/restricting-repository-creation-in-your-organization)" in the GitHub Help documentation.
+     */
+    members_can_create_public_repositories?: boolean;
     /**
      * Toggles the ability of non-admin organization members to create repositories. Can be one of:
      * \* `true` - all organization members can create repositories.
-     * \* `false` - only admin members can create repositories.
+     * \* `false` - only organization owners can create repositories.
      * Default: `true`
-     * **Note:** Another parameter can override the this parameter. See [this note](https://developer.github.com/v3/orgs/#members_can_create_repositories) for details. **Note:** Another parameter can override the this parameter. See [this note](https://developer.github.com/v3/orgs/#members_can_create_repositories) for details.
+     * **Note:** A parameter can override this parameter. See `members_allowed_repository_creation_type` in this table for details. **Note:** A parameter can override this parameter. See `members_allowed_repository_creation_type` in this table for details.
      */
     members_can_create_repositories?: boolean;
     /**
@@ -26538,6 +27019,11 @@ declare namespace Octokit {
      * The id of the team that will be granted access to this repository. This is only valid when creating a repository in an organization.
      */
     team_id?: number;
+    /**
+     * Can be `public` or `private`. If your organization is associated with an enterprise account using GitHub Enterprise Cloud, `visibility` can also be `internal`. For more information, see "[Creating an internal repository](https://help.github.com/github/creating-cloning-and-archiving-repositories/creating-an-internal-repository)" in the GitHub Help documentation.
+     * The `visibility` parameter overrides the `private` parameter when you use both parameters with the `nebula-preview` preview header.
+     */
+    visibility?: "public" | "private" | "visibility" | "internal";
   };
   export type ReposCreateForkParams = {
     /**
@@ -26634,6 +27120,11 @@ declare namespace Octokit {
      * The id of the team that will be granted access to this repository. This is only valid when creating a repository in an organization.
      */
     team_id?: number;
+    /**
+     * Can be `public` or `private`. If your organization is associated with an enterprise account using GitHub Enterprise Cloud, `visibility` can also be `internal`. For more information, see "[Creating an internal repository](https://help.github.com/github/creating-cloning-and-archiving-repositories/creating-an-internal-repository)" in the GitHub Help documentation.
+     * The `visibility` parameter overrides the `private` parameter when you use both parameters with the `nebula-preview` preview header.
+     */
+    visibility?: "public" | "private" | "visibility" | "internal";
   };
   export type ReposCreateOrUpdateFileParams = {
     /**
@@ -27436,9 +27927,16 @@ declare namespace Octokit {
      */
     sort?: "created" | "updated" | "pushed" | "full_name";
     /**
-     * Can be one of `all`, `public`, `private`, `forks`, `sources`, `member`.
+     * Specifies the types of repositories you want returned. Can be one of `all`, `public`, `private`, `forks`, `sources`, `member`, `internal`. Default: `all`. If your organization is associated with an enterprise account using GitHub Enterprise Cloud, `type` can also be `internal`.
      */
-    type?: "all" | "public" | "private" | "forks" | "sources" | "member";
+    type?:
+      | "all"
+      | "public"
+      | "private"
+      | "forks"
+      | "sources"
+      | "member"
+      | "internal";
   };
   export type ReposListForUserParams = {
     /**
@@ -27910,8 +28408,21 @@ declare namespace Octokit {
     private?: boolean;
 
     repo: string;
+    /**
+     * Can be `public` or `private`. If your organization is associated with an enterprise account using GitHub Enterprise Cloud, `visibility` can also be `internal`. The `visibility` parameter overrides the `private` parameter when you use both along with the `nebula-preview` preview header.
+     */
+    visibility?: "public" | "private" | "visibility" | "internal";
   };
   export type ReposUpdateBranchProtectionParams = {
+    /**
+     * Allows deletion of the protected branch by anyone with write access to the repository. Set to `false` to prevent deletion of the protected branch. Default: `false`. For more information, see "[Enabling force pushes to a protected branch](https://help.github.com/en/github/administering-a-repository/enabling-force-pushes-to-a-protected-branch)" in the GitHub Help documentation.
+     */
+    allow_deletions?: boolean;
+    /**
+     * Permits force pushes to the protected branch by anyone with write access to the repository. Set to `true` to allow force pushes. Set to `false` or `null` to block force pushes. Default: `false`. For more information, see "[Enabling force pushes to a protected branch](https://help.github.com/en/github/administering-a-repository/enabling-force-pushes-to-a-protected-branch)" in the GitHub Help documentation."
+     */
+    allow_force_pushes?: boolean | null;
+
     branch: string;
     /**
      * Enforce all configured restrictions for administrators. Set to `true` to enforce required status checks for repository administrators. Set to `null` to disable.
@@ -27922,6 +28433,10 @@ declare namespace Octokit {
 
     repo: string;
     /**
+     * Enforces a linear commit Git history, which prevents anyone from pushing merge commits to a branch. Set to `true` to enforce a linear commit history. Set to `false` to disable a linear commit Git history. Your repository must allow squash merging or rebase merging before you can enable a linear commit history. Default: `false`. For more information, see "[Requiring a linear commit history](https://help.github.com/github/administering-a-repository/requiring-a-linear-commit-history)" in the GitHub Help documentation.
+     */
+    required_linear_history?: boolean;
+    /**
      * Require at least one approving review on a pull request, before merging. Set to `null` to disable.
      */
     required_pull_request_reviews: ReposUpdateBranchProtectionParamsRequiredPullRequestReviews | null;
@@ -27930,7 +28445,7 @@ declare namespace Octokit {
      */
     required_status_checks: ReposUpdateBranchProtectionParamsRequiredStatusChecks | null;
     /**
-     * Restrict who can push to this branch. User, app, and team `restrictions` are only available for organization-owned repositories. Set to `null` to disable.
+     * Restrict who can push to the protected branch. User, app, and team `restrictions` are only available for organization-owned repositories. Set to `null` to disable.
      */
     restrictions: ReposUpdateBranchProtectionParamsRestrictions | null;
   };
@@ -28335,7 +28850,6 @@ declare namespace Octokit {
      * \* `write` - team members can read and write, but not administer this project.
      * \* `admin` - team members can read, write and administer this project.
      * Default: the team's `permission` attribute will be used to determine what permission to grant the team on this project. Note that, if you choose not to pass any parameters, you'll need to set `Content-Length` to zero when calling out to this endpoint. For more information, see "[HTTP verbs](https://developer.github.com/v3/#http-verbs)."
-     * **Note**: If you pass the `hellcat-preview` media type, you can promote—but not demote—a `permission` attribute inherited from a parent team.
      */
     permission?: "read" | "write" | "admin";
 
@@ -28352,7 +28866,6 @@ declare namespace Octokit {
      * \* `admin` - team members can pull, push and administer this repository.
      *
      * If no permission is specified, the team's `permission` attribute will be used to determine what permission to grant the team on this repository.
-     * **Note**: If you pass the `hellcat-preview` media type, you can promote—but not demote—a `permission` attribute inherited through a parent team.
      */
     permission?: "pull" | "push" | "admin";
 
@@ -28373,7 +28886,7 @@ declare namespace Octokit {
      */
     description?: string;
     /**
-     * The logins of organization members to add as maintainers of the team.
+     * List GitHub IDs for organization members who will become team maintainers.
      */
     maintainers?: string[];
     /**
@@ -28383,7 +28896,7 @@ declare namespace Octokit {
 
     org: string;
     /**
-     * The ID of a team to set as the parent team. **Note**: You must pass the `hellcat-preview` media type to use this parameter.
+     * The ID of a team to set as the parent team.
      */
     parent_team_id?: number;
     /**
@@ -28403,7 +28916,6 @@ declare namespace Octokit {
      * **For a parent or child team:**
      * \* `closed` - visible to all members of this organization.
      * Default for child team: `closed`
-     * **Note**: You must pass the `hellcat-preview` media type to set privacy default to `closed` for child teams.
      */
     privacy?: "secret" | "closed";
     /**
@@ -28417,7 +28929,7 @@ declare namespace Octokit {
      */
     description?: string;
     /**
-     * The logins of organization members to add as maintainers of the team.
+     * List GitHub IDs for organization members who will become team maintainers.
      */
     maintainers?: string[];
     /**
@@ -28427,7 +28939,7 @@ declare namespace Octokit {
 
     org: string;
     /**
-     * The ID of a team to set as the parent team. **Note**: You must pass the `hellcat-preview` media type to use this parameter.
+     * The ID of a team to set as the parent team.
      */
     parent_team_id?: number;
     /**
@@ -28439,7 +28951,6 @@ declare namespace Octokit {
      * **For a parent or child team:**
      * \* `closed` - visible to all members of this organization.
      * Default for child team: `closed`
-     * **Note**: You must pass the `hellcat-preview` media type to set privacy default to `closed` for child teams.
      */
     privacy?: "secret" | "closed";
     /**
@@ -28677,7 +29188,7 @@ declare namespace Octokit {
      */
     name: string;
     /**
-     * The ID of a team to set as the parent team. **Note**: You must pass the `hellcat-preview` media type to use this parameter.
+     * The ID of a team to set as the parent team.
      */
     parent_team_id?: number;
     /**
@@ -28710,7 +29221,7 @@ declare namespace Octokit {
      */
     name: string;
     /**
-     * The ID of a team to set as the parent team. **Note**: You must pass the `hellcat-preview` media type to use this parameter.
+     * The ID of a team to set as the parent team.
      */
     parent_team_id?: number;
     /**
@@ -31292,7 +31803,7 @@ declare class Octokit {
       endpoint: Octokit.Endpoint;
     };
     /**
-     * Deletes a previous migration archive. Downloadable migration archives are automatically deleted after seven days. Migration metadata, which is returned in the [Get a list of user migrations](https://developer.github.com/v3/migrations/users/#get-a-list-of-user-migrations) and [Get the status of a user migration](https://developer.github.com/v3/migrations/users/#get-the-status-of-a-user-migration) endpoints, will continue to be available even after an archive is deleted.
+     * Deletes a previous migration archive. Downloadable migration archives are automatically deleted after seven days. Migration metadata, which is returned in the [List user migrations](https://developer.github.com/v3/migrations/users/#list-user-migrations) and [Get the status of a user migration](https://developer.github.com/v3/migrations/users/#get-the-status-of-a-user-migration) endpoints, will continue to be available even after an archive is deleted.
      */
     deleteArchiveForAuthenticatedUser: {
       (
@@ -31482,6 +31993,28 @@ declare class Octokit {
       (
         params?: Octokit.RequestOptions & Octokit.MigrationsListForOrgParams
       ): Promise<Octokit.Response<Octokit.MigrationsListForOrgResponse>>;
+
+      endpoint: Octokit.Endpoint;
+    };
+    /**
+     * List all the repositories for this organization migration.
+     */
+    listReposForOrg: {
+      (
+        params?: Octokit.RequestOptions &
+          Octokit.MigrationsListReposForOrgParams
+      ): Promise<Octokit.Response<Octokit.MigrationsListReposForOrgResponse>>;
+
+      endpoint: Octokit.Endpoint;
+    };
+    /**
+     * Lists all the repositories for this user migration.
+     */
+    listReposForUser: {
+      (
+        params?: Octokit.RequestOptions &
+          Octokit.MigrationsListReposForUserParams
+      ): Promise<Octokit.Response<Octokit.MigrationsListReposForUserResponse>>;
 
       endpoint: Octokit.Endpoint;
     };
@@ -32183,15 +32716,16 @@ declare class Octokit {
       endpoint: Octokit.Endpoint;
     };
     /**
-     * **Note:** The new `members_allowed_repository_creation_type` replaces the functionality of `members_can_create_repositories`.
+     * **Deprecation Notice:** GitHub will replace and discontinue `members_allowed_repository_creation_type` in favor of more granular permissions. The new input parameters are `members_can_create_public_repositories`, `members_can_create_private_repositories` for all organizations and `members_can_create_internal_repositories` for organizations associated with an enterprise account using GitHub Enterprise Cloud. For more information, see the [blog post](https://developer.github.com/changes/2019-12-03-internal-visibility-changes).
      *
-     * Setting `members_allowed_repository_creation_type` will override the value of `members_can_create_repositories` in the following ways:
-     *
-     * *   Setting `members_allowed_repository_creation_type` to `all` or `private` sets `members_can_create_repositories` to `true`.
-     * *   Setting `members_allowed_repository_creation_type` to `none` sets `members_can_create_repositories` to `false`.
-     * *   If you omit `members_allowed_repository_creation_type`, `members_can_create_repositories` is not modified.
+     * Enables an authenticated organization owner with the `admin:org` scope to update the organization's profile and member privileges.
+     * @deprecated octokit.orgs.update() is deprecated, see https://developer.github.com/v3/orgs/#edit-an-organization
      */
     update: {
+      (
+        params?: Octokit.RequestOptions &
+          Octokit.OrgsUpdateParamsDeprecatedMembersAllowedRepositoryCreationType
+      ): Promise<Octokit.Response<Octokit.OrgsUpdateResponse>>;
       (params?: Octokit.RequestOptions & Octokit.OrgsUpdateParams): Promise<
         Octokit.Response<Octokit.OrgsUpdateResponse>
       >;
@@ -32466,7 +33000,7 @@ declare class Octokit {
       endpoint: Octokit.Endpoint;
     };
     /**
-     * Draft pull requests are available in public repositories with GitHub Free and GitHub Pro, and in public and private repositories with GitHub Team and GitHub Enterprise Cloud. For more information, see [GitHub's billing plans](https://help.github.com/articles/github-s-billing-plans) in the GitHub Help documentation.
+     * Draft pull requests are available in public repositories with GitHub Free and GitHub Pro, and in public and private repositories with GitHub Team and GitHub Enterprise Cloud. For more information, see [GitHub's products](https://help.github.com/github/getting-started-with-github/githubs-products) in the GitHub Help documentation.
      *
      * To open or update a pull request in a public repository, you must have write access to the head or the source branch. For organization-owned repositories, you must be a member of the organization that owns the repository to open or update a pull request.
      *
@@ -32670,7 +33204,7 @@ declare class Octokit {
       endpoint: Octokit.Endpoint;
     };
     /**
-     * Draft pull requests are available in public repositories with GitHub Free and GitHub Pro, and in public and private repositories with GitHub Team and GitHub Enterprise Cloud. For more information, see [GitHub's billing plans](https://help.github.com/articles/github-s-billing-plans) in the GitHub Help documentation.
+     * Draft pull requests are available in public repositories with GitHub Free and GitHub Pro, and in public and private repositories with GitHub Team and GitHub Enterprise Cloud. For more information, see [GitHub's products](https://help.github.com/github/getting-started-with-github/githubs-products) in the GitHub Help documentation.
      *
      * Lists details of a pull request by providing its number.
      *
@@ -32752,7 +33286,7 @@ declare class Octokit {
       endpoint: Octokit.Endpoint;
     };
     /**
-     * Draft pull requests are available in public repositories with GitHub Free and GitHub Pro, and in public and private repositories with GitHub Team and GitHub Enterprise Cloud. For more information, see [GitHub's billing plans](https://help.github.com/articles/github-s-billing-plans) in the GitHub Help documentation.
+     * Draft pull requests are available in public repositories with GitHub Free and GitHub Pro, and in public and private repositories with GitHub Team and GitHub Enterprise Cloud. For more information, see [GitHub's products](https://help.github.com/github/getting-started-with-github/githubs-products) in the GitHub Help documentation.
      */
     list: {
       (params?: Octokit.RequestOptions & Octokit.PullsListParams): Promise<
@@ -32906,7 +33440,7 @@ declare class Octokit {
       endpoint: Octokit.Endpoint;
     };
     /**
-     * Draft pull requests are available in public repositories with GitHub Free and GitHub Pro, and in public and private repositories with GitHub Team and GitHub Enterprise Cloud. For more information, see [GitHub's billing plans](https://help.github.com/articles/github-s-billing-plans) in the GitHub Help documentation.
+     * Draft pull requests are available in public repositories with GitHub Free and GitHub Pro, and in public and private repositories with GitHub Team and GitHub Enterprise Cloud. For more information, see [GitHub's products](https://help.github.com/github/getting-started-with-github/githubs-products) in the GitHub Help documentation.
      *
      * To open or update a pull request in a public repository, you must have write access to the head or the source branch. For organization-owned repositories, you must be a member of the organization that owns the repository to open or update a pull request.
      */
@@ -33216,7 +33750,7 @@ declare class Octokit {
       endpoint: Octokit.Endpoint;
     };
     /**
-     * Protected branches are available in public repositories with GitHub Free, and in public and private repositories with GitHub Pro, GitHub Team, and GitHub Enterprise Cloud. For more information, see [GitHub's billing plans](https://help.github.com/articles/github-s-billing-plans) in the GitHub Help documentation.
+     * Protected branches are available in public repositories with GitHub Free, and in public and private repositories with GitHub Pro, GitHub Team, and GitHub Enterprise Cloud. For more information, see [GitHub's products](https://help.github.com/github/getting-started-with-github/githubs-products) in the GitHub Help documentation.
      *
      * Adding admin enforcement requires admin or owner permissions to the repository and branch protection to be enabled.
      */
@@ -33233,7 +33767,7 @@ declare class Octokit {
       endpoint: Octokit.Endpoint;
     };
     /**
-     * Protected branches are available in public repositories with GitHub Free, and in public and private repositories with GitHub Pro, GitHub Team, and GitHub Enterprise Cloud. For more information, see [GitHub's billing plans](https://help.github.com/articles/github-s-billing-plans) in the GitHub Help documentation.
+     * Protected branches are available in public repositories with GitHub Free, and in public and private repositories with GitHub Pro, GitHub Team, and GitHub Enterprise Cloud. For more information, see [GitHub's products](https://help.github.com/github/getting-started-with-github/githubs-products) in the GitHub Help documentation.
      *
      * Grants the specified apps push access for this branch. Only installed GitHub Apps with `write` access to the `contents` permission can be added as authorized actors on a protected branch.
      *
@@ -33252,7 +33786,7 @@ declare class Octokit {
       endpoint: Octokit.Endpoint;
     };
     /**
-     * Protected branches are available in public repositories with GitHub Free, and in public and private repositories with GitHub Pro, GitHub Team, and GitHub Enterprise Cloud. For more information, see [GitHub's billing plans](https://help.github.com/articles/github-s-billing-plans) in the GitHub Help documentation.
+     * Protected branches are available in public repositories with GitHub Free, and in public and private repositories with GitHub Pro, GitHub Team, and GitHub Enterprise Cloud. For more information, see [GitHub's products](https://help.github.com/github/getting-started-with-github/githubs-products) in the GitHub Help documentation.
      *
      * When authenticated with admin or owner permissions to the repository, you can use this endpoint to require signed commits on a branch. You must enable branch protection to require signed commits.
      */
@@ -33269,7 +33803,7 @@ declare class Octokit {
       endpoint: Octokit.Endpoint;
     };
     /**
-     * Protected branches are available in public repositories with GitHub Free, and in public and private repositories with GitHub Pro, GitHub Team, and GitHub Enterprise Cloud. For more information, see [GitHub's billing plans](https://help.github.com/articles/github-s-billing-plans) in the GitHub Help documentation.
+     * Protected branches are available in public repositories with GitHub Free, and in public and private repositories with GitHub Pro, GitHub Team, and GitHub Enterprise Cloud. For more information, see [GitHub's products](https://help.github.com/github/getting-started-with-github/githubs-products) in the GitHub Help documentation.
      */
     addProtectedBranchRequiredStatusChecksContexts: {
       (
@@ -33284,9 +33818,9 @@ declare class Octokit {
       endpoint: Octokit.Endpoint;
     };
     /**
-     * Protected branches are available in public repositories with GitHub Free, and in public and private repositories with GitHub Pro, GitHub Team, and GitHub Enterprise Cloud. For more information, see [GitHub's billing plans](https://help.github.com/articles/github-s-billing-plans) in the GitHub Help documentation.
+     * Protected branches are available in public repositories with GitHub Free, and in public and private repositories with GitHub Pro, GitHub Team, and GitHub Enterprise Cloud. For more information, see [GitHub's products](https://help.github.com/github/getting-started-with-github/githubs-products) in the GitHub Help documentation.
      *
-     * Grants the specified teams push access for this branch. If you pass the `hellcat-preview` media type, you can also give push access to child teams.
+     * Grants the specified teams push access for this branch. You can also give push access to child teams.
      *
      * | Type    | Description                                                                                                                                |
      * | ------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -33305,7 +33839,7 @@ declare class Octokit {
       endpoint: Octokit.Endpoint;
     };
     /**
-     * Protected branches are available in public repositories with GitHub Free, and in public and private repositories with GitHub Pro, GitHub Team, and GitHub Enterprise Cloud. For more information, see [GitHub's billing plans](https://help.github.com/articles/github-s-billing-plans) in the GitHub Help documentation.
+     * Protected branches are available in public repositories with GitHub Free, and in public and private repositories with GitHub Pro, GitHub Team, and GitHub Enterprise Cloud. For more information, see [GitHub's products](https://help.github.com/github/getting-started-with-github/githubs-products) in the GitHub Help documentation.
      *
      * Grants the specified people push access for this branch.
      *
@@ -33328,7 +33862,7 @@ declare class Octokit {
     /**
      * For organization-owned repositories, the list of collaborators includes outside collaborators, organization members that are direct collaborators, organization members with access through team memberships, organization members with access through default organization permissions, and organization owners.
      *
-     * If you pass the `hellcat-preview` media type, team members will include the members of child teams.
+     * Team members will include the members of child teams.
      */
     checkCollaborator: {
       (
@@ -33761,7 +34295,7 @@ declare class Octokit {
       endpoint: Octokit.Endpoint;
     };
     /**
-     * Protected branches are available in public repositories with GitHub Free, and in public and private repositories with GitHub Pro, GitHub Team, and GitHub Enterprise Cloud. For more information, see [GitHub's billing plans](https://help.github.com/articles/github-s-billing-plans) in the GitHub Help documentation.
+     * Protected branches are available in public repositories with GitHub Free, and in public and private repositories with GitHub Pro, GitHub Team, and GitHub Enterprise Cloud. For more information, see [GitHub's products](https://help.github.com/github/getting-started-with-github/githubs-products) in the GitHub Help documentation.
      *
      * Lists the GitHub Apps that have push access to this branch. Only installed GitHub Apps with `write` access to the `contents` permission can be added as authorized actors on a protected branch.
      */
@@ -33800,7 +34334,7 @@ declare class Octokit {
       endpoint: Octokit.Endpoint;
     };
     /**
-     * Protected branches are available in public repositories with GitHub Free, and in public and private repositories with GitHub Pro, GitHub Team, and GitHub Enterprise Cloud. For more information, see [GitHub's billing plans](https://help.github.com/articles/github-s-billing-plans) in the GitHub Help documentation.
+     * Protected branches are available in public repositories with GitHub Free, and in public and private repositories with GitHub Pro, GitHub Team, and GitHub Enterprise Cloud. For more information, see [GitHub's products](https://help.github.com/github/getting-started-with-github/githubs-products) in the GitHub Help documentation.
      */
     getBranchProtection: {
       (
@@ -34082,7 +34616,7 @@ declare class Octokit {
       endpoint: Octokit.Endpoint;
     };
     /**
-     * Protected branches are available in public repositories with GitHub Free, and in public and private repositories with GitHub Pro, GitHub Team, and GitHub Enterprise Cloud. For more information, see [GitHub's billing plans](https://help.github.com/articles/github-s-billing-plans) in the GitHub Help documentation.
+     * Protected branches are available in public repositories with GitHub Free, and in public and private repositories with GitHub Pro, GitHub Team, and GitHub Enterprise Cloud. For more information, see [GitHub's products](https://help.github.com/github/getting-started-with-github/githubs-products) in the GitHub Help documentation.
      */
     getProtectedBranchAdminEnforcement: {
       (
@@ -34097,7 +34631,7 @@ declare class Octokit {
       endpoint: Octokit.Endpoint;
     };
     /**
-     * Protected branches are available in public repositories with GitHub Free, and in public and private repositories with GitHub Pro, GitHub Team, and GitHub Enterprise Cloud. For more information, see [GitHub's billing plans](https://help.github.com/articles/github-s-billing-plans) in the GitHub Help documentation.
+     * Protected branches are available in public repositories with GitHub Free, and in public and private repositories with GitHub Pro, GitHub Team, and GitHub Enterprise Cloud. For more information, see [GitHub's products](https://help.github.com/github/getting-started-with-github/githubs-products) in the GitHub Help documentation.
      */
     getProtectedBranchPullRequestReviewEnforcement: {
       (
@@ -34112,7 +34646,7 @@ declare class Octokit {
       endpoint: Octokit.Endpoint;
     };
     /**
-     * Protected branches are available in public repositories with GitHub Free, and in public and private repositories with GitHub Pro, GitHub Team, and GitHub Enterprise Cloud. For more information, see [GitHub's billing plans](https://help.github.com/articles/github-s-billing-plans) in the GitHub Help documentation.
+     * Protected branches are available in public repositories with GitHub Free, and in public and private repositories with GitHub Pro, GitHub Team, and GitHub Enterprise Cloud. For more information, see [GitHub's products](https://help.github.com/github/getting-started-with-github/githubs-products) in the GitHub Help documentation.
      *
      * When authenticated with admin or owner permissions to the repository, you can use this endpoint to check whether a branch requires signed commits. An enabled status of `true` indicates you must sign commits on this branch. For more information, see [Signing commits with GPG](https://help.github.com/articles/signing-commits-with-gpg) in GitHub Help.
      *
@@ -34131,7 +34665,7 @@ declare class Octokit {
       endpoint: Octokit.Endpoint;
     };
     /**
-     * Protected branches are available in public repositories with GitHub Free, and in public and private repositories with GitHub Pro, GitHub Team, and GitHub Enterprise Cloud. For more information, see [GitHub's billing plans](https://help.github.com/articles/github-s-billing-plans) in the GitHub Help documentation.
+     * Protected branches are available in public repositories with GitHub Free, and in public and private repositories with GitHub Pro, GitHub Team, and GitHub Enterprise Cloud. For more information, see [GitHub's products](https://help.github.com/github/getting-started-with-github/githubs-products) in the GitHub Help documentation.
      */
     getProtectedBranchRequiredStatusChecks: {
       (
@@ -34146,7 +34680,7 @@ declare class Octokit {
       endpoint: Octokit.Endpoint;
     };
     /**
-     * Protected branches are available in public repositories with GitHub Free, and in public and private repositories with GitHub Pro, GitHub Team, and GitHub Enterprise Cloud. For more information, see [GitHub's billing plans](https://help.github.com/articles/github-s-billing-plans) in the GitHub Help documentation.
+     * Protected branches are available in public repositories with GitHub Free, and in public and private repositories with GitHub Pro, GitHub Team, and GitHub Enterprise Cloud. For more information, see [GitHub's products](https://help.github.com/github/getting-started-with-github/githubs-products) in the GitHub Help documentation.
      *
      * Lists who has access to this protected branch. {{#note}}
      *
@@ -34221,9 +34755,9 @@ declare class Octokit {
       endpoint: Octokit.Endpoint;
     };
     /**
-     * Protected branches are available in public repositories with GitHub Free, and in public and private repositories with GitHub Pro, GitHub Team, and GitHub Enterprise Cloud. For more information, see [GitHub's billing plans](https://help.github.com/articles/github-s-billing-plans) in the GitHub Help documentation.
+     * Protected branches are available in public repositories with GitHub Free, and in public and private repositories with GitHub Pro, GitHub Team, and GitHub Enterprise Cloud. For more information, see [GitHub's products](https://help.github.com/github/getting-started-with-github/githubs-products) in the GitHub Help documentation.
      *
-     * Lists the teams who have push access to this branch. If you pass the `hellcat-preview` media type, the list includes child teams.
+     * Lists the teams who have push access to this branch. The list includes child teams.
      */
     getTeamsWithAccessToProtectedBranch: {
       (
@@ -34258,7 +34792,7 @@ declare class Octokit {
       endpoint: Octokit.Endpoint;
     };
     /**
-     * Protected branches are available in public repositories with GitHub Free, and in public and private repositories with GitHub Pro, GitHub Team, and GitHub Enterprise Cloud. For more information, see [GitHub's billing plans](https://help.github.com/articles/github-s-billing-plans) in the GitHub Help documentation.
+     * Protected branches are available in public repositories with GitHub Free, and in public and private repositories with GitHub Pro, GitHub Team, and GitHub Enterprise Cloud. For more information, see [GitHub's products](https://help.github.com/github/getting-started-with-github/githubs-products) in the GitHub Help documentation.
      *
      * Lists the people who have push access to this branch.
      */
@@ -34297,7 +34831,7 @@ declare class Octokit {
       endpoint: Octokit.Endpoint;
     };
     /**
-     * Protected branches are available in public repositories with GitHub Free, and in public and private repositories with GitHub Pro, GitHub Team, and GitHub Enterprise Cloud. For more information, see [GitHub's billing plans](https://help.github.com/articles/github-s-billing-plans) in the GitHub Help documentation.
+     * Protected branches are available in public repositories with GitHub Free, and in public and private repositories with GitHub Pro, GitHub Team, and GitHub Enterprise Cloud. For more information, see [GitHub's products](https://help.github.com/github/getting-started-with-github/githubs-products) in the GitHub Help documentation.
      *
      * Lists the GitHub Apps that have push access to this branch. Only installed GitHub Apps with `write` access to the `contents` permission can be added as authorized actors on a protected branch.
      * @deprecated octokit.repos.listAppsWithAccessToProtectedBranch() has been renamed to octokit.repos.getAppsWithAccessToProtectedBranch() (2019-09-13)
@@ -34332,7 +34866,7 @@ declare class Octokit {
       endpoint: Octokit.Endpoint;
     };
     /**
-     * Protected branches are available in public repositories with GitHub Free, and in public and private repositories with GitHub Pro, GitHub Team, and GitHub Enterprise Cloud. For more information, see [GitHub's billing plans](https://help.github.com/articles/github-s-billing-plans) in the GitHub Help documentation.
+     * Protected branches are available in public repositories with GitHub Free, and in public and private repositories with GitHub Pro, GitHub Team, and GitHub Enterprise Cloud. For more information, see [GitHub's products](https://help.github.com/github/getting-started-with-github/githubs-products) in the GitHub Help documentation.
      *
      * Returns all branches where the given commit SHA is the HEAD, or latest commit for the branch.
      */
@@ -34349,7 +34883,7 @@ declare class Octokit {
     /**
      * For organization-owned repositories, the list of collaborators includes outside collaborators, organization members that are direct collaborators, organization members with access through team memberships, organization members with access through default organization permissions, and organization owners.
      *
-     * If you pass the `hellcat-preview` media type, team members will include the members of child teams.
+     * Team members will include the members of child teams.
      */
     listCollaborators: {
       (
@@ -34544,7 +35078,7 @@ declare class Octokit {
       endpoint: Octokit.Endpoint;
     };
     /**
-     * Protected branches are available in public repositories with GitHub Free, and in public and private repositories with GitHub Pro, GitHub Team, and GitHub Enterprise Cloud. For more information, see [GitHub's billing plans](https://help.github.com/articles/github-s-billing-plans) in the GitHub Help documentation.
+     * Protected branches are available in public repositories with GitHub Free, and in public and private repositories with GitHub Pro, GitHub Team, and GitHub Enterprise Cloud. For more information, see [GitHub's products](https://help.github.com/github/getting-started-with-github/githubs-products) in the GitHub Help documentation.
      */
     listProtectedBranchRequiredStatusChecksContexts: {
       (
@@ -34559,9 +35093,9 @@ declare class Octokit {
       endpoint: Octokit.Endpoint;
     };
     /**
-     * Protected branches are available in public repositories with GitHub Free, and in public and private repositories with GitHub Pro, GitHub Team, and GitHub Enterprise Cloud. For more information, see [GitHub's billing plans](https://help.github.com/articles/github-s-billing-plans) in the GitHub Help documentation.
+     * Protected branches are available in public repositories with GitHub Free, and in public and private repositories with GitHub Pro, GitHub Team, and GitHub Enterprise Cloud. For more information, see [GitHub's products](https://help.github.com/github/getting-started-with-github/githubs-products) in the GitHub Help documentation.
      *
-     * Lists the teams who have push access to this branch. If you pass the `hellcat-preview` media type, the list includes child teams.
+     * Lists the teams who have push access to this branch. The list includes child teams.
      * @deprecated octokit.repos.listProtectedBranchTeamRestrictions() has been renamed to octokit.repos.getTeamsWithAccessToProtectedBranch() (2019-09-09)
      */
     listProtectedBranchTeamRestrictions: {
@@ -34577,7 +35111,7 @@ declare class Octokit {
       endpoint: Octokit.Endpoint;
     };
     /**
-     * Protected branches are available in public repositories with GitHub Free, and in public and private repositories with GitHub Pro, GitHub Team, and GitHub Enterprise Cloud. For more information, see [GitHub's billing plans](https://help.github.com/articles/github-s-billing-plans) in the GitHub Help documentation.
+     * Protected branches are available in public repositories with GitHub Free, and in public and private repositories with GitHub Pro, GitHub Team, and GitHub Enterprise Cloud. For more information, see [GitHub's products](https://help.github.com/github/getting-started-with-github/githubs-products) in the GitHub Help documentation.
      *
      * Lists the people who have push access to this branch.
      * @deprecated octokit.repos.listProtectedBranchUserRestrictions() has been renamed to octokit.repos.getUsersWithAccessToProtectedBranch() (2019-09-09)
@@ -34662,9 +35196,9 @@ declare class Octokit {
       endpoint: Octokit.Endpoint;
     };
     /**
-     * Protected branches are available in public repositories with GitHub Free, and in public and private repositories with GitHub Pro, GitHub Team, and GitHub Enterprise Cloud. For more information, see [GitHub's billing plans](https://help.github.com/articles/github-s-billing-plans) in the GitHub Help documentation.
+     * Protected branches are available in public repositories with GitHub Free, and in public and private repositories with GitHub Pro, GitHub Team, and GitHub Enterprise Cloud. For more information, see [GitHub's products](https://help.github.com/github/getting-started-with-github/githubs-products) in the GitHub Help documentation.
      *
-     * Lists the teams who have push access to this branch. If you pass the `hellcat-preview` media type, the list includes child teams.
+     * Lists the teams who have push access to this branch. The list includes child teams.
      * @deprecated octokit.repos.listTeamsWithAccessToProtectedBranch() has been renamed to octokit.repos.getTeamsWithAccessToProtectedBranch() (2019-09-13)
      */
     listTeamsWithAccessToProtectedBranch: {
@@ -34688,7 +35222,7 @@ declare class Octokit {
       endpoint: Octokit.Endpoint;
     };
     /**
-     * Protected branches are available in public repositories with GitHub Free, and in public and private repositories with GitHub Pro, GitHub Team, and GitHub Enterprise Cloud. For more information, see [GitHub's billing plans](https://help.github.com/articles/github-s-billing-plans) in the GitHub Help documentation.
+     * Protected branches are available in public repositories with GitHub Free, and in public and private repositories with GitHub Pro, GitHub Team, and GitHub Enterprise Cloud. For more information, see [GitHub's products](https://help.github.com/github/getting-started-with-github/githubs-products) in the GitHub Help documentation.
      *
      * Lists the people who have push access to this branch.
      * @deprecated octokit.repos.listUsersWithAccessToProtectedBranch() has been renamed to octokit.repos.getUsersWithAccessToProtectedBranch() (2019-09-13)
@@ -34724,7 +35258,7 @@ declare class Octokit {
       endpoint: Octokit.Endpoint;
     };
     /**
-     * Protected branches are available in public repositories with GitHub Free, and in public and private repositories with GitHub Pro, GitHub Team, and GitHub Enterprise Cloud. For more information, see [GitHub's billing plans](https://help.github.com/articles/github-s-billing-plans) in the GitHub Help documentation.
+     * Protected branches are available in public repositories with GitHub Free, and in public and private repositories with GitHub Pro, GitHub Team, and GitHub Enterprise Cloud. For more information, see [GitHub's products](https://help.github.com/github/getting-started-with-github/githubs-products) in the GitHub Help documentation.
      */
     removeBranchProtection: {
       (
@@ -34751,7 +35285,7 @@ declare class Octokit {
       endpoint: Octokit.Endpoint;
     };
     /**
-     * Protected branches are available in public repositories with GitHub Free, and in public and private repositories with GitHub Pro, GitHub Team, and GitHub Enterprise Cloud. For more information, see [GitHub's billing plans](https://help.github.com/articles/github-s-billing-plans) in the GitHub Help documentation.
+     * Protected branches are available in public repositories with GitHub Free, and in public and private repositories with GitHub Pro, GitHub Team, and GitHub Enterprise Cloud. For more information, see [GitHub's products](https://help.github.com/github/getting-started-with-github/githubs-products) in the GitHub Help documentation.
      *
      * Removing admin enforcement requires admin or owner permissions to the repository and branch protection to be enabled.
      */
@@ -34764,7 +35298,7 @@ declare class Octokit {
       endpoint: Octokit.Endpoint;
     };
     /**
-     * Protected branches are available in public repositories with GitHub Free, and in public and private repositories with GitHub Pro, GitHub Team, and GitHub Enterprise Cloud. For more information, see [GitHub's billing plans](https://help.github.com/articles/github-s-billing-plans) in the GitHub Help documentation.
+     * Protected branches are available in public repositories with GitHub Free, and in public and private repositories with GitHub Pro, GitHub Team, and GitHub Enterprise Cloud. For more information, see [GitHub's products](https://help.github.com/github/getting-started-with-github/githubs-products) in the GitHub Help documentation.
      *
      * Removes the ability of an app to push to this branch. Only installed GitHub Apps with `write` access to the `contents` permission can be added as authorized actors on a protected branch.
      *
@@ -34785,7 +35319,7 @@ declare class Octokit {
       endpoint: Octokit.Endpoint;
     };
     /**
-     * Protected branches are available in public repositories with GitHub Free, and in public and private repositories with GitHub Pro, GitHub Team, and GitHub Enterprise Cloud. For more information, see [GitHub's billing plans](https://help.github.com/articles/github-s-billing-plans) in the GitHub Help documentation.
+     * Protected branches are available in public repositories with GitHub Free, and in public and private repositories with GitHub Pro, GitHub Team, and GitHub Enterprise Cloud. For more information, see [GitHub's products](https://help.github.com/github/getting-started-with-github/githubs-products) in the GitHub Help documentation.
      */
     removeProtectedBranchPullRequestReviewEnforcement: {
       (
@@ -34796,7 +35330,7 @@ declare class Octokit {
       endpoint: Octokit.Endpoint;
     };
     /**
-     * Protected branches are available in public repositories with GitHub Free, and in public and private repositories with GitHub Pro, GitHub Team, and GitHub Enterprise Cloud. For more information, see [GitHub's billing plans](https://help.github.com/articles/github-s-billing-plans) in the GitHub Help documentation.
+     * Protected branches are available in public repositories with GitHub Free, and in public and private repositories with GitHub Pro, GitHub Team, and GitHub Enterprise Cloud. For more information, see [GitHub's products](https://help.github.com/github/getting-started-with-github/githubs-products) in the GitHub Help documentation.
      *
      * When authenticated with admin or owner permissions to the repository, you can use this endpoint to disable required signed commits on a branch. You must enable branch protection to require signed commits.
      */
@@ -34809,7 +35343,7 @@ declare class Octokit {
       endpoint: Octokit.Endpoint;
     };
     /**
-     * Protected branches are available in public repositories with GitHub Free, and in public and private repositories with GitHub Pro, GitHub Team, and GitHub Enterprise Cloud. For more information, see [GitHub's billing plans](https://help.github.com/articles/github-s-billing-plans) in the GitHub Help documentation.
+     * Protected branches are available in public repositories with GitHub Free, and in public and private repositories with GitHub Pro, GitHub Team, and GitHub Enterprise Cloud. For more information, see [GitHub's products](https://help.github.com/github/getting-started-with-github/githubs-products) in the GitHub Help documentation.
      */
     removeProtectedBranchRequiredStatusChecks: {
       (
@@ -34820,7 +35354,7 @@ declare class Octokit {
       endpoint: Octokit.Endpoint;
     };
     /**
-     * Protected branches are available in public repositories with GitHub Free, and in public and private repositories with GitHub Pro, GitHub Team, and GitHub Enterprise Cloud. For more information, see [GitHub's billing plans](https://help.github.com/articles/github-s-billing-plans) in the GitHub Help documentation.
+     * Protected branches are available in public repositories with GitHub Free, and in public and private repositories with GitHub Pro, GitHub Team, and GitHub Enterprise Cloud. For more information, see [GitHub's products](https://help.github.com/github/getting-started-with-github/githubs-products) in the GitHub Help documentation.
      */
     removeProtectedBranchRequiredStatusChecksContexts: {
       (
@@ -34835,7 +35369,7 @@ declare class Octokit {
       endpoint: Octokit.Endpoint;
     };
     /**
-     * Protected branches are available in public repositories with GitHub Free, and in public and private repositories with GitHub Pro, GitHub Team, and GitHub Enterprise Cloud. For more information, see [GitHub's billing plans](https://help.github.com/articles/github-s-billing-plans) in the GitHub Help documentation.
+     * Protected branches are available in public repositories with GitHub Free, and in public and private repositories with GitHub Pro, GitHub Team, and GitHub Enterprise Cloud. For more information, see [GitHub's products](https://help.github.com/github/getting-started-with-github/githubs-products) in the GitHub Help documentation.
      *
      * Disables the ability to restrict who can push to this branch.
      */
@@ -34848,9 +35382,9 @@ declare class Octokit {
       endpoint: Octokit.Endpoint;
     };
     /**
-     * Protected branches are available in public repositories with GitHub Free, and in public and private repositories with GitHub Pro, GitHub Team, and GitHub Enterprise Cloud. For more information, see [GitHub's billing plans](https://help.github.com/articles/github-s-billing-plans) in the GitHub Help documentation.
+     * Protected branches are available in public repositories with GitHub Free, and in public and private repositories with GitHub Pro, GitHub Team, and GitHub Enterprise Cloud. For more information, see [GitHub's products](https://help.github.com/github/getting-started-with-github/githubs-products) in the GitHub Help documentation.
      *
-     * Removes the ability of a team to push to this branch. If you pass the `hellcat-preview` media type, you can include child teams.
+     * Removes the ability of a team to push to this branch. You can also remove push access for child teams.
      *
      * | Type    | Description                                                                                                                                         |
      * | ------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -34869,7 +35403,7 @@ declare class Octokit {
       endpoint: Octokit.Endpoint;
     };
     /**
-     * Protected branches are available in public repositories with GitHub Free, and in public and private repositories with GitHub Pro, GitHub Team, and GitHub Enterprise Cloud. For more information, see [GitHub's billing plans](https://help.github.com/articles/github-s-billing-plans) in the GitHub Help documentation.
+     * Protected branches are available in public repositories with GitHub Free, and in public and private repositories with GitHub Pro, GitHub Team, and GitHub Enterprise Cloud. For more information, see [GitHub's products](https://help.github.com/github/getting-started-with-github/githubs-products) in the GitHub Help documentation.
      *
      * Removes the ability of a user to push to this branch.
      *
@@ -34890,7 +35424,7 @@ declare class Octokit {
       endpoint: Octokit.Endpoint;
     };
     /**
-     * Protected branches are available in public repositories with GitHub Free, and in public and private repositories with GitHub Pro, GitHub Team, and GitHub Enterprise Cloud. For more information, see [GitHub's billing plans](https://help.github.com/articles/github-s-billing-plans) in the GitHub Help documentation.
+     * Protected branches are available in public repositories with GitHub Free, and in public and private repositories with GitHub Pro, GitHub Team, and GitHub Enterprise Cloud. For more information, see [GitHub's products](https://help.github.com/github/getting-started-with-github/githubs-products) in the GitHub Help documentation.
      *
      * Replaces the list of apps that have push access to this branch. This removes all apps that previously had push access and grants push access to the new list of apps. Only installed GitHub Apps with `write` access to the `contents` permission can be added as authorized actors on a protected branch.
      *
@@ -34911,7 +35445,7 @@ declare class Octokit {
       endpoint: Octokit.Endpoint;
     };
     /**
-     * Protected branches are available in public repositories with GitHub Free, and in public and private repositories with GitHub Pro, GitHub Team, and GitHub Enterprise Cloud. For more information, see [GitHub's billing plans](https://help.github.com/articles/github-s-billing-plans) in the GitHub Help documentation.
+     * Protected branches are available in public repositories with GitHub Free, and in public and private repositories with GitHub Pro, GitHub Team, and GitHub Enterprise Cloud. For more information, see [GitHub's products](https://help.github.com/github/getting-started-with-github/githubs-products) in the GitHub Help documentation.
      */
     replaceProtectedBranchRequiredStatusChecksContexts: {
       (
@@ -34926,9 +35460,9 @@ declare class Octokit {
       endpoint: Octokit.Endpoint;
     };
     /**
-     * Protected branches are available in public repositories with GitHub Free, and in public and private repositories with GitHub Pro, GitHub Team, and GitHub Enterprise Cloud. For more information, see [GitHub's billing plans](https://help.github.com/articles/github-s-billing-plans) in the GitHub Help documentation.
+     * Protected branches are available in public repositories with GitHub Free, and in public and private repositories with GitHub Pro, GitHub Team, and GitHub Enterprise Cloud. For more information, see [GitHub's products](https://help.github.com/github/getting-started-with-github/githubs-products) in the GitHub Help documentation.
      *
-     * Replaces the list of teams that have push access to this branch. This removes all teams that previously had push access and grants push access to the new list of teams. If you pass the `hellcat-preview` media type, you can include child teams.
+     * Replaces the list of teams that have push access to this branch. This removes all teams that previously had push access and grants push access to the new list of teams. Team restrictions include child teams.
      *
      * | Type    | Description                                                                                                                                |
      * | ------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -34947,7 +35481,7 @@ declare class Octokit {
       endpoint: Octokit.Endpoint;
     };
     /**
-     * Protected branches are available in public repositories with GitHub Free, and in public and private repositories with GitHub Pro, GitHub Team, and GitHub Enterprise Cloud. For more information, see [GitHub's billing plans](https://help.github.com/articles/github-s-billing-plans) in the GitHub Help documentation.
+     * Protected branches are available in public repositories with GitHub Free, and in public and private repositories with GitHub Pro, GitHub Team, and GitHub Enterprise Cloud. For more information, see [GitHub's products](https://help.github.com/github/getting-started-with-github/githubs-products) in the GitHub Help documentation.
      *
      * Replaces the list of people that have push access to this branch. This removes all people that previously had push access and grants push access to the new list of people.
      *
@@ -35033,7 +35567,7 @@ declare class Octokit {
       endpoint: Octokit.Endpoint;
     };
     /**
-     * Protected branches are available in public repositories with GitHub Free, and in public and private repositories with GitHub Pro, GitHub Team, and GitHub Enterprise Cloud. For more information, see [GitHub's billing plans](https://help.github.com/articles/github-s-billing-plans) in the GitHub Help documentation.
+     * Protected branches are available in public repositories with GitHub Free, and in public and private repositories with GitHub Pro, GitHub Team, and GitHub Enterprise Cloud. For more information, see [GitHub's products](https://help.github.com/github/getting-started-with-github/githubs-products) in the GitHub Help documentation.
      *
      * Protecting a branch requires admin or owner permissions to the repository.
      *
@@ -35094,7 +35628,7 @@ declare class Octokit {
       endpoint: Octokit.Endpoint;
     };
     /**
-     * Protected branches are available in public repositories with GitHub Free, and in public and private repositories with GitHub Pro, GitHub Team, and GitHub Enterprise Cloud. For more information, see [GitHub's billing plans](https://help.github.com/articles/github-s-billing-plans) in the GitHub Help documentation.
+     * Protected branches are available in public repositories with GitHub Free, and in public and private repositories with GitHub Pro, GitHub Team, and GitHub Enterprise Cloud. For more information, see [GitHub's products](https://help.github.com/github/getting-started-with-github/githubs-products) in the GitHub Help documentation.
      *
      * Updating pull request review enforcement requires admin or owner permissions to the repository and branch protection to be enabled.
      *
@@ -35113,7 +35647,7 @@ declare class Octokit {
       endpoint: Octokit.Endpoint;
     };
     /**
-     * Protected branches are available in public repositories with GitHub Free, and in public and private repositories with GitHub Pro, GitHub Team, and GitHub Enterprise Cloud. For more information, see [GitHub's billing plans](https://help.github.com/articles/github-s-billing-plans) in the GitHub Help documentation.
+     * Protected branches are available in public repositories with GitHub Free, and in public and private repositories with GitHub Pro, GitHub Team, and GitHub Enterprise Cloud. For more information, see [GitHub's products](https://help.github.com/github/getting-started-with-github/githubs-products) in the GitHub Help documentation.
      *
      * Updating required status checks requires admin or owner permissions to the repository and branch protection to be enabled.
      */
@@ -35324,9 +35858,9 @@ declare class Octokit {
      *
      * We recommend using the [Add team membership API](https://developer.github.com/v3/teams/members/#add-or-update-team-membership) instead. It allows you to invite new organization members to your teams.
      *
-     * Team synchronization is available for organizations using GitHub Enterprise Cloud. For more information, see [GitHub's products](https://help.github.com/articles/github-s-products) in the GitHub Help documentation.
+     * Team synchronization is available for organizations using GitHub Enterprise Cloud. For more information, see [GitHub's products](https://help.github.com/github/getting-started-with-github/githubs-products) in the GitHub Help documentation.
      *
-     * To add someone to a team, the authenticated user must be a team maintainer in the team they're changing or be an owner of the organization that the team is associated with. The person being added to the team must be a member of the team's organization.
+     * To add someone to a team, the authenticated user must be an organization owner or a team maintainer in the team they're changing. The person being added to the team must be a member of the team's organization.
      *
      * **Note:** When you have team synchronization set up for a team with your organization's identity provider (IdP), you will see an error if you attempt to use the API for making changes to the team's membership. If you have access to manage group membership in your IdP, you can manage GitHub team membership through your identity provider, which automatically adds and removes team members in an organization. For more information, see "[Synchronizing teams between your identity provider and GitHub](https://help.github.com/articles/synchronizing-teams-between-your-identity-provider-and-github/)."
      *
@@ -35341,15 +35875,15 @@ declare class Octokit {
       endpoint: Octokit.Endpoint;
     };
     /**
-     * Team synchronization is available for organizations using GitHub Enterprise Cloud. For more information, see [GitHub's products](https://help.github.com/articles/github-s-products) in the GitHub Help documentation.
+     * Team synchronization is available for organizations using GitHub Enterprise Cloud. For more information, see [GitHub's products](https://help.github.com/github/getting-started-with-github/githubs-products) in the GitHub Help documentation.
      *
-     * If the user is already a member of the team's organization, this endpoint will add the user to the team. To add a membership between an organization member and a team, the authenticated user must be an organization owner or a maintainer of the team.
+     * If the user is already a member of the team's organization, this endpoint will add the user to the team. To add a membership between an organization member and a team, the authenticated user must be an organization owner or a team maintainer.
      *
      * **Note:** When you have team synchronization set up for a team with your organization's identity provider (IdP), you will see an error if you attempt to use the API for making changes to the team's membership. If you have access to manage group membership in your IdP, you can manage GitHub team membership through your identity provider, which automatically adds and removes team members in an organization. For more information, see "[Synchronizing teams between your identity provider and GitHub](https://help.github.com/articles/synchronizing-teams-between-your-identity-provider-and-github/)."
      *
      * If the user is unaffiliated with the team's organization, this endpoint will send an invitation to the user via email. This newly-created membership will be in the "pending" state until the user accepts the invitation, at which point the membership will transition to the "active" state and the user will be added as a member of the team. To add a membership between an unaffiliated user and a team, the authenticated user must be an organization owner.
      *
-     * If the user is already a member of the team, this endpoint will update the role of the team member's role. To update the membership of a team member, the authenticated user must be an organization owner or a maintainer of the team.
+     * If the user is already a member of the team, this endpoint will update the role of the team member's role. To update the membership of a team member, the authenticated user must be an organization owner or a team maintainer.
      */
     addOrUpdateMembership: {
       (
@@ -35372,8 +35906,6 @@ declare class Octokit {
     /**
      * To add a repository to a team or update the team's permission on a repository, the authenticated user must have admin access to the repository, and must be able to see the team. The repository must be owned by the organization, or a direct fork of a repository owned by the organization. You will get a `422 Unprocessable Entity` status if you attempt to add a repository to a team that is not owned by the organization.
      *
-     * If you pass the `hellcat-preview` media type, you can modify repository permissions of child teams.
-     *
      * Note that, if you choose not to pass any parameters, you'll need to set `Content-Length` to zero when calling out to this endpoint. For more information, see "[HTTP verbs](https://developer.github.com/v3/#http-verbs)."
      */
     addOrUpdateRepo: {
@@ -35384,7 +35916,7 @@ declare class Octokit {
       endpoint: Octokit.Endpoint;
     };
     /**
-     * **Note**: If you pass the `hellcat-preview` media type, repositories inherited through a parent team will be checked.
+     * **Note**: Repositories inherited through a parent team will also be checked.
      *
      * You can also get information about the specified repository, including what permissions the team grants on it, by passing the following custom [media type](https://developer.github.com/v3/media/) via the `Accept` header:
      */
@@ -35397,6 +35929,8 @@ declare class Octokit {
     };
     /**
      * To create a team, the authenticated user must be a member or owner of `:org`. By default, organization members can create teams. Organization owners can limit team creation to organization owners. For more information, see "[Setting team creation permissions](https://help.github.com/en/articles/setting-team-creation-permissions-in-your-organization)."
+     *
+     * When you create a new team, you automatically become a team maintainer without explicitly adding yourself to the optional array of `maintainers`. For more information, see "[About teams](https://help.github.com/en/github/setting-up-and-managing-organizations-and-teams/about-teams)" in the GitHub Help documentation.
      */
     create: {
       (
@@ -35437,9 +35971,9 @@ declare class Octokit {
       endpoint: Octokit.Endpoint;
     };
     /**
-     * To delete a team, the authenticated user must be a team maintainer or an owner of the org associated with the team.
+     * To delete a team, the authenticated user must be an organization owner or team maintainer.
      *
-     * If you are an organization owner and you pass the `hellcat-preview` media type, deleting a parent team will delete all of its child teams as well.
+     * If you are an organization owner, deleting a parent team will delete all of its child teams as well.
      */
     delete: {
       (params?: Octokit.RequestOptions & Octokit.TeamsDeleteParams): Promise<
@@ -35524,7 +36058,7 @@ declare class Octokit {
       endpoint: Octokit.Endpoint;
     };
     /**
-     * If you pass the `hellcat-preview` media type, team members will include the members of child teams.
+     * Team members will include the members of child teams.
      *
      * To get a user's membership with a team, the team must be visible to the authenticated user.
      *
@@ -35545,9 +36079,7 @@ declare class Octokit {
 
       endpoint: Octokit.Endpoint;
     };
-    /**
-     * At this time, the `hellcat-preview` media type is required to use this endpoint.
-     */
+
     listChild: {
       (params?: Octokit.RequestOptions & Octokit.TeamsListChildParams): Promise<
         Octokit.Response<Octokit.TeamsListChildResponse>
@@ -35590,7 +36122,7 @@ declare class Octokit {
       endpoint: Octokit.Endpoint;
     };
     /**
-     * If you pass the `hellcat-preview` media type, team members will include the members of child teams.
+     * Team members will include the members of child teams.
      */
     listMembers: {
       (
@@ -35611,7 +36143,7 @@ declare class Octokit {
       endpoint: Octokit.Endpoint;
     };
     /**
-     * Lists the organization projects for a team. If you pass the `hellcat-preview` media type, the response will include projects inherited from a parent team.
+     * Lists the organization projects for a team.
      */
     listProjects: {
       (
@@ -35620,9 +36152,7 @@ declare class Octokit {
 
       endpoint: Octokit.Endpoint;
     };
-    /**
-     * **Note**: If you pass the `hellcat-preview` media type, the response will include any repositories inherited through a parent team.
-     */
+
     listRepos: {
       (params?: Octokit.RequestOptions & Octokit.TeamsListReposParams): Promise<
         Octokit.Response<Octokit.TeamsListReposResponse>
@@ -35635,7 +36165,7 @@ declare class Octokit {
      *
      * We recommend using the [Remove team membership endpoint](https://developer.github.com/v3/teams/members/#remove-team-membership) instead. It allows you to remove both active and pending memberships.
      *
-     * Team synchronization is available for organizations using GitHub Enterprise Cloud. For more information, see [GitHub's products](https://help.github.com/articles/github-s-products) in the GitHub Help documentation.
+     * Team synchronization is available for organizations using GitHub Enterprise Cloud. For more information, see [GitHub's products](https://help.github.com/github/getting-started-with-github/githubs-products) in the GitHub Help documentation.
      *
      * To remove a team member, the authenticated user must have 'admin' permissions to the team or be an owner of the org that the team is associated with. Removing a team member does not delete the user, it just removes them from the team.
      *
@@ -35650,7 +36180,7 @@ declare class Octokit {
       endpoint: Octokit.Endpoint;
     };
     /**
-     * Team synchronization is available for organizations using GitHub Enterprise Cloud. For more information, see [GitHub's products](https://help.github.com/articles/github-s-products) in the GitHub Help documentation.
+     * Team synchronization is available for organizations using GitHub Enterprise Cloud. For more information, see [GitHub's products](https://help.github.com/github/getting-started-with-github/githubs-products) in the GitHub Help documentation.
      *
      * To remove a membership between a user and a team, the authenticated user must have 'admin' permissions to the team or be an owner of the organization that the team is associated with. Removing team membership does not delete the user, it just removes their membership from the team.
      *
@@ -35684,7 +36214,7 @@ declare class Octokit {
       endpoint: Octokit.Endpoint;
     };
     /**
-     * Checks whether a team has `read`, `write`, or `admin` permissions for an organization project. If you pass the `hellcat-preview` media type, the response will include projects inherited from a parent team.
+     * Checks whether a team has `read`, `write`, or `admin` permissions for an organization project. The response includes projects inherited from a parent team.
      */
     reviewProject: {
       (
@@ -35694,7 +36224,7 @@ declare class Octokit {
       endpoint: Octokit.Endpoint;
     };
     /**
-     * To edit a team, the authenticated user must either be an owner of the org that the team is associated with, or a maintainer of the team.
+     * To edit a team, the authenticated user must either be an organization owner or a team maintainer.
      *
      * **Note:** With nested teams, the `privacy` for parent teams cannot be `secret`.
      */
