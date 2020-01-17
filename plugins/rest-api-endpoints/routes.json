@@ -597,6 +597,12 @@
         "client_id": { "required": true, "type": "string" }
       },
       "url": "/applications/:client_id/grants/:access_token"
+    },
+    "revokeInstallationToken": {
+      "headers": { "accept": "application/vnd.github.gambit-preview+json" },
+      "method": "DELETE",
+      "params": {},
+      "url": "/installation/token"
     }
   },
   "checks": {
@@ -3388,32 +3394,7 @@
       },
       "url": "/repos/:owner/:repo/pulls/comments/:comment_id/reactions"
     },
-    "createForTeamDiscussion": {
-      "headers": {
-        "accept": "application/vnd.github.squirrel-girl-preview+json"
-      },
-      "method": "POST",
-      "params": {
-        "content": {
-          "enum": [
-            "+1",
-            "-1",
-            "laugh",
-            "confused",
-            "heart",
-            "hooray",
-            "rocket",
-            "eyes"
-          ],
-          "required": true,
-          "type": "string"
-        },
-        "discussion_number": { "required": true, "type": "integer" },
-        "team_id": { "required": true, "type": "integer" }
-      },
-      "url": "/teams/:team_id/discussions/:discussion_number/reactions"
-    },
-    "createForTeamDiscussionComment": {
+    "createForTeamDiscussionCommentInOrg": {
       "headers": {
         "accept": "application/vnd.github.squirrel-girl-preview+json"
       },
@@ -3435,9 +3416,36 @@
           "type": "string"
         },
         "discussion_number": { "required": true, "type": "integer" },
-        "team_id": { "required": true, "type": "integer" }
+        "org": { "required": true, "type": "string" },
+        "team_slug": { "required": true, "type": "string" }
       },
-      "url": "/teams/:team_id/discussions/:discussion_number/comments/:comment_number/reactions"
+      "url": "/orgs/:org/teams/:team_slug/discussions/:discussion_number/comments/:comment_number/reactions"
+    },
+    "createForTeamDiscussionInOrg": {
+      "headers": {
+        "accept": "application/vnd.github.squirrel-girl-preview+json"
+      },
+      "method": "POST",
+      "params": {
+        "content": {
+          "enum": [
+            "+1",
+            "-1",
+            "laugh",
+            "confused",
+            "heart",
+            "hooray",
+            "rocket",
+            "eyes"
+          ],
+          "required": true,
+          "type": "string"
+        },
+        "discussion_number": { "required": true, "type": "integer" },
+        "org": { "required": true, "type": "string" },
+        "team_slug": { "required": true, "type": "string" }
+      },
+      "url": "/orgs/:org/teams/:team_slug/discussions/:discussion_number/reactions"
     },
     "delete": {
       "headers": {
@@ -3560,33 +3568,7 @@
       },
       "url": "/repos/:owner/:repo/pulls/comments/:comment_id/reactions"
     },
-    "listForTeamDiscussion": {
-      "headers": {
-        "accept": "application/vnd.github.squirrel-girl-preview+json"
-      },
-      "method": "GET",
-      "params": {
-        "content": {
-          "enum": [
-            "+1",
-            "-1",
-            "laugh",
-            "confused",
-            "heart",
-            "hooray",
-            "rocket",
-            "eyes"
-          ],
-          "type": "string"
-        },
-        "discussion_number": { "required": true, "type": "integer" },
-        "page": { "type": "integer" },
-        "per_page": { "type": "integer" },
-        "team_id": { "required": true, "type": "integer" }
-      },
-      "url": "/teams/:team_id/discussions/:discussion_number/reactions"
-    },
-    "listForTeamDiscussionComment": {
+    "listForTeamDiscussionCommentInOrg": {
       "headers": {
         "accept": "application/vnd.github.squirrel-girl-preview+json"
       },
@@ -3607,11 +3589,39 @@
           "type": "string"
         },
         "discussion_number": { "required": true, "type": "integer" },
+        "org": { "required": true, "type": "string" },
         "page": { "type": "integer" },
         "per_page": { "type": "integer" },
-        "team_id": { "required": true, "type": "integer" }
+        "team_slug": { "required": true, "type": "string" }
       },
-      "url": "/teams/:team_id/discussions/:discussion_number/comments/:comment_number/reactions"
+      "url": "/orgs/:org/teams/:team_slug/discussions/:discussion_number/comments/:comment_number/reactions"
+    },
+    "listForTeamDiscussionInOrg": {
+      "headers": {
+        "accept": "application/vnd.github.squirrel-girl-preview+json"
+      },
+      "method": "GET",
+      "params": {
+        "content": {
+          "enum": [
+            "+1",
+            "-1",
+            "laugh",
+            "confused",
+            "heart",
+            "hooray",
+            "rocket",
+            "eyes"
+          ],
+          "type": "string"
+        },
+        "discussion_number": { "required": true, "type": "integer" },
+        "org": { "required": true, "type": "string" },
+        "page": { "type": "integer" },
+        "per_page": { "type": "integer" },
+        "team_slug": { "required": true, "type": "string" }
+      },
+      "url": "/orgs/:org/teams/:team_slug/discussions/:discussion_number/reactions"
     }
   },
   "repos": {
@@ -5412,52 +5422,47 @@
     }
   },
   "teams": {
-    "addMember": {
-      "deprecated": "octokit.teams.addMember() is deprecated, see https://developer.github.com/v3/teams/members/#add-team-member",
+    "addOrUpdateMembershipInOrg": {
       "method": "PUT",
       "params": {
-        "team_id": { "required": true, "type": "integer" },
-        "username": { "required": true, "type": "string" }
-      },
-      "url": "/teams/:team_id/members/:username"
-    },
-    "addOrUpdateMembership": {
-      "method": "PUT",
-      "params": {
+        "org": { "required": true, "type": "string" },
         "role": { "enum": ["member", "maintainer"], "type": "string" },
-        "team_id": { "required": true, "type": "integer" },
+        "team_slug": { "required": true, "type": "string" },
         "username": { "required": true, "type": "string" }
       },
-      "url": "/teams/:team_id/memberships/:username"
+      "url": "/orgs/:org/teams/:team_slug/memberships/:username"
     },
-    "addOrUpdateProject": {
+    "addOrUpdateProjectInOrg": {
       "headers": { "accept": "application/vnd.github.inertia-preview+json" },
       "method": "PUT",
       "params": {
+        "org": { "required": true, "type": "string" },
         "permission": { "enum": ["read", "write", "admin"], "type": "string" },
         "project_id": { "required": true, "type": "integer" },
-        "team_id": { "required": true, "type": "integer" }
+        "team_slug": { "required": true, "type": "string" }
       },
-      "url": "/teams/:team_id/projects/:project_id"
+      "url": "/orgs/:org/teams/:team_slug/projects/:project_id"
     },
-    "addOrUpdateRepo": {
+    "addOrUpdateRepoInOrg": {
       "method": "PUT",
       "params": {
+        "org": { "required": true, "type": "string" },
         "owner": { "required": true, "type": "string" },
         "permission": { "enum": ["pull", "push", "admin"], "type": "string" },
         "repo": { "required": true, "type": "string" },
-        "team_id": { "required": true, "type": "integer" }
+        "team_slug": { "required": true, "type": "string" }
       },
-      "url": "/teams/:team_id/repos/:owner/:repo"
+      "url": "/orgs/:org/teams/:team_slug/repos/:owner/:repo"
     },
-    "checkManagesRepo": {
+    "checkManagesRepoInOrg": {
       "method": "GET",
       "params": {
+        "org": { "required": true, "type": "string" },
         "owner": { "required": true, "type": "string" },
         "repo": { "required": true, "type": "string" },
-        "team_id": { "required": true, "type": "integer" }
+        "team_slug": { "required": true, "type": "string" }
       },
-      "url": "/teams/:team_id/repos/:owner/:repo"
+      "url": "/orgs/:org/teams/:team_slug/repos/:owner/:repo"
     },
     "create": {
       "method": "POST",
@@ -5473,51 +5478,53 @@
       },
       "url": "/orgs/:org/teams"
     },
-    "createDiscussion": {
+    "createDiscussionCommentInOrg": {
       "method": "POST",
       "params": {
         "body": { "required": true, "type": "string" },
+        "discussion_number": { "required": true, "type": "integer" },
+        "org": { "required": true, "type": "string" },
+        "team_slug": { "required": true, "type": "string" }
+      },
+      "url": "/orgs/:org/teams/:team_slug/discussions/:discussion_number/comments"
+    },
+    "createDiscussionInOrg": {
+      "method": "POST",
+      "params": {
+        "body": { "required": true, "type": "string" },
+        "org": { "required": true, "type": "string" },
         "private": { "type": "boolean" },
-        "team_id": { "required": true, "type": "integer" },
+        "team_slug": { "required": true, "type": "string" },
         "title": { "required": true, "type": "string" }
       },
-      "url": "/teams/:team_id/discussions"
+      "url": "/orgs/:org/teams/:team_slug/discussions"
     },
-    "createDiscussionComment": {
-      "method": "POST",
-      "params": {
-        "body": { "required": true, "type": "string" },
-        "discussion_number": { "required": true, "type": "integer" },
-        "team_id": { "required": true, "type": "integer" }
-      },
-      "url": "/teams/:team_id/discussions/:discussion_number/comments"
-    },
-    "delete": {
-      "method": "DELETE",
-      "params": { "team_id": { "required": true, "type": "integer" } },
-      "url": "/teams/:team_id"
-    },
-    "deleteDiscussion": {
-      "method": "DELETE",
-      "params": {
-        "discussion_number": { "required": true, "type": "integer" },
-        "team_id": { "required": true, "type": "integer" }
-      },
-      "url": "/teams/:team_id/discussions/:discussion_number"
-    },
-    "deleteDiscussionComment": {
+    "deleteDiscussionCommentInOrg": {
       "method": "DELETE",
       "params": {
         "comment_number": { "required": true, "type": "integer" },
         "discussion_number": { "required": true, "type": "integer" },
-        "team_id": { "required": true, "type": "integer" }
+        "org": { "required": true, "type": "string" },
+        "team_slug": { "required": true, "type": "string" }
       },
-      "url": "/teams/:team_id/discussions/:discussion_number/comments/:comment_number"
+      "url": "/orgs/:org/teams/:team_slug/discussions/:discussion_number/comments/:comment_number"
     },
-    "get": {
-      "method": "GET",
-      "params": { "team_id": { "required": true, "type": "integer" } },
-      "url": "/teams/:team_id"
+    "deleteDiscussionInOrg": {
+      "method": "DELETE",
+      "params": {
+        "discussion_number": { "required": true, "type": "integer" },
+        "org": { "required": true, "type": "string" },
+        "team_slug": { "required": true, "type": "string" }
+      },
+      "url": "/orgs/:org/teams/:team_slug/discussions/:discussion_number"
+    },
+    "deleteInOrg": {
+      "method": "DELETE",
+      "params": {
+        "org": { "required": true, "type": "string" },
+        "team_slug": { "required": true, "type": "string" }
+      },
+      "url": "/orgs/:org/teams/:team_slug"
     },
     "getByName": {
       "method": "GET",
@@ -5527,39 +5534,33 @@
       },
       "url": "/orgs/:org/teams/:team_slug"
     },
-    "getDiscussion": {
-      "method": "GET",
-      "params": {
-        "discussion_number": { "required": true, "type": "integer" },
-        "team_id": { "required": true, "type": "integer" }
-      },
-      "url": "/teams/:team_id/discussions/:discussion_number"
-    },
-    "getDiscussionComment": {
+    "getDiscussionCommentInOrg": {
       "method": "GET",
       "params": {
         "comment_number": { "required": true, "type": "integer" },
         "discussion_number": { "required": true, "type": "integer" },
-        "team_id": { "required": true, "type": "integer" }
+        "org": { "required": true, "type": "string" },
+        "team_slug": { "required": true, "type": "string" }
       },
-      "url": "/teams/:team_id/discussions/:discussion_number/comments/:comment_number"
+      "url": "/orgs/:org/teams/:team_slug/discussions/:discussion_number/comments/:comment_number"
     },
-    "getMember": {
-      "deprecated": "octokit.teams.getMember() is deprecated, see https://developer.github.com/v3/teams/members/#get-team-member",
+    "getDiscussionInOrg": {
       "method": "GET",
       "params": {
-        "team_id": { "required": true, "type": "integer" },
-        "username": { "required": true, "type": "string" }
+        "discussion_number": { "required": true, "type": "integer" },
+        "org": { "required": true, "type": "string" },
+        "team_slug": { "required": true, "type": "string" }
       },
-      "url": "/teams/:team_id/members/:username"
+      "url": "/orgs/:org/teams/:team_slug/discussions/:discussion_number"
     },
-    "getMembership": {
+    "getMembershipInOrg": {
       "method": "GET",
       "params": {
-        "team_id": { "required": true, "type": "integer" },
+        "org": { "required": true, "type": "string" },
+        "team_slug": { "required": true, "type": "string" },
         "username": { "required": true, "type": "string" }
       },
-      "url": "/teams/:team_id/memberships/:username"
+      "url": "/orgs/:org/teams/:team_slug/memberships/:username"
     },
     "list": {
       "method": "GET",
@@ -5570,35 +5571,38 @@
       },
       "url": "/orgs/:org/teams"
     },
-    "listChild": {
+    "listChildInOrg": {
       "method": "GET",
       "params": {
+        "org": { "required": true, "type": "string" },
         "page": { "type": "integer" },
         "per_page": { "type": "integer" },
-        "team_id": { "required": true, "type": "integer" }
+        "team_slug": { "required": true, "type": "string" }
       },
-      "url": "/teams/:team_id/teams"
+      "url": "/orgs/:org/teams/:team_slug/teams"
     },
-    "listDiscussionComments": {
+    "listDiscussionCommentsInOrg": {
       "method": "GET",
       "params": {
         "direction": { "enum": ["asc", "desc"], "type": "string" },
         "discussion_number": { "required": true, "type": "integer" },
+        "org": { "required": true, "type": "string" },
         "page": { "type": "integer" },
         "per_page": { "type": "integer" },
-        "team_id": { "required": true, "type": "integer" }
+        "team_slug": { "required": true, "type": "string" }
       },
-      "url": "/teams/:team_id/discussions/:discussion_number/comments"
+      "url": "/orgs/:org/teams/:team_slug/discussions/:discussion_number/comments"
     },
-    "listDiscussions": {
+    "listDiscussionsInOrg": {
       "method": "GET",
       "params": {
         "direction": { "enum": ["asc", "desc"], "type": "string" },
+        "org": { "required": true, "type": "string" },
         "page": { "type": "integer" },
         "per_page": { "type": "integer" },
-        "team_id": { "required": true, "type": "integer" }
+        "team_slug": { "required": true, "type": "string" }
       },
-      "url": "/teams/:team_id/discussions"
+      "url": "/orgs/:org/teams/:team_slug/discussions"
     },
     "listForAuthenticatedUser": {
       "method": "GET",
@@ -5608,118 +5612,120 @@
       },
       "url": "/user/teams"
     },
-    "listMembers": {
+    "listMembersInOrg": {
       "method": "GET",
       "params": {
+        "org": { "required": true, "type": "string" },
         "page": { "type": "integer" },
         "per_page": { "type": "integer" },
         "role": { "enum": ["member", "maintainer", "all"], "type": "string" },
-        "team_id": { "required": true, "type": "integer" }
+        "team_slug": { "required": true, "type": "string" }
       },
-      "url": "/teams/:team_id/members"
+      "url": "/orgs/:org/teams/:team_slug/members"
     },
-    "listPendingInvitations": {
+    "listPendingInvitationsInOrg": {
       "method": "GET",
       "params": {
+        "org": { "required": true, "type": "string" },
         "page": { "type": "integer" },
         "per_page": { "type": "integer" },
-        "team_id": { "required": true, "type": "integer" }
+        "team_slug": { "required": true, "type": "string" }
       },
-      "url": "/teams/:team_id/invitations"
+      "url": "/orgs/:org/teams/:team_slug/invitations"
     },
-    "listProjects": {
+    "listProjectsInOrg": {
       "headers": { "accept": "application/vnd.github.inertia-preview+json" },
       "method": "GET",
       "params": {
+        "org": { "required": true, "type": "string" },
         "page": { "type": "integer" },
         "per_page": { "type": "integer" },
-        "team_id": { "required": true, "type": "integer" }
+        "team_slug": { "required": true, "type": "string" }
       },
-      "url": "/teams/:team_id/projects"
+      "url": "/orgs/:org/teams/:team_slug/projects"
     },
-    "listRepos": {
+    "listReposInOrg": {
       "method": "GET",
       "params": {
+        "org": { "required": true, "type": "string" },
         "page": { "type": "integer" },
         "per_page": { "type": "integer" },
-        "team_id": { "required": true, "type": "integer" }
+        "team_slug": { "required": true, "type": "string" }
       },
-      "url": "/teams/:team_id/repos"
+      "url": "/orgs/:org/teams/:team_slug/repos"
     },
-    "removeMember": {
-      "deprecated": "octokit.teams.removeMember() is deprecated, see https://developer.github.com/v3/teams/members/#remove-team-member",
+    "removeMembershipInOrg": {
       "method": "DELETE",
       "params": {
-        "team_id": { "required": true, "type": "integer" },
+        "org": { "required": true, "type": "string" },
+        "team_slug": { "required": true, "type": "string" },
         "username": { "required": true, "type": "string" }
       },
-      "url": "/teams/:team_id/members/:username"
+      "url": "/orgs/:org/teams/:team_slug/memberships/:username"
     },
-    "removeMembership": {
+    "removeProjectInOrg": {
       "method": "DELETE",
       "params": {
-        "team_id": { "required": true, "type": "integer" },
-        "username": { "required": true, "type": "string" }
-      },
-      "url": "/teams/:team_id/memberships/:username"
-    },
-    "removeProject": {
-      "method": "DELETE",
-      "params": {
+        "org": { "required": true, "type": "string" },
         "project_id": { "required": true, "type": "integer" },
-        "team_id": { "required": true, "type": "integer" }
+        "team_slug": { "required": true, "type": "string" }
       },
-      "url": "/teams/:team_id/projects/:project_id"
+      "url": "/orgs/:org/teams/:team_slug/projects/:project_id"
     },
-    "removeRepo": {
+    "removeRepoInOrg": {
       "method": "DELETE",
       "params": {
+        "org": { "required": true, "type": "string" },
         "owner": { "required": true, "type": "string" },
         "repo": { "required": true, "type": "string" },
-        "team_id": { "required": true, "type": "integer" }
+        "team_slug": { "required": true, "type": "string" }
       },
-      "url": "/teams/:team_id/repos/:owner/:repo"
+      "url": "/orgs/:org/teams/:team_slug/repos/:owner/:repo"
     },
-    "reviewProject": {
+    "reviewProjectInOrg": {
       "headers": { "accept": "application/vnd.github.inertia-preview+json" },
       "method": "GET",
       "params": {
+        "org": { "required": true, "type": "string" },
         "project_id": { "required": true, "type": "integer" },
-        "team_id": { "required": true, "type": "integer" }
+        "team_slug": { "required": true, "type": "string" }
       },
-      "url": "/teams/:team_id/projects/:project_id"
+      "url": "/orgs/:org/teams/:team_slug/projects/:project_id"
     },
-    "update": {
-      "method": "PATCH",
-      "params": {
-        "description": { "type": "string" },
-        "name": { "required": true, "type": "string" },
-        "parent_team_id": { "type": "integer" },
-        "permission": { "enum": ["pull", "push", "admin"], "type": "string" },
-        "privacy": { "enum": ["secret", "closed"], "type": "string" },
-        "team_id": { "required": true, "type": "integer" }
-      },
-      "url": "/teams/:team_id"
-    },
-    "updateDiscussion": {
-      "method": "PATCH",
-      "params": {
-        "body": { "type": "string" },
-        "discussion_number": { "required": true, "type": "integer" },
-        "team_id": { "required": true, "type": "integer" },
-        "title": { "type": "string" }
-      },
-      "url": "/teams/:team_id/discussions/:discussion_number"
-    },
-    "updateDiscussionComment": {
+    "updateDiscussionCommentInOrg": {
       "method": "PATCH",
       "params": {
         "body": { "required": true, "type": "string" },
         "comment_number": { "required": true, "type": "integer" },
         "discussion_number": { "required": true, "type": "integer" },
-        "team_id": { "required": true, "type": "integer" }
+        "org": { "required": true, "type": "string" },
+        "team_slug": { "required": true, "type": "string" }
       },
-      "url": "/teams/:team_id/discussions/:discussion_number/comments/:comment_number"
+      "url": "/orgs/:org/teams/:team_slug/discussions/:discussion_number/comments/:comment_number"
+    },
+    "updateDiscussionInOrg": {
+      "method": "PATCH",
+      "params": {
+        "body": { "type": "string" },
+        "discussion_number": { "required": true, "type": "integer" },
+        "org": { "required": true, "type": "string" },
+        "team_slug": { "required": true, "type": "string" },
+        "title": { "type": "string" }
+      },
+      "url": "/orgs/:org/teams/:team_slug/discussions/:discussion_number"
+    },
+    "updateInOrg": {
+      "method": "PATCH",
+      "params": {
+        "description": { "type": "string" },
+        "name": { "required": true, "type": "string" },
+        "org": { "required": true, "type": "string" },
+        "parent_team_id": { "type": "integer" },
+        "permission": { "enum": ["pull", "push", "admin"], "type": "string" },
+        "privacy": { "enum": ["secret", "closed"], "type": "string" },
+        "team_slug": { "required": true, "type": "string" }
+      },
+      "url": "/orgs/:org/teams/:team_slug"
     }
   },
   "users": {

@@ -724,102 +724,7 @@ declare namespace Octokit {
     verified: boolean;
     visibility: string | null;
   };
-  type TeamsUpdateDiscussionCommentResponseReactions = {
-    "+1": number;
-    "-1": number;
-    confused: number;
-    heart: number;
-    hooray: number;
-    laugh: number;
-    total_count: number;
-    url: string;
-  };
-  type TeamsUpdateDiscussionCommentResponseAuthor = {
-    avatar_url: string;
-    events_url: string;
-    followers_url: string;
-    following_url: string;
-    gists_url: string;
-    gravatar_id: string;
-    html_url: string;
-    id: number;
-    login: string;
-    node_id: string;
-    organizations_url: string;
-    received_events_url: string;
-    repos_url: string;
-    site_admin: boolean;
-    starred_url: string;
-    subscriptions_url: string;
-    type: string;
-    url: string;
-  };
-  type TeamsUpdateDiscussionCommentResponse = {
-    author: TeamsUpdateDiscussionCommentResponseAuthor;
-    body: string;
-    body_html: string;
-    body_version: string;
-    created_at: string;
-    discussion_url: string;
-    html_url: string;
-    last_edited_at: string;
-    node_id: string;
-    number: number;
-    reactions: TeamsUpdateDiscussionCommentResponseReactions;
-    updated_at: string;
-    url: string;
-  };
-  type TeamsUpdateDiscussionResponseReactions = {
-    "+1": number;
-    "-1": number;
-    confused: number;
-    heart: number;
-    hooray: number;
-    laugh: number;
-    total_count: number;
-    url: string;
-  };
-  type TeamsUpdateDiscussionResponseAuthor = {
-    avatar_url: string;
-    events_url: string;
-    followers_url: string;
-    following_url: string;
-    gists_url: string;
-    gravatar_id: string;
-    html_url: string;
-    id: number;
-    login: string;
-    node_id: string;
-    organizations_url: string;
-    received_events_url: string;
-    repos_url: string;
-    site_admin: boolean;
-    starred_url: string;
-    subscriptions_url: string;
-    type: string;
-    url: string;
-  };
-  type TeamsUpdateDiscussionResponse = {
-    author: TeamsUpdateDiscussionResponseAuthor;
-    body: string;
-    body_html: string;
-    body_version: string;
-    comments_count: number;
-    comments_url: string;
-    created_at: string;
-    html_url: string;
-    last_edited_at: string;
-    node_id: string;
-    number: number;
-    pinned: boolean;
-    private: boolean;
-    reactions: TeamsUpdateDiscussionResponseReactions;
-    team_url: string;
-    title: string;
-    updated_at: string;
-    url: string;
-  };
-  type TeamsUpdateResponseOrganization = {
+  type TeamsUpdateInOrgResponseOrganization = {
     avatar_url: string;
     blog: string;
     company: string;
@@ -848,7 +753,7 @@ declare namespace Octokit {
     type: string;
     url: string;
   };
-  type TeamsUpdateResponse = {
+  type TeamsUpdateInOrgResponse = {
     created_at: string;
     description: string;
     html_url: string;
@@ -857,7 +762,7 @@ declare namespace Octokit {
     members_url: string;
     name: string;
     node_id: string;
-    organization: TeamsUpdateResponseOrganization;
+    organization: TeamsUpdateInOrgResponseOrganization;
     parent: null;
     permission: string;
     privacy: string;
@@ -867,12 +772,17 @@ declare namespace Octokit {
     updated_at: string;
     url: string;
   };
-  type TeamsReviewProjectResponsePermissions = {
-    admin: boolean;
-    read: boolean;
-    write: boolean;
+  type TeamsUpdateDiscussionInOrgResponseReactions = {
+    "+1": number;
+    "-1": number;
+    confused: number;
+    heart: number;
+    hooray: number;
+    laugh: number;
+    total_count: number;
+    url: string;
   };
-  type TeamsReviewProjectResponseCreator = {
+  type TeamsUpdateDiscussionInOrgResponseAuthor = {
     avatar_url: string;
     events_url: string;
     followers_url: string;
@@ -892,11 +802,101 @@ declare namespace Octokit {
     type: string;
     url: string;
   };
-  type TeamsReviewProjectResponse = {
+  type TeamsUpdateDiscussionInOrgResponse = {
+    author: TeamsUpdateDiscussionInOrgResponseAuthor;
+    body: string;
+    body_html: string;
+    body_version: string;
+    comments_count: number;
+    comments_url: string;
+    created_at: string;
+    html_url: string;
+    last_edited_at: string;
+    node_id: string;
+    number: number;
+    pinned: boolean;
+    private: boolean;
+    reactions: TeamsUpdateDiscussionInOrgResponseReactions;
+    team_url: string;
+    title: string;
+    updated_at: string;
+    url: string;
+  };
+  type TeamsUpdateDiscussionCommentInOrgResponseReactions = {
+    "+1": number;
+    "-1": number;
+    confused: number;
+    heart: number;
+    hooray: number;
+    laugh: number;
+    total_count: number;
+    url: string;
+  };
+  type TeamsUpdateDiscussionCommentInOrgResponseAuthor = {
+    avatar_url: string;
+    events_url: string;
+    followers_url: string;
+    following_url: string;
+    gists_url: string;
+    gravatar_id: string;
+    html_url: string;
+    id: number;
+    login: string;
+    node_id: string;
+    organizations_url: string;
+    received_events_url: string;
+    repos_url: string;
+    site_admin: boolean;
+    starred_url: string;
+    subscriptions_url: string;
+    type: string;
+    url: string;
+  };
+  type TeamsUpdateDiscussionCommentInOrgResponse = {
+    author: TeamsUpdateDiscussionCommentInOrgResponseAuthor;
+    body: string;
+    body_html: string;
+    body_version: string;
+    created_at: string;
+    discussion_url: string;
+    html_url: string;
+    last_edited_at: string;
+    node_id: string;
+    number: number;
+    reactions: TeamsUpdateDiscussionCommentInOrgResponseReactions;
+    updated_at: string;
+    url: string;
+  };
+  type TeamsReviewProjectInOrgResponsePermissions = {
+    admin: boolean;
+    read: boolean;
+    write: boolean;
+  };
+  type TeamsReviewProjectInOrgResponseCreator = {
+    avatar_url: string;
+    events_url: string;
+    followers_url: string;
+    following_url: string;
+    gists_url: string;
+    gravatar_id: string;
+    html_url: string;
+    id: number;
+    login: string;
+    node_id: string;
+    organizations_url: string;
+    received_events_url: string;
+    repos_url: string;
+    site_admin: boolean;
+    starred_url: string;
+    subscriptions_url: string;
+    type: string;
+    url: string;
+  };
+  type TeamsReviewProjectInOrgResponse = {
     body: string;
     columns_url: string;
     created_at: string;
-    creator: TeamsReviewProjectResponseCreator;
+    creator: TeamsReviewProjectInOrgResponseCreator;
     html_url: string;
     id: number;
     name: string;
@@ -904,18 +904,18 @@ declare namespace Octokit {
     number: number;
     organization_permission: string;
     owner_url: string;
-    permissions: TeamsReviewProjectResponsePermissions;
+    permissions: TeamsReviewProjectInOrgResponsePermissions;
     private: boolean;
     state: string;
     updated_at: string;
     url: string;
   };
-  type TeamsListReposResponseItemPermissions = {
+  type TeamsListReposInOrgResponseItemPermissions = {
     admin: boolean;
     pull: boolean;
     push: boolean;
   };
-  type TeamsListReposResponseItemOwner = {
+  type TeamsListReposInOrgResponseItemOwner = {
     avatar_url: string;
     events_url: string;
     followers_url: string;
@@ -935,14 +935,14 @@ declare namespace Octokit {
     type: string;
     url: string;
   };
-  type TeamsListReposResponseItemLicense = {
+  type TeamsListReposInOrgResponseItemLicense = {
     key: string;
     name: string;
     node_id: string;
     spdx_id: string;
     url: string;
   };
-  type TeamsListReposResponseItem = {
+  type TeamsListReposInOrgResponseItem = {
     archive_url: string;
     archived: boolean;
     assignees_url: string;
@@ -987,7 +987,7 @@ declare namespace Octokit {
     labels_url: string;
     language: null;
     languages_url: string;
-    license: TeamsListReposResponseItemLicense;
+    license: TeamsListReposInOrgResponseItemLicense;
     merges_url: string;
     milestones_url: string;
     mirror_url: string;
@@ -996,8 +996,8 @@ declare namespace Octokit {
     node_id: string;
     notifications_url: string;
     open_issues_count: number;
-    owner: TeamsListReposResponseItemOwner;
-    permissions: TeamsListReposResponseItemPermissions;
+    owner: TeamsListReposInOrgResponseItemOwner;
+    permissions: TeamsListReposInOrgResponseItemPermissions;
     private: boolean;
     pulls_url: string;
     pushed_at: string;
@@ -1022,12 +1022,12 @@ declare namespace Octokit {
     visibility: string;
     watchers_count: number;
   };
-  type TeamsListProjectsResponseItemPermissions = {
+  type TeamsListProjectsInOrgResponseItemPermissions = {
     admin: boolean;
     read: boolean;
     write: boolean;
   };
-  type TeamsListProjectsResponseItemCreator = {
+  type TeamsListProjectsInOrgResponseItemCreator = {
     avatar_url: string;
     events_url: string;
     followers_url: string;
@@ -1047,11 +1047,11 @@ declare namespace Octokit {
     type: string;
     url: string;
   };
-  type TeamsListProjectsResponseItem = {
+  type TeamsListProjectsInOrgResponseItem = {
     body: string;
     columns_url: string;
     created_at: string;
-    creator: TeamsListProjectsResponseItemCreator;
+    creator: TeamsListProjectsInOrgResponseItemCreator;
     html_url: string;
     id: number;
     name: string;
@@ -1059,13 +1059,13 @@ declare namespace Octokit {
     number: number;
     organization_permission: string;
     owner_url: string;
-    permissions: TeamsListProjectsResponseItemPermissions;
+    permissions: TeamsListProjectsInOrgResponseItemPermissions;
     private: boolean;
     state: string;
     updated_at: string;
     url: string;
   };
-  type TeamsListPendingInvitationsResponseItemInviter = {
+  type TeamsListPendingInvitationsInOrgResponseItemInviter = {
     avatar_url: string;
     events_url: string;
     followers_url: string;
@@ -1085,17 +1085,17 @@ declare namespace Octokit {
     type: string;
     url: string;
   };
-  type TeamsListPendingInvitationsResponseItem = {
+  type TeamsListPendingInvitationsInOrgResponseItem = {
     created_at: string;
     email: string;
     id: number;
     invitation_team_url: string;
-    inviter: TeamsListPendingInvitationsResponseItemInviter;
+    inviter: TeamsListPendingInvitationsInOrgResponseItemInviter;
     login: string;
     role: string;
     team_count: number;
   };
-  type TeamsListMembersResponseItem = {
+  type TeamsListMembersInOrgResponseItem = {
     avatar_url: string;
     events_url: string;
     followers_url: string;
@@ -1163,7 +1163,7 @@ declare namespace Octokit {
     updated_at: string;
     url: string;
   };
-  type TeamsListDiscussionsResponseItemReactions = {
+  type TeamsListDiscussionsInOrgResponseItemReactions = {
     "+1": number;
     "-1": number;
     confused: number;
@@ -1173,7 +1173,7 @@ declare namespace Octokit {
     total_count: number;
     url: string;
   };
-  type TeamsListDiscussionsResponseItemAuthor = {
+  type TeamsListDiscussionsInOrgResponseItemAuthor = {
     avatar_url: string;
     events_url: string;
     followers_url: string;
@@ -1193,8 +1193,8 @@ declare namespace Octokit {
     type: string;
     url: string;
   };
-  type TeamsListDiscussionsResponseItem = {
-    author: TeamsListDiscussionsResponseItemAuthor;
+  type TeamsListDiscussionsInOrgResponseItem = {
+    author: TeamsListDiscussionsInOrgResponseItemAuthor;
     body: string;
     body_html: string;
     body_version: string;
@@ -1207,13 +1207,13 @@ declare namespace Octokit {
     number: number;
     pinned: boolean;
     private: boolean;
-    reactions: TeamsListDiscussionsResponseItemReactions;
+    reactions: TeamsListDiscussionsInOrgResponseItemReactions;
     team_url: string;
     title: string;
     updated_at: string;
     url: string;
   };
-  type TeamsListDiscussionCommentsResponseItemReactions = {
+  type TeamsListDiscussionCommentsInOrgResponseItemReactions = {
     "+1": number;
     "-1": number;
     confused: number;
@@ -1223,7 +1223,7 @@ declare namespace Octokit {
     total_count: number;
     url: string;
   };
-  type TeamsListDiscussionCommentsResponseItemAuthor = {
+  type TeamsListDiscussionCommentsInOrgResponseItemAuthor = {
     avatar_url: string;
     events_url: string;
     followers_url: string;
@@ -1243,8 +1243,8 @@ declare namespace Octokit {
     type: string;
     url: string;
   };
-  type TeamsListDiscussionCommentsResponseItem = {
-    author: TeamsListDiscussionCommentsResponseItemAuthor;
+  type TeamsListDiscussionCommentsInOrgResponseItem = {
+    author: TeamsListDiscussionCommentsInOrgResponseItemAuthor;
     body: string;
     body_html: string;
     body_version: string;
@@ -1254,11 +1254,11 @@ declare namespace Octokit {
     last_edited_at: null;
     node_id: string;
     number: number;
-    reactions: TeamsListDiscussionCommentsResponseItemReactions;
+    reactions: TeamsListDiscussionCommentsInOrgResponseItemReactions;
     updated_at: string;
     url: string;
   };
-  type TeamsListChildResponseItemParent = {
+  type TeamsListChildInOrgResponseItemParent = {
     description: string;
     html_url: string;
     id: number;
@@ -1271,13 +1271,13 @@ declare namespace Octokit {
     slug: string;
     url: string;
   };
-  type TeamsListChildResponseItem = {
+  type TeamsListChildInOrgResponseItem = {
     description: string;
     id: number;
     members_url: string;
     name: string;
     node_id: string;
-    parent: TeamsListChildResponseItemParent;
+    parent: TeamsListChildInOrgResponseItemParent;
     permission: string;
     privacy: string;
     repositories_url: string;
@@ -1298,12 +1298,12 @@ declare namespace Octokit {
     slug: string;
     url: string;
   };
-  type TeamsGetMembershipResponse = {
+  type TeamsGetMembershipInOrgResponse = {
     role: string;
     state: string;
     url: string;
   };
-  type TeamsGetDiscussionCommentResponseReactions = {
+  type TeamsGetDiscussionInOrgResponseReactions = {
     "+1": number;
     "-1": number;
     confused: number;
@@ -1313,7 +1313,7 @@ declare namespace Octokit {
     total_count: number;
     url: string;
   };
-  type TeamsGetDiscussionCommentResponseAuthor = {
+  type TeamsGetDiscussionInOrgResponseAuthor = {
     avatar_url: string;
     events_url: string;
     followers_url: string;
@@ -1333,53 +1333,8 @@ declare namespace Octokit {
     type: string;
     url: string;
   };
-  type TeamsGetDiscussionCommentResponse = {
-    author: TeamsGetDiscussionCommentResponseAuthor;
-    body: string;
-    body_html: string;
-    body_version: string;
-    created_at: string;
-    discussion_url: string;
-    html_url: string;
-    last_edited_at: null;
-    node_id: string;
-    number: number;
-    reactions: TeamsGetDiscussionCommentResponseReactions;
-    updated_at: string;
-    url: string;
-  };
-  type TeamsGetDiscussionResponseReactions = {
-    "+1": number;
-    "-1": number;
-    confused: number;
-    heart: number;
-    hooray: number;
-    laugh: number;
-    total_count: number;
-    url: string;
-  };
-  type TeamsGetDiscussionResponseAuthor = {
-    avatar_url: string;
-    events_url: string;
-    followers_url: string;
-    following_url: string;
-    gists_url: string;
-    gravatar_id: string;
-    html_url: string;
-    id: number;
-    login: string;
-    node_id: string;
-    organizations_url: string;
-    received_events_url: string;
-    repos_url: string;
-    site_admin: boolean;
-    starred_url: string;
-    subscriptions_url: string;
-    type: string;
-    url: string;
-  };
-  type TeamsGetDiscussionResponse = {
-    author: TeamsGetDiscussionResponseAuthor;
+  type TeamsGetDiscussionInOrgResponse = {
+    author: TeamsGetDiscussionInOrgResponseAuthor;
     body: string;
     body_html: string;
     body_version: string;
@@ -1392,9 +1347,54 @@ declare namespace Octokit {
     number: number;
     pinned: boolean;
     private: boolean;
-    reactions: TeamsGetDiscussionResponseReactions;
+    reactions: TeamsGetDiscussionInOrgResponseReactions;
     team_url: string;
     title: string;
+    updated_at: string;
+    url: string;
+  };
+  type TeamsGetDiscussionCommentInOrgResponseReactions = {
+    "+1": number;
+    "-1": number;
+    confused: number;
+    heart: number;
+    hooray: number;
+    laugh: number;
+    total_count: number;
+    url: string;
+  };
+  type TeamsGetDiscussionCommentInOrgResponseAuthor = {
+    avatar_url: string;
+    events_url: string;
+    followers_url: string;
+    following_url: string;
+    gists_url: string;
+    gravatar_id: string;
+    html_url: string;
+    id: number;
+    login: string;
+    node_id: string;
+    organizations_url: string;
+    received_events_url: string;
+    repos_url: string;
+    site_admin: boolean;
+    starred_url: string;
+    subscriptions_url: string;
+    type: string;
+    url: string;
+  };
+  type TeamsGetDiscussionCommentInOrgResponse = {
+    author: TeamsGetDiscussionCommentInOrgResponseAuthor;
+    body: string;
+    body_html: string;
+    body_version: string;
+    created_at: string;
+    discussion_url: string;
+    html_url: string;
+    last_edited_at: null;
+    node_id: string;
+    number: number;
+    reactions: TeamsGetDiscussionCommentInOrgResponseReactions;
     updated_at: string;
     url: string;
   };
@@ -1446,55 +1446,7 @@ declare namespace Octokit {
     updated_at: string;
     url: string;
   };
-  type TeamsGetResponseOrganization = {
-    avatar_url: string;
-    blog: string;
-    company: string;
-    created_at: string;
-    description: string;
-    email: string;
-    events_url: string;
-    followers: number;
-    following: number;
-    has_organization_projects: boolean;
-    has_repository_projects: boolean;
-    hooks_url: string;
-    html_url: string;
-    id: number;
-    is_verified: boolean;
-    issues_url: string;
-    location: string;
-    login: string;
-    members_url: string;
-    name: string;
-    node_id: string;
-    public_gists: number;
-    public_members_url: string;
-    public_repos: number;
-    repos_url: string;
-    type: string;
-    url: string;
-  };
-  type TeamsGetResponse = {
-    created_at: string;
-    description: string;
-    html_url: string;
-    id: number;
-    members_count: number;
-    members_url: string;
-    name: string;
-    node_id: string;
-    organization: TeamsGetResponseOrganization;
-    parent: null;
-    permission: string;
-    privacy: string;
-    repos_count: number;
-    repositories_url: string;
-    slug: string;
-    updated_at: string;
-    url: string;
-  };
-  type TeamsCreateDiscussionCommentResponseReactions = {
+  type TeamsCreateDiscussionInOrgResponseReactions = {
     "+1": number;
     "-1": number;
     confused: number;
@@ -1504,7 +1456,7 @@ declare namespace Octokit {
     total_count: number;
     url: string;
   };
-  type TeamsCreateDiscussionCommentResponseAuthor = {
+  type TeamsCreateDiscussionInOrgResponseAuthor = {
     avatar_url: string;
     events_url: string;
     followers_url: string;
@@ -1524,53 +1476,8 @@ declare namespace Octokit {
     type: string;
     url: string;
   };
-  type TeamsCreateDiscussionCommentResponse = {
-    author: TeamsCreateDiscussionCommentResponseAuthor;
-    body: string;
-    body_html: string;
-    body_version: string;
-    created_at: string;
-    discussion_url: string;
-    html_url: string;
-    last_edited_at: null;
-    node_id: string;
-    number: number;
-    reactions: TeamsCreateDiscussionCommentResponseReactions;
-    updated_at: string;
-    url: string;
-  };
-  type TeamsCreateDiscussionResponseReactions = {
-    "+1": number;
-    "-1": number;
-    confused: number;
-    heart: number;
-    hooray: number;
-    laugh: number;
-    total_count: number;
-    url: string;
-  };
-  type TeamsCreateDiscussionResponseAuthor = {
-    avatar_url: string;
-    events_url: string;
-    followers_url: string;
-    following_url: string;
-    gists_url: string;
-    gravatar_id: string;
-    html_url: string;
-    id: number;
-    login: string;
-    node_id: string;
-    organizations_url: string;
-    received_events_url: string;
-    repos_url: string;
-    site_admin: boolean;
-    starred_url: string;
-    subscriptions_url: string;
-    type: string;
-    url: string;
-  };
-  type TeamsCreateDiscussionResponse = {
-    author: TeamsCreateDiscussionResponseAuthor;
+  type TeamsCreateDiscussionInOrgResponse = {
+    author: TeamsCreateDiscussionInOrgResponseAuthor;
     body: string;
     body_html: string;
     body_version: string;
@@ -1583,9 +1490,54 @@ declare namespace Octokit {
     number: number;
     pinned: boolean;
     private: boolean;
-    reactions: TeamsCreateDiscussionResponseReactions;
+    reactions: TeamsCreateDiscussionInOrgResponseReactions;
     team_url: string;
     title: string;
+    updated_at: string;
+    url: string;
+  };
+  type TeamsCreateDiscussionCommentInOrgResponseReactions = {
+    "+1": number;
+    "-1": number;
+    confused: number;
+    heart: number;
+    hooray: number;
+    laugh: number;
+    total_count: number;
+    url: string;
+  };
+  type TeamsCreateDiscussionCommentInOrgResponseAuthor = {
+    avatar_url: string;
+    events_url: string;
+    followers_url: string;
+    following_url: string;
+    gists_url: string;
+    gravatar_id: string;
+    html_url: string;
+    id: number;
+    login: string;
+    node_id: string;
+    organizations_url: string;
+    received_events_url: string;
+    repos_url: string;
+    site_admin: boolean;
+    starred_url: string;
+    subscriptions_url: string;
+    type: string;
+    url: string;
+  };
+  type TeamsCreateDiscussionCommentInOrgResponse = {
+    author: TeamsCreateDiscussionCommentInOrgResponseAuthor;
+    body: string;
+    body_html: string;
+    body_version: string;
+    created_at: string;
+    discussion_url: string;
+    html_url: string;
+    last_edited_at: null;
+    node_id: string;
+    number: number;
+    reactions: TeamsCreateDiscussionCommentInOrgResponseReactions;
     updated_at: string;
     url: string;
   };
@@ -1637,12 +1589,12 @@ declare namespace Octokit {
     updated_at: string;
     url: string;
   };
-  type TeamsCheckManagesRepoResponsePermissions = {
+  type TeamsCheckManagesRepoInOrgResponsePermissions = {
     admin: boolean;
     pull: boolean;
     push: boolean;
   };
-  type TeamsCheckManagesRepoResponseOwner = {
+  type TeamsCheckManagesRepoInOrgResponseOwner = {
     avatar_url: string;
     events_url: string;
     followers_url: string;
@@ -1662,7 +1614,7 @@ declare namespace Octokit {
     type: string;
     url: string;
   };
-  type TeamsCheckManagesRepoResponse = {
+  type TeamsCheckManagesRepoInOrgResponse = {
     allow_merge_commit: boolean;
     allow_rebase_merge: boolean;
     allow_squash_merge: boolean;
@@ -1718,8 +1670,8 @@ declare namespace Octokit {
     node_id: string;
     notifications_url: string;
     open_issues_count: number;
-    owner: TeamsCheckManagesRepoResponseOwner;
-    permissions: TeamsCheckManagesRepoResponsePermissions;
+    owner: TeamsCheckManagesRepoInOrgResponseOwner;
+    permissions: TeamsCheckManagesRepoInOrgResponsePermissions;
     private: boolean;
     pulls_url: string;
     pushed_at: string;
@@ -1744,23 +1696,14 @@ declare namespace Octokit {
     visibility: string;
     watchers_count: number;
   };
-  type TeamsAddOrUpdateProjectResponse = {
+  type TeamsAddOrUpdateProjectInOrgResponse = {
     documentation_url: string;
     message: string;
   };
-  type TeamsAddOrUpdateMembershipResponse = {
+  type TeamsAddOrUpdateMembershipInOrgResponse = {
     role: string;
     state: string;
     url: string;
-  };
-  type TeamsAddMemberResponseErrorsItem = {
-    code: string;
-    field: string;
-    resource: string;
-  };
-  type TeamsAddMemberResponse = {
-    errors: Array<TeamsAddMemberResponseErrorsItem>;
-    message: string;
   };
   type SearchUsersResponseItemsItem = {
     avatar_url: string;
@@ -8158,7 +8101,7 @@ declare namespace Octokit {
     repository: ReposAddCollaboratorResponseRepository;
     url: string;
   };
-  type ReactionsListForTeamDiscussionCommentResponseItemUser = {
+  type ReactionsListForTeamDiscussionInOrgResponseItemUser = {
     avatar_url: string;
     events_url: string;
     followers_url: string;
@@ -8178,14 +8121,14 @@ declare namespace Octokit {
     type: string;
     url: string;
   };
-  type ReactionsListForTeamDiscussionCommentResponseItem = {
+  type ReactionsListForTeamDiscussionInOrgResponseItem = {
     content: string;
     created_at: string;
     id: number;
     node_id: string;
-    user: ReactionsListForTeamDiscussionCommentResponseItemUser;
+    user: ReactionsListForTeamDiscussionInOrgResponseItemUser;
   };
-  type ReactionsListForTeamDiscussionResponseItemUser = {
+  type ReactionsListForTeamDiscussionCommentInOrgResponseItemUser = {
     avatar_url: string;
     events_url: string;
     followers_url: string;
@@ -8205,12 +8148,12 @@ declare namespace Octokit {
     type: string;
     url: string;
   };
-  type ReactionsListForTeamDiscussionResponseItem = {
+  type ReactionsListForTeamDiscussionCommentInOrgResponseItem = {
     content: string;
     created_at: string;
     id: number;
     node_id: string;
-    user: ReactionsListForTeamDiscussionResponseItemUser;
+    user: ReactionsListForTeamDiscussionCommentInOrgResponseItemUser;
   };
   type ReactionsListForPullRequestReviewCommentResponseItemUser = {
     avatar_url: string;
@@ -8320,7 +8263,7 @@ declare namespace Octokit {
     node_id: string;
     user: ReactionsListForCommitCommentResponseItemUser;
   };
-  type ReactionsCreateForTeamDiscussionCommentResponseUser = {
+  type ReactionsCreateForTeamDiscussionInOrgResponseUser = {
     avatar_url: string;
     events_url: string;
     followers_url: string;
@@ -8340,14 +8283,14 @@ declare namespace Octokit {
     type: string;
     url: string;
   };
-  type ReactionsCreateForTeamDiscussionCommentResponse = {
+  type ReactionsCreateForTeamDiscussionInOrgResponse = {
     content: string;
     created_at: string;
     id: number;
     node_id: string;
-    user: ReactionsCreateForTeamDiscussionCommentResponseUser;
+    user: ReactionsCreateForTeamDiscussionInOrgResponseUser;
   };
-  type ReactionsCreateForTeamDiscussionResponseUser = {
+  type ReactionsCreateForTeamDiscussionCommentInOrgResponseUser = {
     avatar_url: string;
     events_url: string;
     followers_url: string;
@@ -8367,12 +8310,12 @@ declare namespace Octokit {
     type: string;
     url: string;
   };
-  type ReactionsCreateForTeamDiscussionResponse = {
+  type ReactionsCreateForTeamDiscussionCommentInOrgResponse = {
     content: string;
     created_at: string;
     id: number;
     node_id: string;
-    user: ReactionsCreateForTeamDiscussionResponseUser;
+    user: ReactionsCreateForTeamDiscussionCommentInOrgResponseUser;
   };
   type ReactionsCreateForPullRequestReviewCommentResponseUser = {
     avatar_url: string;
@@ -21723,11 +21666,11 @@ declare namespace Octokit {
   type ReactionsListForPullRequestReviewCommentResponse = Array<
     ReactionsListForPullRequestReviewCommentResponseItem
   >;
-  type ReactionsListForTeamDiscussionResponse = Array<
-    ReactionsListForTeamDiscussionResponseItem
+  type ReactionsListForTeamDiscussionCommentInOrgResponse = Array<
+    ReactionsListForTeamDiscussionCommentInOrgResponseItem
   >;
-  type ReactionsListForTeamDiscussionCommentResponse = Array<
-    ReactionsListForTeamDiscussionCommentResponseItem
+  type ReactionsListForTeamDiscussionInOrgResponse = Array<
+    ReactionsListForTeamDiscussionInOrgResponseItem
   >;
   type ReposAddProtectedBranchAppRestrictionsResponse = Array<
     ReposAddProtectedBranchAppRestrictionsResponseItem
@@ -21845,20 +21788,24 @@ declare namespace Octokit {
     ReposReplaceProtectedBranchUserRestrictionsResponseItem
   >;
   type TeamsListResponse = Array<TeamsListResponseItem>;
-  type TeamsListChildResponse = Array<TeamsListChildResponseItem>;
-  type TeamsListDiscussionCommentsResponse = Array<
-    TeamsListDiscussionCommentsResponseItem
+  type TeamsListChildInOrgResponse = Array<TeamsListChildInOrgResponseItem>;
+  type TeamsListDiscussionCommentsInOrgResponse = Array<
+    TeamsListDiscussionCommentsInOrgResponseItem
   >;
-  type TeamsListDiscussionsResponse = Array<TeamsListDiscussionsResponseItem>;
+  type TeamsListDiscussionsInOrgResponse = Array<
+    TeamsListDiscussionsInOrgResponseItem
+  >;
   type TeamsListForAuthenticatedUserResponse = Array<
     TeamsListForAuthenticatedUserResponseItem
   >;
-  type TeamsListMembersResponse = Array<TeamsListMembersResponseItem>;
-  type TeamsListPendingInvitationsResponse = Array<
-    TeamsListPendingInvitationsResponseItem
+  type TeamsListMembersInOrgResponse = Array<TeamsListMembersInOrgResponseItem>;
+  type TeamsListPendingInvitationsInOrgResponse = Array<
+    TeamsListPendingInvitationsInOrgResponseItem
   >;
-  type TeamsListProjectsResponse = Array<TeamsListProjectsResponseItem>;
-  type TeamsListReposResponse = Array<TeamsListReposResponseItem>;
+  type TeamsListProjectsInOrgResponse = Array<
+    TeamsListProjectsInOrgResponseItem
+  >;
+  type TeamsListReposInOrgResponse = Array<TeamsListReposInOrgResponseItem>;
   type UsersAddEmailsResponse = Array<UsersAddEmailsResponseItem>;
   type UsersListResponse = Array<UsersListResponseItem>;
   type UsersListBlockedResponse = Array<UsersListBlockedResponseItem>;
@@ -26414,25 +26361,7 @@ declare namespace Octokit {
 
     repo: string;
   };
-  export type ReactionsCreateForTeamDiscussionParams = {
-    /**
-     * The [reaction type](https://developer.github.com/v3/reactions/#reaction-types) to add to the team discussion.
-     */
-    content:
-      | "+1"
-      | "-1"
-      | "laugh"
-      | "confused"
-      | "heart"
-      | "hooray"
-      | "rocket"
-      | "eyes";
-
-    discussion_number: number;
-
-    team_id: number;
-  };
-  export type ReactionsCreateForTeamDiscussionCommentParams = {
+  export type ReactionsCreateForTeamDiscussionCommentInOrgParams = {
     comment_number: number;
     /**
      * The [reaction type](https://developer.github.com/v3/reactions/#reaction-types) to add to the team discussion comment.
@@ -26449,7 +26378,29 @@ declare namespace Octokit {
 
     discussion_number: number;
 
-    team_id: number;
+    org: string;
+
+    team_slug: string;
+  };
+  export type ReactionsCreateForTeamDiscussionInOrgParams = {
+    /**
+     * The [reaction type](https://developer.github.com/v3/reactions/#reaction-types) to add to the team discussion.
+     */
+    content:
+      | "+1"
+      | "-1"
+      | "laugh"
+      | "confused"
+      | "heart"
+      | "hooray"
+      | "rocket"
+      | "eyes";
+
+    discussion_number: number;
+
+    org: string;
+
+    team_slug: string;
   };
   export type ReactionsDeleteParams = {
     reaction_id: number;
@@ -26593,33 +26544,7 @@ declare namespace Octokit {
 
     repo: string;
   };
-  export type ReactionsListForTeamDiscussionParams = {
-    /**
-     * Returns a single [reaction type](https://developer.github.com/v3/reactions/#reaction-types). Omit this parameter to list all reactions to a team discussion.
-     */
-    content?:
-      | "+1"
-      | "-1"
-      | "laugh"
-      | "confused"
-      | "heart"
-      | "hooray"
-      | "rocket"
-      | "eyes";
-
-    discussion_number: number;
-    /**
-     * Page number of the results to fetch.
-     */
-    page?: number;
-    /**
-     * Results per page (max 100)
-     */
-    per_page?: number;
-
-    team_id: number;
-  };
-  export type ReactionsListForTeamDiscussionCommentParams = {
+  export type ReactionsListForTeamDiscussionCommentInOrgParams = {
     comment_number: number;
     /**
      * Returns a single [reaction type](https://developer.github.com/v3/reactions/#reaction-types). Omit this parameter to list all reactions to a team discussion comment.
@@ -26635,6 +26560,8 @@ declare namespace Octokit {
       | "eyes";
 
     discussion_number: number;
+
+    org: string;
     /**
      * Page number of the results to fetch.
      */
@@ -26644,7 +26571,35 @@ declare namespace Octokit {
      */
     per_page?: number;
 
-    team_id: number;
+    team_slug: string;
+  };
+  export type ReactionsListForTeamDiscussionInOrgParams = {
+    /**
+     * Returns a single [reaction type](https://developer.github.com/v3/reactions/#reaction-types). Omit this parameter to list all reactions to a team discussion.
+     */
+    content?:
+      | "+1"
+      | "-1"
+      | "laugh"
+      | "confused"
+      | "heart"
+      | "hooray"
+      | "rocket"
+      | "eyes";
+
+    discussion_number: number;
+
+    org: string;
+    /**
+     * Page number of the results to fetch.
+     */
+    page?: number;
+    /**
+     * Results per page (max 100)
+     */
+    per_page?: number;
+
+    team_slug: string;
   };
   export type ReposAcceptInvitationParams = {
     invitation_id: number;
@@ -28826,12 +28781,8 @@ declare namespace Octokit {
      */
     sort?: "followers" | "repositories" | "joined";
   };
-  export type TeamsAddMemberParams = {
-    team_id: number;
-
-    username: string;
-  };
-  export type TeamsAddOrUpdateMembershipParams = {
+  export type TeamsAddOrUpdateMembershipInOrgParams = {
+    org: string;
     /**
      * The role that this user should have in the team. Can be one of:
      * \* `member` - a normal member of the team.
@@ -28839,11 +28790,12 @@ declare namespace Octokit {
      */
     role?: "member" | "maintainer";
 
-    team_id: number;
+    team_slug: string;
 
     username: string;
   };
-  export type TeamsAddOrUpdateProjectParams = {
+  export type TeamsAddOrUpdateProjectInOrgParams = {
+    org: string;
     /**
      * The permission to grant to the team for this project. Can be one of:
      * \* `read` - team members can read, but not write to or administer this project.
@@ -28855,9 +28807,11 @@ declare namespace Octokit {
 
     project_id: number;
 
-    team_id: number;
+    team_slug: string;
   };
-  export type TeamsAddOrUpdateRepoParams = {
+  export type TeamsAddOrUpdateRepoInOrgParams = {
+    org: string;
+
     owner: string;
     /**
      * The permission to grant the team on this repository. Can be one of:
@@ -28871,14 +28825,16 @@ declare namespace Octokit {
 
     repo: string;
 
-    team_id: number;
+    team_slug: string;
   };
-  export type TeamsCheckManagesRepoParams = {
+  export type TeamsCheckManagesRepoInOrgParams = {
+    org: string;
+
     owner: string;
 
     repo: string;
 
-    team_id: number;
+    team_slug: string;
   };
   export type TeamsCreateParamsDeprecatedPermission = {
     /**
@@ -28958,23 +28914,7 @@ declare namespace Octokit {
      */
     repo_names?: string[];
   };
-  export type TeamsCreateDiscussionParams = {
-    /**
-     * The discussion post's body text.
-     */
-    body: string;
-    /**
-     * Private posts are only visible to team members, organization owners, and team maintainers. Public posts are visible to all members of the organization. Set to `true` to create a private post.
-     */
-    private?: boolean;
-
-    team_id: number;
-    /**
-     * The discussion post's title.
-     */
-    title: string;
-  };
-  export type TeamsCreateDiscussionCommentParams = {
+  export type TeamsCreateDiscussionCommentInOrgParams = {
     /**
      * The discussion comment's body text.
      */
@@ -28982,50 +28922,74 @@ declare namespace Octokit {
 
     discussion_number: number;
 
-    team_id: number;
-  };
-  export type TeamsDeleteParams = {
-    team_id: number;
-  };
-  export type TeamsDeleteDiscussionParams = {
-    discussion_number: number;
+    org: string;
 
-    team_id: number;
+    team_slug: string;
   };
-  export type TeamsDeleteDiscussionCommentParams = {
+  export type TeamsCreateDiscussionInOrgParams = {
+    /**
+     * The discussion post's body text.
+     */
+    body: string;
+
+    org: string;
+    /**
+     * Private posts are only visible to team members, organization owners, and team maintainers. Public posts are visible to all members of the organization. Set to `true` to create a private post.
+     */
+    private?: boolean;
+
+    team_slug: string;
+    /**
+     * The discussion post's title.
+     */
+    title: string;
+  };
+  export type TeamsDeleteDiscussionCommentInOrgParams = {
     comment_number: number;
 
     discussion_number: number;
 
-    team_id: number;
+    org: string;
+
+    team_slug: string;
   };
-  export type TeamsGetParams = {
-    team_id: number;
+  export type TeamsDeleteDiscussionInOrgParams = {
+    discussion_number: number;
+
+    org: string;
+
+    team_slug: string;
+  };
+  export type TeamsDeleteInOrgParams = {
+    org: string;
+
+    team_slug: string;
   };
   export type TeamsGetByNameParams = {
     org: string;
 
     team_slug: string;
   };
-  export type TeamsGetDiscussionParams = {
-    discussion_number: number;
-
-    team_id: number;
-  };
-  export type TeamsGetDiscussionCommentParams = {
+  export type TeamsGetDiscussionCommentInOrgParams = {
     comment_number: number;
 
     discussion_number: number;
 
-    team_id: number;
-  };
-  export type TeamsGetMemberParams = {
-    team_id: number;
+    org: string;
 
-    username: string;
+    team_slug: string;
   };
-  export type TeamsGetMembershipParams = {
-    team_id: number;
+  export type TeamsGetDiscussionInOrgParams = {
+    discussion_number: number;
+
+    org: string;
+
+    team_slug: string;
+  };
+  export type TeamsGetMembershipInOrgParams = {
+    org: string;
+
+    team_slug: string;
 
     username: string;
   };
@@ -29040,7 +29004,8 @@ declare namespace Octokit {
      */
     per_page?: number;
   };
-  export type TeamsListChildParams = {
+  export type TeamsListChildInOrgParams = {
+    org: string;
     /**
      * Page number of the results to fetch.
      */
@@ -29050,15 +29015,17 @@ declare namespace Octokit {
      */
     per_page?: number;
 
-    team_id: number;
+    team_slug: string;
   };
-  export type TeamsListDiscussionCommentsParams = {
+  export type TeamsListDiscussionCommentsInOrgParams = {
     /**
      * Sorts the discussion comments by the date they were created. To return the oldest comments first, set to `asc`. Can be one of `asc` or `desc`.
      */
     direction?: "asc" | "desc";
 
     discussion_number: number;
+
+    org: string;
     /**
      * Page number of the results to fetch.
      */
@@ -29068,13 +29035,15 @@ declare namespace Octokit {
      */
     per_page?: number;
 
-    team_id: number;
+    team_slug: string;
   };
-  export type TeamsListDiscussionsParams = {
+  export type TeamsListDiscussionsInOrgParams = {
     /**
      * Sorts the discussion comments by the date they were created. To return the oldest comments first, set to `asc`. Can be one of `asc` or `desc`.
      */
     direction?: "asc" | "desc";
+
+    org: string;
     /**
      * Page number of the results to fetch.
      */
@@ -29084,7 +29053,7 @@ declare namespace Octokit {
      */
     per_page?: number;
 
-    team_id: number;
+    team_slug: string;
   };
   export type TeamsListForAuthenticatedUserParams = {
     /**
@@ -29096,7 +29065,8 @@ declare namespace Octokit {
      */
     per_page?: number;
   };
-  export type TeamsListMembersParams = {
+  export type TeamsListMembersInOrgParams = {
+    org: string;
     /**
      * Page number of the results to fetch.
      */
@@ -29113,9 +29083,10 @@ declare namespace Octokit {
      */
     role?: "member" | "maintainer" | "all";
 
-    team_id: number;
+    team_slug: string;
   };
-  export type TeamsListPendingInvitationsParams = {
+  export type TeamsListPendingInvitationsInOrgParams = {
+    org: string;
     /**
      * Page number of the results to fetch.
      */
@@ -29125,9 +29096,10 @@ declare namespace Octokit {
      */
     per_page?: number;
 
-    team_id: number;
+    team_slug: string;
   };
-  export type TeamsListProjectsParams = {
+  export type TeamsListProjectsInOrgParams = {
+    org: string;
     /**
      * Page number of the results to fetch.
      */
@@ -29137,9 +29109,10 @@ declare namespace Octokit {
      */
     per_page?: number;
 
-    team_id: number;
+    team_slug: string;
   };
-  export type TeamsListReposParams = {
+  export type TeamsListReposInOrgParams = {
+    org: string;
     /**
      * Page number of the results to fetch.
      */
@@ -29149,36 +29122,69 @@ declare namespace Octokit {
      */
     per_page?: number;
 
-    team_id: number;
+    team_slug: string;
   };
-  export type TeamsRemoveMemberParams = {
-    team_id: number;
+  export type TeamsRemoveMembershipInOrgParams = {
+    org: string;
+
+    team_slug: string;
 
     username: string;
   };
-  export type TeamsRemoveMembershipParams = {
-    team_id: number;
+  export type TeamsRemoveProjectInOrgParams = {
+    org: string;
 
-    username: string;
-  };
-  export type TeamsRemoveProjectParams = {
     project_id: number;
 
-    team_id: number;
+    team_slug: string;
   };
-  export type TeamsRemoveRepoParams = {
+  export type TeamsRemoveRepoInOrgParams = {
+    org: string;
+
     owner: string;
 
     repo: string;
 
-    team_id: number;
+    team_slug: string;
   };
-  export type TeamsReviewProjectParams = {
+  export type TeamsReviewProjectInOrgParams = {
+    org: string;
+
     project_id: number;
 
-    team_id: number;
+    team_slug: string;
   };
-  export type TeamsUpdateParamsDeprecatedPermission = {
+  export type TeamsUpdateDiscussionCommentInOrgParams = {
+    /**
+     * The discussion comment's body text.
+     */
+    body: string;
+
+    comment_number: number;
+
+    discussion_number: number;
+
+    org: string;
+
+    team_slug: string;
+  };
+  export type TeamsUpdateDiscussionInOrgParams = {
+    /**
+     * The discussion post's body text.
+     */
+    body?: string;
+
+    discussion_number: number;
+
+    org: string;
+
+    team_slug: string;
+    /**
+     * The discussion post's title.
+     */
+    title?: string;
+  };
+  export type TeamsUpdateInOrgParamsDeprecatedPermission = {
     /**
      * The description of the team.
      */
@@ -29187,6 +29193,8 @@ declare namespace Octokit {
      * The name of the team.
      */
     name: string;
+
+    org: string;
     /**
      * The ID of a team to set as the parent team.
      */
@@ -29200,7 +29208,7 @@ declare namespace Octokit {
      */
     permission?: string;
     /**
-     * The level of privacy this team should have. Editing teams without specifying this parameter leaves `privacy` intact. The options are:
+     * The level of privacy this team should have. Editing teams without specifying this parameter leaves `privacy` intact. When a team is nested, the `privacy` for parent teams cannot be `secret`. The options are:
      * **For a non-nested team:**
      * \* `secret` - only visible to organization owners and members of this team.
      * \* `closed` - visible to all members of this organization.
@@ -29209,9 +29217,9 @@ declare namespace Octokit {
      */
     privacy?: "secret" | "closed";
 
-    team_id: number;
+    team_slug: string;
   };
-  export type TeamsUpdateParams = {
+  export type TeamsUpdateInOrgParams = {
     /**
      * The description of the team.
      */
@@ -29220,12 +29228,14 @@ declare namespace Octokit {
      * The name of the team.
      */
     name: string;
+
+    org: string;
     /**
      * The ID of a team to set as the parent team.
      */
     parent_team_id?: number;
     /**
-     * The level of privacy this team should have. Editing teams without specifying this parameter leaves `privacy` intact. The options are:
+     * The level of privacy this team should have. Editing teams without specifying this parameter leaves `privacy` intact. When a team is nested, the `privacy` for parent teams cannot be `secret`. The options are:
      * **For a non-nested team:**
      * \* `secret` - only visible to organization owners and members of this team.
      * \* `closed` - visible to all members of this organization.
@@ -29234,33 +29244,7 @@ declare namespace Octokit {
      */
     privacy?: "secret" | "closed";
 
-    team_id: number;
-  };
-  export type TeamsUpdateDiscussionParams = {
-    /**
-     * The discussion post's body text.
-     */
-    body?: string;
-
-    discussion_number: number;
-
-    team_id: number;
-    /**
-     * The discussion post's title.
-     */
-    title?: string;
-  };
-  export type TeamsUpdateDiscussionCommentParams = {
-    /**
-     * The discussion comment's body text.
-     */
-    body: string;
-
-    comment_number: number;
-
-    discussion_number: number;
-
-    team_id: number;
+    team_slug: string;
   };
   export type UsersAddEmailsParams = {
     /**
@@ -30549,6 +30533,20 @@ declare class Octokit {
         params?: Octokit.RequestOptions &
           Octokit.AppsRevokeGrantForApplicationParams
       ): Promise<Octokit.AnyResponse>;
+
+      endpoint: Octokit.Endpoint;
+    };
+    /**
+     * Revokes the installation token you're using to authenticate as an installation and access this endpoint.
+     *
+     * Once an installation token is revoked, the token is invalidated and cannot be used. Other endpoints that require the revoked installation token must have a new installation token to work. You can create a new token using the "[Create a new installation token](https://developer.github.com/v3/apps/#create-a-new-installation-token)" endpoint.
+     *
+     * You must use an [installation access token](https://developer.github.com/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-an-installation) to access this endpoint.
+     */
+    revokeInstallationToken: {
+      (params?: Octokit.RequestOptions & Octokit.EmptyParams): Promise<
+        Octokit.AnyResponse
+      >;
 
       endpoint: Octokit.Endpoint;
     };
@@ -33594,29 +33592,33 @@ declare class Octokit {
       endpoint: Octokit.Endpoint;
     };
     /**
-     * Create a reaction to a [team discussion](https://developer.github.com/v3/teams/discussions/). OAuth access tokens require the `write:discussion` [scope](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/). A response with a `Status: 200 OK` means that you already added the reaction type to this team discussion.
+     * Create a reaction to a [team discussion comment](https://developer.github.com/v3/teams/discussion_comments/). OAuth access tokens require the `write:discussion` [scope](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/). A response with a `Status: 200 OK` means that you already added the reaction type to this team discussion comment.
+     *
+     * **Note:** You can also specify a team by `org_id` and `team_id` using the route `POST /organizations/:org_id/team/:team_id/discussions/:discussion_number/comments/:comment_number/reactions`.
      */
-    createForTeamDiscussion: {
+    createForTeamDiscussionCommentInOrg: {
       (
         params?: Octokit.RequestOptions &
-          Octokit.ReactionsCreateForTeamDiscussionParams
+          Octokit.ReactionsCreateForTeamDiscussionCommentInOrgParams
       ): Promise<
-        Octokit.Response<Octokit.ReactionsCreateForTeamDiscussionResponse>
+        Octokit.Response<
+          Octokit.ReactionsCreateForTeamDiscussionCommentInOrgResponse
+        >
       >;
 
       endpoint: Octokit.Endpoint;
     };
     /**
-     * Create a reaction to a [team discussion comment](https://developer.github.com/v3/teams/discussion_comments/). OAuth access tokens require the `write:discussion` [scope](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/). A response with a `Status: 200 OK` means that you already added the reaction type to this team discussion comment.
+     * Create a reaction to a [team discussion](https://developer.github.com/v3/teams/discussions/). OAuth access tokens require the `write:discussion` [scope](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/). A response with a `Status: 200 OK` means that you already added the reaction type to this team discussion.
+     *
+     * **Note:** You can also specify a team by `org_id` and `team_id` using the route `POST /organizations/:org_id/team/:team_id/discussions/:discussion_number/reactions`.
      */
-    createForTeamDiscussionComment: {
+    createForTeamDiscussionInOrg: {
       (
         params?: Octokit.RequestOptions &
-          Octokit.ReactionsCreateForTeamDiscussionCommentParams
+          Octokit.ReactionsCreateForTeamDiscussionInOrgParams
       ): Promise<
-        Octokit.Response<
-          Octokit.ReactionsCreateForTeamDiscussionCommentResponse
-        >
+        Octokit.Response<Octokit.ReactionsCreateForTeamDiscussionInOrgResponse>
       >;
 
       endpoint: Octokit.Endpoint;
@@ -33687,27 +33689,33 @@ declare class Octokit {
       endpoint: Octokit.Endpoint;
     };
     /**
-     * List the reactions to a [team discussion](https://developer.github.com/v3/teams/discussions/). OAuth access tokens require the `read:discussion` [scope](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/).
+     * List the reactions to a [team discussion comment](https://developer.github.com/v3/teams/discussion_comments/). OAuth access tokens require the `read:discussion` [scope](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/).
+     *
+     * **Note:** You can also specify a team by `org_id` and `team_id` using the route `GET /organizations/:org_id/team/:team_id/discussions/:discussion_number/comments/:comment_number/reactions`.
      */
-    listForTeamDiscussion: {
+    listForTeamDiscussionCommentInOrg: {
       (
         params?: Octokit.RequestOptions &
-          Octokit.ReactionsListForTeamDiscussionParams
+          Octokit.ReactionsListForTeamDiscussionCommentInOrgParams
       ): Promise<
-        Octokit.Response<Octokit.ReactionsListForTeamDiscussionResponse>
+        Octokit.Response<
+          Octokit.ReactionsListForTeamDiscussionCommentInOrgResponse
+        >
       >;
 
       endpoint: Octokit.Endpoint;
     };
     /**
-     * List the reactions to a [team discussion comment](https://developer.github.com/v3/teams/discussion_comments/). OAuth access tokens require the `read:discussion` [scope](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/).
+     * List the reactions to a [team discussion](https://developer.github.com/v3/teams/discussions/). OAuth access tokens require the `read:discussion` [scope](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/).
+     *
+     * **Note:** You can also specify a team by `org_id` and `team_id` using the route `GET /organizations/:org_id/team/:team_id/discussions/:discussion_number/reactions`.
      */
-    listForTeamDiscussionComment: {
+    listForTeamDiscussionInOrg: {
       (
         params?: Octokit.RequestOptions &
-          Octokit.ReactionsListForTeamDiscussionCommentParams
+          Octokit.ReactionsListForTeamDiscussionInOrgParams
       ): Promise<
-        Octokit.Response<Octokit.ReactionsListForTeamDiscussionCommentResponse>
+        Octokit.Response<Octokit.ReactionsListForTeamDiscussionInOrgResponse>
       >;
 
       endpoint: Octokit.Endpoint;
@@ -35854,76 +35862,68 @@ declare class Octokit {
   };
   teams: {
     /**
-     * The "Add team member" API (described below) is deprecated.
-     *
-     * We recommend using the [Add team membership API](https://developer.github.com/v3/teams/members/#add-or-update-team-membership) instead. It allows you to invite new organization members to your teams.
-     *
      * Team synchronization is available for organizations using GitHub Enterprise Cloud. For more information, see [GitHub's products](https://help.github.com/github/getting-started-with-github/githubs-products) in the GitHub Help documentation.
      *
-     * To add someone to a team, the authenticated user must be an organization owner or a team maintainer in the team they're changing. The person being added to the team must be a member of the team's organization.
+     * Adds an organization member to a team. An authenticated organization owner or team maintainer can add organization members to a team.
      *
      * **Note:** When you have team synchronization set up for a team with your organization's identity provider (IdP), you will see an error if you attempt to use the API for making changes to the team's membership. If you have access to manage group membership in your IdP, you can manage GitHub team membership through your identity provider, which automatically adds and removes team members in an organization. For more information, see "[Synchronizing teams between your identity provider and GitHub](https://help.github.com/articles/synchronizing-teams-between-your-identity-provider-and-github/)."
      *
-     * Note that you'll need to set `Content-Length` to zero when calling out to this endpoint. For more information, see "[HTTP verbs](https://developer.github.com/v3/#http-verbs)."
-     * @deprecated octokit.teams.addMember() is deprecated, see https://developer.github.com/v3/teams/members/#add-team-member
+     * An organization owner can add someone who is not part of the team's organization to a team. When an organization owner adds someone to a team who is not an organization member, this endpoint will send an invitation to the person via email. This newly-created membership will be in the "pending" state until the person accepts the invitation, at which point the membership will transition to the "active" state and the user will be added as a member of the team.
+     *
+     * If the user is already a member of the team, this endpoint will update the role of the team member's role. To update the membership of a team member, the authenticated user must be an organization owner or a team maintainer.
+     *
+     * **Note:** You can also specify a team by `org_id` and `team_id` using the route `PUT /organizations/:org_id/team/:team_id/memberships/:username`.
      */
-    addMember: {
-      (params?: Octokit.RequestOptions & Octokit.TeamsAddMemberParams): Promise<
-        Octokit.Response<Octokit.TeamsAddMemberResponse>
+    addOrUpdateMembershipInOrg: {
+      (
+        params?: Octokit.RequestOptions &
+          Octokit.TeamsAddOrUpdateMembershipInOrgParams
+      ): Promise<
+        Octokit.Response<Octokit.TeamsAddOrUpdateMembershipInOrgResponse>
       >;
 
       endpoint: Octokit.Endpoint;
     };
     /**
-     * Team synchronization is available for organizations using GitHub Enterprise Cloud. For more information, see [GitHub's products](https://help.github.com/github/getting-started-with-github/githubs-products) in the GitHub Help documentation.
+     * Adds an organization project to a team. To add a project to a team or update the team's permission on a project, the authenticated user must have `admin` permissions for the project. The project and team must be part of the same organization.
      *
-     * If the user is already a member of the team's organization, this endpoint will add the user to the team. To add a membership between an organization member and a team, the authenticated user must be an organization owner or a team maintainer.
-     *
-     * **Note:** When you have team synchronization set up for a team with your organization's identity provider (IdP), you will see an error if you attempt to use the API for making changes to the team's membership. If you have access to manage group membership in your IdP, you can manage GitHub team membership through your identity provider, which automatically adds and removes team members in an organization. For more information, see "[Synchronizing teams between your identity provider and GitHub](https://help.github.com/articles/synchronizing-teams-between-your-identity-provider-and-github/)."
-     *
-     * If the user is unaffiliated with the team's organization, this endpoint will send an invitation to the user via email. This newly-created membership will be in the "pending" state until the user accepts the invitation, at which point the membership will transition to the "active" state and the user will be added as a member of the team. To add a membership between an unaffiliated user and a team, the authenticated user must be an organization owner.
-     *
-     * If the user is already a member of the team, this endpoint will update the role of the team member's role. To update the membership of a team member, the authenticated user must be an organization owner or a team maintainer.
+     * **Note:** You can also specify a team by `org_id` and `team_id` using the route `PUT /organizations/:org_id/team/:team_id/projects/:project_id`.
      */
-    addOrUpdateMembership: {
+    addOrUpdateProjectInOrg: {
       (
         params?: Octokit.RequestOptions &
-          Octokit.TeamsAddOrUpdateMembershipParams
-      ): Promise<Octokit.Response<Octokit.TeamsAddOrUpdateMembershipResponse>>;
+          Octokit.TeamsAddOrUpdateProjectInOrgParams
+      ): Promise<
+        Octokit.Response<Octokit.TeamsAddOrUpdateProjectInOrgResponse>
+      >;
 
       endpoint: Octokit.Endpoint;
     };
     /**
-     * Adds an organization project to a team. To add a project to a team or update the team's permission on a project, the authenticated user must have `admin` permissions for the project. The project and team must be part of the same organization.
-     */
-    addOrUpdateProject: {
-      (
-        params?: Octokit.RequestOptions & Octokit.TeamsAddOrUpdateProjectParams
-      ): Promise<Octokit.Response<Octokit.TeamsAddOrUpdateProjectResponse>>;
-
-      endpoint: Octokit.Endpoint;
-    };
-    /**
-     * To add a repository to a team or update the team's permission on a repository, the authenticated user must have admin access to the repository, and must be able to see the team. The repository must be owned by the organization, or a direct fork of a repository owned by the organization. You will get a `422 Unprocessable Entity` status if you attempt to add a repository to a team that is not owned by the organization.
+     * To add a repository to a team or update the team's permission on a repository, the authenticated user must have admin access to the repository, and must be able to see the team. The repository must be owned by the organization, or a direct fork of a repository owned by the organization. You will get a `422 Unprocessable Entity` status if you attempt to add a repository to a team that is not owned by the organization. Note that, if you choose not to pass any parameters, you'll need to set `Content-Length` to zero when calling out to this endpoint. For more information, see "[HTTP verbs](https://developer.github.com/v3/#http-verbs)."
      *
-     * Note that, if you choose not to pass any parameters, you'll need to set `Content-Length` to zero when calling out to this endpoint. For more information, see "[HTTP verbs](https://developer.github.com/v3/#http-verbs)."
+     * **Note:** You can also specify a team by `org_id` and `team_id` using the route `PUT /organizations/:org_id/team/:team_id/repos/:owner/:repo`.
      */
-    addOrUpdateRepo: {
+    addOrUpdateRepoInOrg: {
       (
-        params?: Octokit.RequestOptions & Octokit.TeamsAddOrUpdateRepoParams
+        params?: Octokit.RequestOptions &
+          Octokit.TeamsAddOrUpdateRepoInOrgParams
       ): Promise<Octokit.AnyResponse>;
 
       endpoint: Octokit.Endpoint;
     };
     /**
-     * **Note**: Repositories inherited through a parent team will also be checked.
+     * Checks whether a team has `admin`, `push`, or `pull` permission for a repository. Repositories inherited through a parent team will also be checked.
+     *
+     * **Note:** You can also specify a team by `org_id` and `team_id` using the route `GET /organizations/:org_id/team/:team_id/repos/:owner/:repo`.
      *
      * You can also get information about the specified repository, including what permissions the team grants on it, by passing the following custom [media type](https://developer.github.com/v3/media/) via the `Accept` header:
      */
-    checkManagesRepo: {
+    checkManagesRepoInOrg: {
       (
-        params?: Octokit.RequestOptions & Octokit.TeamsCheckManagesRepoParams
-      ): Promise<Octokit.Response<Octokit.TeamsCheckManagesRepoResponse>>;
+        params?: Octokit.RequestOptions &
+          Octokit.TeamsCheckManagesRepoInOrgParams
+      ): Promise<Octokit.Response<Octokit.TeamsCheckManagesRepoInOrgResponse>>;
 
       endpoint: Octokit.Endpoint;
     };
@@ -35944,75 +35944,81 @@ declare class Octokit {
       endpoint: Octokit.Endpoint;
     };
     /**
-     * Creates a new discussion post on a team's page. OAuth access tokens require the `write:discussion` [scope](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/).
+     * Creates a new comment on a team discussion. OAuth access tokens require the `write:discussion` [scope](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/).
      *
      * This endpoint triggers [notifications](https://help.github.com/articles/about-notifications/). Creating content too quickly using this endpoint may result in abuse rate limiting. See "[Abuse rate limits](https://developer.github.com/v3/#abuse-rate-limits)" and "[Dealing with abuse rate limits](https://developer.github.com/v3/guides/best-practices-for-integrators/#dealing-with-abuse-rate-limits)" for details.
+     *
+     * **Note:** You can also specify a team by `org_id` and `team_id` using the route `POST /organizations/:org_id/team/:team_id/discussions/:discussion_number/comments`.
      */
-    createDiscussion: {
+    createDiscussionCommentInOrg: {
       (
-        params?: Octokit.RequestOptions & Octokit.TeamsCreateDiscussionParams
-      ): Promise<Octokit.Response<Octokit.TeamsCreateDiscussionResponse>>;
+        params?: Octokit.RequestOptions &
+          Octokit.TeamsCreateDiscussionCommentInOrgParams
+      ): Promise<
+        Octokit.Response<Octokit.TeamsCreateDiscussionCommentInOrgResponse>
+      >;
 
       endpoint: Octokit.Endpoint;
     };
     /**
-     * Creates a new comment on a team discussion. OAuth access tokens require the `write:discussion` [scope](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/).
+     * Creates a new discussion post on a team's page. OAuth access tokens require the `write:discussion` [scope](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/).
      *
      * This endpoint triggers [notifications](https://help.github.com/articles/about-notifications/). Creating content too quickly using this endpoint may result in abuse rate limiting. See "[Abuse rate limits](https://developer.github.com/v3/#abuse-rate-limits)" and "[Dealing with abuse rate limits](https://developer.github.com/v3/guides/best-practices-for-integrators/#dealing-with-abuse-rate-limits)" for details.
+     *
+     * **Note:** You can also specify a team by `org_id` and `team_id` using the route `POST /organizations/:org_id/team/:team_id/discussions`.
      */
-    createDiscussionComment: {
+    createDiscussionInOrg: {
       (
         params?: Octokit.RequestOptions &
-          Octokit.TeamsCreateDiscussionCommentParams
-      ): Promise<
-        Octokit.Response<Octokit.TeamsCreateDiscussionCommentResponse>
-      >;
+          Octokit.TeamsCreateDiscussionInOrgParams
+      ): Promise<Octokit.Response<Octokit.TeamsCreateDiscussionInOrgResponse>>;
+
+      endpoint: Octokit.Endpoint;
+    };
+    /**
+     * Deletes a comment on a team discussion. OAuth access tokens require the `write:discussion` [scope](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/).
+     *
+     * **Note:** You can also specify a team by `org_id` and `team_id` using the route `DELETE /organizations/:org_id/team/:team_id/discussions/:discussion_number/comments/:comment_number`.
+     */
+    deleteDiscussionCommentInOrg: {
+      (
+        params?: Octokit.RequestOptions &
+          Octokit.TeamsDeleteDiscussionCommentInOrgParams
+      ): Promise<Octokit.AnyResponse>;
+
+      endpoint: Octokit.Endpoint;
+    };
+    /**
+     * Delete a discussion from a team's page. OAuth access tokens require the `write:discussion` [scope](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/).
+     *
+     * **Note:** You can also specify a team by `org_id` and `team_id` using the route `DELETE /organizations/:org_id/team/:team_id/discussions/:discussion_number`.
+     */
+    deleteDiscussionInOrg: {
+      (
+        params?: Octokit.RequestOptions &
+          Octokit.TeamsDeleteDiscussionInOrgParams
+      ): Promise<Octokit.AnyResponse>;
 
       endpoint: Octokit.Endpoint;
     };
     /**
      * To delete a team, the authenticated user must be an organization owner or team maintainer.
      *
+     * **Note:** You can also specify a team by `org_id` and `team_id` using the route `DELETE /organizations/:org_id/team/:team_id`.
+     *
      * If you are an organization owner, deleting a parent team will delete all of its child teams as well.
      */
-    delete: {
-      (params?: Octokit.RequestOptions & Octokit.TeamsDeleteParams): Promise<
-        Octokit.AnyResponse
-      >;
-
-      endpoint: Octokit.Endpoint;
-    };
-    /**
-     * Delete a discussion from a team's page. OAuth access tokens require the `write:discussion` [scope](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/).
-     */
-    deleteDiscussion: {
+    deleteInOrg: {
       (
-        params?: Octokit.RequestOptions & Octokit.TeamsDeleteDiscussionParams
+        params?: Octokit.RequestOptions & Octokit.TeamsDeleteInOrgParams
       ): Promise<Octokit.AnyResponse>;
-
-      endpoint: Octokit.Endpoint;
-    };
-    /**
-     * Deletes a comment on a team discussion. OAuth access tokens require the `write:discussion` [scope](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/).
-     */
-    deleteDiscussionComment: {
-      (
-        params?: Octokit.RequestOptions &
-          Octokit.TeamsDeleteDiscussionCommentParams
-      ): Promise<Octokit.AnyResponse>;
-
-      endpoint: Octokit.Endpoint;
-    };
-
-    get: {
-      (params?: Octokit.RequestOptions & Octokit.TeamsGetParams): Promise<
-        Octokit.Response<Octokit.TeamsGetResponse>
-      >;
 
       endpoint: Octokit.Endpoint;
     };
     /**
      * Gets a team using the team's `slug`. GitHub generates the `slug` from the team `name`.
+     *
+     * **Note:** You can also specify a team by `org_id` and `team_id` using the route `GET /organizations/:org_id/team/:team_id`.
      */
     getByName: {
       (params?: Octokit.RequestOptions & Octokit.TeamsGetByNameParams): Promise<
@@ -36022,38 +36028,29 @@ declare class Octokit {
       endpoint: Octokit.Endpoint;
     };
     /**
-     * Get a specific discussion on a team's page. OAuth access tokens require the `read:discussion` [scope](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/).
-     */
-    getDiscussion: {
-      (
-        params?: Octokit.RequestOptions & Octokit.TeamsGetDiscussionParams
-      ): Promise<Octokit.Response<Octokit.TeamsGetDiscussionResponse>>;
-
-      endpoint: Octokit.Endpoint;
-    };
-    /**
      * Get a specific comment on a team discussion. OAuth access tokens require the `read:discussion` [scope](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/).
+     *
+     * **Note:** You can also specify a team by `org_id` and `team_id` using the route `GET /organizations/:org_id/team/:team_id/discussions/:discussion_number/comments/:comment_number`.
      */
-    getDiscussionComment: {
+    getDiscussionCommentInOrg: {
       (
         params?: Octokit.RequestOptions &
-          Octokit.TeamsGetDiscussionCommentParams
-      ): Promise<Octokit.Response<Octokit.TeamsGetDiscussionCommentResponse>>;
+          Octokit.TeamsGetDiscussionCommentInOrgParams
+      ): Promise<
+        Octokit.Response<Octokit.TeamsGetDiscussionCommentInOrgResponse>
+      >;
 
       endpoint: Octokit.Endpoint;
     };
     /**
-     * The "Get team member" API (described below) is deprecated.
+     * Get a specific discussion on a team's page. OAuth access tokens require the `read:discussion` [scope](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/).
      *
-     * We recommend using the [Get team membership API](https://developer.github.com/v3/teams/members/#get-team-membership) instead. It allows you to get both active and pending memberships.
-     *
-     * To list members in a team, the team must be visible to the authenticated user.
-     * @deprecated octokit.teams.getMember() is deprecated, see https://developer.github.com/v3/teams/members/#get-team-member
+     * **Note:** You can also specify a team by `org_id` and `team_id` using the route `GET /organizations/:org_id/team/:team_id/discussions/:discussion_number`.
      */
-    getMember: {
-      (params?: Octokit.RequestOptions & Octokit.TeamsGetMemberParams): Promise<
-        Octokit.AnyResponse
-      >;
+    getDiscussionInOrg: {
+      (
+        params?: Octokit.RequestOptions & Octokit.TeamsGetDiscussionInOrgParams
+      ): Promise<Octokit.Response<Octokit.TeamsGetDiscussionInOrgResponse>>;
 
       endpoint: Octokit.Endpoint;
     };
@@ -36062,16 +36059,20 @@ declare class Octokit {
      *
      * To get a user's membership with a team, the team must be visible to the authenticated user.
      *
+     * **Note:** You can also specify a team by `org_id` and `team_id` using the route `GET /organizations/:org_id/team/:team_id/memberships/:username`.
+     *
      * **Note:** The `role` for organization owners returns as `maintainer`. For more information about `maintainer` roles, see [Create team](https://developer.github.com/v3/teams#create-team).
      */
-    getMembership: {
+    getMembershipInOrg: {
       (
-        params?: Octokit.RequestOptions & Octokit.TeamsGetMembershipParams
-      ): Promise<Octokit.Response<Octokit.TeamsGetMembershipResponse>>;
+        params?: Octokit.RequestOptions & Octokit.TeamsGetMembershipInOrgParams
+      ): Promise<Octokit.Response<Octokit.TeamsGetMembershipInOrgResponse>>;
 
       endpoint: Octokit.Endpoint;
     };
-
+    /**
+     * Lists all teams in an organization that are visible to the authenticated user.
+     */
     list: {
       (params?: Octokit.RequestOptions & Octokit.TeamsListParams): Promise<
         Octokit.Response<Octokit.TeamsListResponse>
@@ -36079,32 +36080,43 @@ declare class Octokit {
 
       endpoint: Octokit.Endpoint;
     };
-
-    listChild: {
-      (params?: Octokit.RequestOptions & Octokit.TeamsListChildParams): Promise<
-        Octokit.Response<Octokit.TeamsListChildResponse>
-      >;
+    /**
+     * Lists the child teams of the team requested by `:team_slug`.
+     *
+     * **Note:** You can also specify a team by `org_id` and `team_id` using the route `GET /organizations/:org_id/team/:team_id/teams`.
+     */
+    listChildInOrg: {
+      (
+        params?: Octokit.RequestOptions & Octokit.TeamsListChildInOrgParams
+      ): Promise<Octokit.Response<Octokit.TeamsListChildInOrgResponse>>;
 
       endpoint: Octokit.Endpoint;
     };
     /**
      * List all comments on a team discussion. OAuth access tokens require the `read:discussion` [scope](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/).
+     *
+     * **Note:** You can also specify a team by `org_id` and `team_id` using the route `GET /organizations/:org_id/team/:team_id/discussions/:discussion_number/comments`.
      */
-    listDiscussionComments: {
+    listDiscussionCommentsInOrg: {
       (
         params?: Octokit.RequestOptions &
-          Octokit.TeamsListDiscussionCommentsParams
-      ): Promise<Octokit.Response<Octokit.TeamsListDiscussionCommentsResponse>>;
+          Octokit.TeamsListDiscussionCommentsInOrgParams
+      ): Promise<
+        Octokit.Response<Octokit.TeamsListDiscussionCommentsInOrgResponse>
+      >;
 
       endpoint: Octokit.Endpoint;
     };
     /**
      * List all discussions on a team's page. OAuth access tokens require the `read:discussion` [scope](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/).
+     *
+     * **Note:** You can also specify a team by `org_id` and `team_id` using the route `GET /organizations/:org_id/team/:team_id/discussions`.
      */
-    listDiscussions: {
+    listDiscussionsInOrg: {
       (
-        params?: Octokit.RequestOptions & Octokit.TeamsListDiscussionsParams
-      ): Promise<Octokit.Response<Octokit.TeamsListDiscussionsResponse>>;
+        params?: Octokit.RequestOptions &
+          Octokit.TeamsListDiscussionsInOrgParams
+      ): Promise<Octokit.Response<Octokit.TeamsListDiscussionsInOrgResponse>>;
 
       endpoint: Octokit.Endpoint;
     };
@@ -36123,59 +36135,52 @@ declare class Octokit {
     };
     /**
      * Team members will include the members of child teams.
+     *
+     * To list members in a team, the team must be visible to the authenticated user.
      */
-    listMembers: {
+    listMembersInOrg: {
       (
-        params?: Octokit.RequestOptions & Octokit.TeamsListMembersParams
-      ): Promise<Octokit.Response<Octokit.TeamsListMembersResponse>>;
+        params?: Octokit.RequestOptions & Octokit.TeamsListMembersInOrgParams
+      ): Promise<Octokit.Response<Octokit.TeamsListMembersInOrgResponse>>;
 
       endpoint: Octokit.Endpoint;
     };
     /**
      * The return hash contains a `role` field which refers to the Organization Invitation role and will be one of the following values: `direct_member`, `admin`, `billing_manager`, `hiring_manager`, or `reinstate`. If the invitee is not a GitHub member, the `login` field in the return hash will be `null`.
+     *
+     * **Note:** You can also specify a team by `org_id` and `team_id` using the route `GET /organizations/:org_id/team/:team_id/invitations`.
      */
-    listPendingInvitations: {
+    listPendingInvitationsInOrg: {
       (
         params?: Octokit.RequestOptions &
-          Octokit.TeamsListPendingInvitationsParams
-      ): Promise<Octokit.Response<Octokit.TeamsListPendingInvitationsResponse>>;
-
-      endpoint: Octokit.Endpoint;
-    };
-    /**
-     * Lists the organization projects for a team.
-     */
-    listProjects: {
-      (
-        params?: Octokit.RequestOptions & Octokit.TeamsListProjectsParams
-      ): Promise<Octokit.Response<Octokit.TeamsListProjectsResponse>>;
-
-      endpoint: Octokit.Endpoint;
-    };
-
-    listRepos: {
-      (params?: Octokit.RequestOptions & Octokit.TeamsListReposParams): Promise<
-        Octokit.Response<Octokit.TeamsListReposResponse>
+          Octokit.TeamsListPendingInvitationsInOrgParams
+      ): Promise<
+        Octokit.Response<Octokit.TeamsListPendingInvitationsInOrgResponse>
       >;
 
       endpoint: Octokit.Endpoint;
     };
     /**
-     * The "Remove team member" API (described below) is deprecated.
+     * Lists the organization projects for a team.
      *
-     * We recommend using the [Remove team membership endpoint](https://developer.github.com/v3/teams/members/#remove-team-membership) instead. It allows you to remove both active and pending memberships.
-     *
-     * Team synchronization is available for organizations using GitHub Enterprise Cloud. For more information, see [GitHub's products](https://help.github.com/github/getting-started-with-github/githubs-products) in the GitHub Help documentation.
-     *
-     * To remove a team member, the authenticated user must have 'admin' permissions to the team or be an owner of the org that the team is associated with. Removing a team member does not delete the user, it just removes them from the team.
-     *
-     * **Note:** When you have team synchronization set up for a team with your organization's identity provider (IdP), you will see an error if you attempt to use the API for making changes to the team's membership. If you have access to manage group membership in your IdP, you can manage GitHub team membership through your identity provider, which automatically adds and removes team members in an organization. For more information, see "[Synchronizing teams between your identity provider and GitHub](https://help.github.com/articles/synchronizing-teams-between-your-identity-provider-and-github/)."
-     * @deprecated octokit.teams.removeMember() is deprecated, see https://developer.github.com/v3/teams/members/#remove-team-member
+     * **Note:** You can also specify a team by `org_id` and `team_id` using the route `GET /organizations/:org_id/team/:team_id/projects`.
      */
-    removeMember: {
+    listProjectsInOrg: {
       (
-        params?: Octokit.RequestOptions & Octokit.TeamsRemoveMemberParams
-      ): Promise<Octokit.AnyResponse>;
+        params?: Octokit.RequestOptions & Octokit.TeamsListProjectsInOrgParams
+      ): Promise<Octokit.Response<Octokit.TeamsListProjectsInOrgResponse>>;
+
+      endpoint: Octokit.Endpoint;
+    };
+    /**
+     * Lists a team's repositories visible to the authenticated user.
+     *
+     * **Note:** You can also specify a team by `org_id` and `team_id` using the route `GET /organizations/:org_id/team/:team_id/repos`.
+     */
+    listReposInOrg: {
+      (
+        params?: Octokit.RequestOptions & Octokit.TeamsListReposInOrgParams
+      ): Promise<Octokit.Response<Octokit.TeamsListReposInOrgResponse>>;
 
       endpoint: Octokit.Endpoint;
     };
@@ -36185,80 +36190,94 @@ declare class Octokit {
      * To remove a membership between a user and a team, the authenticated user must have 'admin' permissions to the team or be an owner of the organization that the team is associated with. Removing team membership does not delete the user, it just removes their membership from the team.
      *
      * **Note:** When you have team synchronization set up for a team with your organization's identity provider (IdP), you will see an error if you attempt to use the API for making changes to the team's membership. If you have access to manage group membership in your IdP, you can manage GitHub team membership through your identity provider, which automatically adds and removes team members in an organization. For more information, see "[Synchronizing teams between your identity provider and GitHub](https://help.github.com/articles/synchronizing-teams-between-your-identity-provider-and-github/)."
+     *
+     * **Note:** You can also specify a team by `org_id` and `team_id` using the route `DELETE /organizations/:org_id/team/:team_id/memberships/:username`.
      */
-    removeMembership: {
+    removeMembershipInOrg: {
       (
-        params?: Octokit.RequestOptions & Octokit.TeamsRemoveMembershipParams
+        params?: Octokit.RequestOptions &
+          Octokit.TeamsRemoveMembershipInOrgParams
       ): Promise<Octokit.AnyResponse>;
 
       endpoint: Octokit.Endpoint;
     };
     /**
-     * Removes an organization project from a team. An organization owner or a team maintainer can remove any project from the team. To remove a project from a team as an organization member, the authenticated user must have `read` access to both the team and project, or `admin` access to the team or project. **Note:** This endpoint removes the project from the team, but does not delete it.
+     * Removes an organization project from a team. An organization owner or a team maintainer can remove any project from the team. To remove a project from a team as an organization member, the authenticated user must have `read` access to both the team and project, or `admin` access to the team or project. This endpoint removes the project from the team, but does not delete the project.
+     *
+     * **Note:** You can also specify a team by `org_id` and `team_id` using the route `DELETE /organizations/:org_id/team/:team_id/projects/:project_id`.
      */
-    removeProject: {
+    removeProjectInOrg: {
       (
-        params?: Octokit.RequestOptions & Octokit.TeamsRemoveProjectParams
+        params?: Octokit.RequestOptions & Octokit.TeamsRemoveProjectInOrgParams
       ): Promise<Octokit.AnyResponse>;
 
       endpoint: Octokit.Endpoint;
     };
     /**
-     * If the authenticated user is an organization owner or a team maintainer, they can remove any repositories from the team. To remove a repository from a team as an organization member, the authenticated user must have admin access to the repository and must be able to see the team. NOTE: This does not delete the repository, it just removes it from the team.
+     * If the authenticated user is an organization owner or a team maintainer, they can remove any repositories from the team. To remove a repository from a team as an organization member, the authenticated user must have admin access to the repository and must be able to see the team. This does not delete the repository, it just removes it from the team.
+     *
+     * **Note:** You can also specify a team by `org_id` and `team_id` using the route `DELETE /organizations/:org_id/team/:team_id/repos/:owner/:repo`.
      */
-    removeRepo: {
+    removeRepoInOrg: {
       (
-        params?: Octokit.RequestOptions & Octokit.TeamsRemoveRepoParams
+        params?: Octokit.RequestOptions & Octokit.TeamsRemoveRepoInOrgParams
       ): Promise<Octokit.AnyResponse>;
 
       endpoint: Octokit.Endpoint;
     };
     /**
      * Checks whether a team has `read`, `write`, or `admin` permissions for an organization project. The response includes projects inherited from a parent team.
+     *
+     * **Note:** You can also specify a team by `org_id` and `team_id` using the route `GET /organizations/:org_id/team/:team_id/projects/:project_id`.
      */
-    reviewProject: {
+    reviewProjectInOrg: {
       (
-        params?: Octokit.RequestOptions & Octokit.TeamsReviewProjectParams
-      ): Promise<Octokit.Response<Octokit.TeamsReviewProjectResponse>>;
+        params?: Octokit.RequestOptions & Octokit.TeamsReviewProjectInOrgParams
+      ): Promise<Octokit.Response<Octokit.TeamsReviewProjectInOrgResponse>>;
 
       endpoint: Octokit.Endpoint;
     };
     /**
-     * To edit a team, the authenticated user must either be an organization owner or a team maintainer.
+     * Edits the body text of a discussion comment. OAuth access tokens require the `write:discussion` [scope](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/).
      *
-     * **Note:** With nested teams, the `privacy` for parent teams cannot be `secret`.
+     * **Note:** You can also specify a team by `org_id` and `team_id` using the route `PATCH /organizations/:org_id/team/:team_id/discussions/:discussion_number/comments/:comment_number`.
      */
-    update: {
+    updateDiscussionCommentInOrg: {
       (
         params?: Octokit.RequestOptions &
-          Octokit.TeamsUpdateParamsDeprecatedPermission
-      ): Promise<Octokit.Response<Octokit.TeamsUpdateResponse>>;
-      (params?: Octokit.RequestOptions & Octokit.TeamsUpdateParams): Promise<
-        Octokit.Response<Octokit.TeamsUpdateResponse>
+          Octokit.TeamsUpdateDiscussionCommentInOrgParams
+      ): Promise<
+        Octokit.Response<Octokit.TeamsUpdateDiscussionCommentInOrgResponse>
       >;
 
       endpoint: Octokit.Endpoint;
     };
     /**
      * Edits the title and body text of a discussion post. Only the parameters you provide are updated. OAuth access tokens require the `write:discussion` [scope](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/).
+     *
+     * **Note:** You can also specify a team by `org_id` and `team_id` using the route `PATCH /organizations/:org_id/team/:team_id/discussions/:discussion_number`.
      */
-    updateDiscussion: {
+    updateDiscussionInOrg: {
       (
-        params?: Octokit.RequestOptions & Octokit.TeamsUpdateDiscussionParams
-      ): Promise<Octokit.Response<Octokit.TeamsUpdateDiscussionResponse>>;
+        params?: Octokit.RequestOptions &
+          Octokit.TeamsUpdateDiscussionInOrgParams
+      ): Promise<Octokit.Response<Octokit.TeamsUpdateDiscussionInOrgResponse>>;
 
       endpoint: Octokit.Endpoint;
     };
     /**
-     * Edits the body text of a discussion comment. OAuth access tokens require the `write:discussion` [scope](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/).
+     * To edit a team, the authenticated user must either be an organization owner or a team maintainer.
+     *
+     * **Note:** You can also specify a team by `org_id` and `team_id` using the route `PATCH /organizations/:org_id/team/:team_id`.
      */
-    updateDiscussionComment: {
+    updateInOrg: {
       (
         params?: Octokit.RequestOptions &
-          Octokit.TeamsUpdateDiscussionCommentParams
-      ): Promise<
-        Octokit.Response<Octokit.TeamsUpdateDiscussionCommentResponse>
-      >;
+          Octokit.TeamsUpdateInOrgParamsDeprecatedPermission
+      ): Promise<Octokit.Response<Octokit.TeamsUpdateInOrgResponse>>;
+      (
+        params?: Octokit.RequestOptions & Octokit.TeamsUpdateInOrgParams
+      ): Promise<Octokit.Response<Octokit.TeamsUpdateInOrgResponse>>;
 
       endpoint: Octokit.Endpoint;
     };
